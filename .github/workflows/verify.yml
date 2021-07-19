@@ -1,0 +1,56 @@
+name: Verify changes
+
+on: pull_request
+
+env:
+  NODE_VERSION: '14.x'
+
+jobs:
+  lint:
+    name: Lint
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+
+  analyze-lit:
+    name: Analyze Lit
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn analyze-lit
+
+  test:
+    name: Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - run: yarn install --frozen-lockfile
+      - run: npx playwright install-deps
+      - run: yarn test

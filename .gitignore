@@ -1,0 +1,5 @@
+node_modules/
+components/**/*.d.ts
+components/**/*.js
+components/**/*.js.map
+storybook-static/
