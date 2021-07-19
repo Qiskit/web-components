@@ -12,6 +12,9 @@ jobs:
     # Prevents changesets action from creating a PR on forks
     # if: github.repository == 'qiskit-community/qiskit-components'
 
+    # Temporarily disabled
+    if: false
+
     runs-on: ubuntu-latest
 
     steps:
