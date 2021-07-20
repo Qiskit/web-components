@@ -5,23 +5,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// TODO: Update the styles to match the design system
+@import '~@carbon/colors/scss/colors';
+@import '~@carbon/layout/scss/layout';
+@import '~@carbon/type/scss/type';
 
 :host {
+  @include carbon--type-style('body-long-01');
+
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  color: #fff;
-  font-weight: 400;
-  font-size: 0.875rem;
-  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.43;
-  letter-spacing: 0.16px;
-  background: #491d8b;
+  padding: $spacing-04 $spacing-06;
+  color: $white-0;
+  font-family: carbon--font-family('sans');
+  background: $carbon--purple-80;
 }
 
 ::slotted(a),
 ::slotted(a:visited) {
-  color: #fff;
+  color: $white-0;
   text-decoration: underline;
 }
