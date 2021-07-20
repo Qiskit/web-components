@@ -1,6 +1,6 @@
 {
   "name": "@qiskit/banner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Banner under the Qiskit design system",
   "license": "MIT",
   "repository": {
