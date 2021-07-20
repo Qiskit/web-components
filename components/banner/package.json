@@ -18,7 +18,7 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && rollup --config ../rollup.config.js",
     "prepack": "npm run build"
   },
   "files": [
