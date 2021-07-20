@@ -951,6 +951,29 @@
     "@babel/helper-validator-identifier" "^7.14.8"
     to-fast-properties "^2.0.0"
 
+"@carbon/colors@^10.28.0":
+  version "10.28.0"
+  resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.28.0.tgz#b0bedf54bbb1c68c625283e921f9e437746f781d"
+  integrity sha512-jk2CY9tGQt0yjERFrw+Wwywmpx/ACayh3DYbD1A1MjRRKl39D4FW6pgcy4HmWwL9MFyhe1rI7YjQLueBCNcdMQ==
+
+"@carbon/import-once@^10.6.0":
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.6.0.tgz#a8fb846d9dc3eea9d45d9131a235e898d0f8db1e"
+  integrity sha512-vi0lnmZot9J5uW2p9chtyLBwe3nCTY4HrDWuglLOZVOHu7dbLQiRjD/r3uOjB4lr5qduRwk2hblBXKBhpVDBpg==
+
+"@carbon/layout@^10.27.0":
+  version "10.27.0"
+  resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.27.0.tgz#ab8d920c94cca994f5f3f56b59768f1d894c2ec0"
+  integrity sha512-RL7wlUN3BE3hTGpxTloKVfnoLwGsBmLHHZkphiKBuL3xzBZx2GYptPYNRtQOGDPZxeqEfxXzH2RKQk2Mh1eVZA==
+
+"@carbon/type@^10.31.0":
+  version "10.31.0"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.31.0.tgz#4b868d466e7b9bb559aa7fe241ba7f0ce8816457"
+  integrity sha512-Z4KB4tBp1LYw1h3JvB7dR4q20d5IXLNViX7IlvzHjoaNcowbcS2s4u/Va3mk7lWipD65Tci2dFxmw638wC0X7g==
+  dependencies:
+    "@carbon/import-once" "^10.6.0"
+    "@carbon/layout" "^10.27.0"
+
 "@changesets/apply-release-plan@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-5.0.0.tgz#11bf168acecbf4cfa2b0e6425160bac5ceeec1c3"
