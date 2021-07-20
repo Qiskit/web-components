@@ -6,8 +6,21 @@
  */
 
 import { esbuildPlugin } from '@web/dev-server-esbuild';
+import { fromRollup } from '@web/dev-server-rollup';
+import rollupPostcss from 'rollup-plugin-postcss';
+import rollupPostcssLit from 'rollup-plugin-postcss-lit';
+
+const postcss = fromRollup(rollupPostcss);
+const postcssLit = fromRollup(rollupPostcssLit.default);
 
 export default {
   nodeResolve: true,
-  plugins: [esbuildPlugin({ ts: true })],
+  mimeTypes: {
+    '**/*.scss': 'js',
+  },
+  plugins: [
+    esbuildPlugin({ ts: true }),
+    postcss({ inject: false }),
+    postcssLit({ importPackage: 'lit' }),
+  ],
 };

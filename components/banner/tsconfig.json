@@ -3,6 +3,6 @@
   "compilerOptions": {
     "rootDir": "./"
   },
-  "include": ["*.ts"],
+  "include": ["*.ts", "../scss.d.ts"],
   "exclude": ["*.test.ts", "*.stories.ts"]
 }
