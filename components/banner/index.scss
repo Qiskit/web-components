@@ -1,0 +1,27 @@
+/**
+ * Copyright (c) IBM, Corp. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// TODO: Update the styles to match the design system
+
+:host {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-weight: 400;
+  font-size: 0.875rem;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.43;
+  letter-spacing: 0.16px;
+  background: #491d8b;
+}
+
+::slotted(a),
+::slotted(a:visited) {
+  color: #fff;
+  text-decoration: underline;
+}
