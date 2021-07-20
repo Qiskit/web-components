@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { esbuildPlugin } from '@web/dev-server-esbuild';
 import { storybookPlugin } from '@web/dev-server-storybook';
 
+import wdsBaseConfig from './wds-base.config.js';
+
 export default {
-  nodeResolve: true,
+  ...wdsBaseConfig,
   watch: true,
-  open: true,
   plugins: [
-    esbuildPlugin({ ts: true }),
+    ...wdsBaseConfig.plugins,
     storybookPlugin({ type: 'web-components' }),
   ],
 };

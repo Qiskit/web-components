@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { esbuildPlugin } from '@web/dev-server-esbuild';
 import { playwrightLauncher } from '@web/test-runner-playwright';
 
+import wdsBaseConfig from './wds-base.config.js';
+
 export default {
+  ...wdsBaseConfig,
   files: 'components/**/*.test.ts',
-  nodeResolve: true,
-  plugins: [esbuildPlugin({ ts: true })],
   browsers: [
     playwrightLauncher({ product: 'chromium' }),
     playwrightLauncher({ product: 'webkit' }),
