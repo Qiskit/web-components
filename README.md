@@ -16,16 +16,16 @@ Furthermore, this project is built on [TypeScript](https://www.typescriptlang.or
 
 ### Install the dependencies
 
-    yarn
+    npm install
 
 ### Start the development server (with Storybook)
 
 This command serves the app at `http://localhost:8000`:
 
-    yarn start
+    npm start
 
 ### Running the tests
 
 This command runs the tests:
 
-    yarn test
+    npm test

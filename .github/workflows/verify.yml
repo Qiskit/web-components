@@ -21,10 +21,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
+          cache: 'npm'
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn lint
+      - run: npm ci
+      - run: npm run lint
 
   analyze-lit:
     name: Analyze Lit
@@ -37,10 +37,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
+          cache: 'npm'
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn analyze-lit
+      - run: npm ci
+      - run: npm run analyze-lit
 
   test:
     name: Test
@@ -53,8 +53,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
+          cache: 'npm'
 
-      - run: yarn install --frozen-lockfile
+      - run: npm ci
       - run: npx playwright install-deps
-      - run: yarn test
+      - run: npm test

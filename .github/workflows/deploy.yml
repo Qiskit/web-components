@@ -20,10 +20,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
+          cache: 'npm'
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn storybook:build
+      - run: npm ci
+      - run: npm run storybook:build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
