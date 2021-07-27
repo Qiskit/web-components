@@ -11,7 +11,7 @@ import rollupPostcss from 'rollup-plugin-postcss';
 import rollupPostcssLit from 'rollup-plugin-postcss-lit';
 
 const postcss = fromRollup(rollupPostcss);
-const postcssLit = fromRollup(rollupPostcssLit.default);
+const postcssLit = fromRollup(rollupPostcssLit);
 
 export default {
   nodeResolve: true,

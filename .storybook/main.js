@@ -7,7 +7,7 @@
 
 const typescript = require('@rollup/plugin-typescript');
 const postcss = require('rollup-plugin-postcss');
-const { default: postcssLit } = require('rollup-plugin-postcss-lit');
+const postcssLit = require('rollup-plugin-postcss-lit');
 
 module.exports = {
   stories: ['../components/**/*.stories.ts'],
