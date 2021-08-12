@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: '14.x'
           cache: 'npm'
+      - run: npm i -g npm@7 # Force npm@7 to support workspaces
 
       - run: npm ci
 
