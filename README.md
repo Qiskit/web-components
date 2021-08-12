@@ -10,7 +10,8 @@ Qiskit Components is a future-looking project to develop Qiskit design system ba
 
 ### Prerequisites
 
-- [node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org) v14 or later.
+- npm v7 or later.
 
 Furthermore, this project is built on [TypeScript](https://www.typescriptlang.org) with the intention of improving the developer experience.
 
