@@ -9,6 +9,7 @@
   },
   "scripts": {
     "analyze-lit": "lit-analyzer \"components/*/*.ts\" --strict",
+    "dev": "npm run storybook:start",
     "format": "npm-run-all format:*",
     "format:eslint": "npm run lint:eslint -- --fix",
     "format:prettier": "prettier . --ignore-path .gitignore --write",
