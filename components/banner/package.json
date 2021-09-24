@@ -26,9 +26,9 @@
     "index.{d.ts,js,js.map}"
   ],
   "dependencies": {
-    "@carbon/colors": "^10.30.0",
-    "@carbon/layout": "^10.31.0",
-    "@carbon/type": "^10.35.0",
+    "@carbon/colors": "^10.32.0",
+    "@carbon/layout": "^10.32.0",
+    "@carbon/type": "^10.36.0",
     "lit": "^2.0.0",
     "tslib": "^2.3.1"
   },
