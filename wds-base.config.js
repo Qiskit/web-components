@@ -21,6 +21,6 @@ export default {
   plugins: [
     esbuildPlugin({ ts: true }),
     postcss({ inject: false }),
-    postcssLit({ importPackage: 'lit' }),
+    postcssLit(),
   ],
 };

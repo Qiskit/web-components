@@ -10,10 +10,7 @@ import postcssLit from 'rollup-plugin-postcss-lit';
 
 export default {
   input: 'index.js',
-  plugins: [
-    postcss({ inject: false, minimize: true }),
-    postcssLit({ importPackage: 'lit' }),
-  ],
+  plugins: [postcss({ inject: false, minimize: true }), postcssLit()],
   output: {
     dir: './',
     format: 'esm',

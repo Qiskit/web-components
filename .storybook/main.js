@@ -20,7 +20,7 @@ module.exports = {
         inlineSources: false,
       }),
       postcss({ inject: false }),
-      postcssLit({ importPackage: 'lit' })
+      postcssLit()
     );
 
     return config;
