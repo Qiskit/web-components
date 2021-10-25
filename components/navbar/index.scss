@@ -1,0 +1,99 @@
+/**
+ * Copyright (c) IBM, Corp. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '~@carbon/colors/scss/colors';
+@import '~@carbon/layout/scss/layout';
+@import '~@carbon/type/scss/type';
+
+$nav-dropdown-item--background: $cool-gray-10;
+$nav-item--border: 1px solid $cool-gray-20;
+$nav-item--color: $cool-gray-80;
+$nav-item--height: 3.5rem;
+$nav-item--spacing-x: $spacing-06;
+
+.navbar {
+  @include carbon--type-style('body-long-02');
+
+  align-items: center;
+  border-bottom: $nav-item--border;
+  display: flex;
+  font-family: carbon--font-family('sans');
+  min-height: $nav-item--height;
+  justify-content: space-between;
+  width: 100%;
+
+  @include carbon--breakpoint-down('lg') {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: $nav-item--height 1fr;
+    grid-template-areas: 'logo toggler' 'nav nav';
+
+    @include carbon--breakpoint-up('md') {
+      height: $nav-item--height;
+    }
+  }
+
+  &__collapse {
+    @include carbon--breakpoint-down('lg') {
+      grid-area: nav;
+
+      &:not(.show) {
+        display: none;
+      }
+    }
+
+    @include carbon--breakpoint-down('md') {
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    @include carbon--breakpoint-down('lg') {
+      flex-direction: column;
+    }
+  }
+
+  &__nav-item {
+    display: flex;
+    margin: 0;
+
+    @include carbon--breakpoint-down('lg') {
+      border-bottom: $nav-item--border;
+      min-height: $nav-item--height;
+    }
+
+    &__profile {
+      position: relative;
+    }
+  }
+
+  &__nav-link {
+    align-items: center;
+    color: $nav-item--color;
+    display: flex;
+    height: $nav-item--height;
+    padding: 0 $nav-item--spacing-x;
+    text-decoration: none;
+
+    @include carbon--breakpoint-down('lg') {
+      max-width: 100%;
+    }
+
+    &:hover {
+      @include carbon--breakpoint-up('lg') {
+        text-decoration: underline;
+      }
+    }
+  }
+}
