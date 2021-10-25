@@ -52,6 +52,22 @@ $nav-item--spacing-x: $spacing-06;
     }
   }
 
+  &__logo {
+    $filter--cool-gray-60: invert(45%) sepia(16%) saturate(225%)
+      hue-rotate(169deg) brightness(91%) contrast(85%);
+    $filter--purple-70: invert(19%) sepia(79%) saturate(6925%)
+      hue-rotate(265deg) brightness(81%) contrast(87%);
+
+    display: flex;
+    filter: $filter--cool-gray-60;
+    height: 1.5rem;
+    margin-left: $nav-item--spacing-x;
+
+    &_active {
+      filter: $filter--purple-70;
+    }
+  }
+
   &__nav {
     display: flex;
     flex-direction: row;
