@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import type { TemplateResult } from 'lit';
 import { LitElement, html, svg } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
@@ -27,52 +28,15 @@ interface NavLink {
   segment: SegmentData;
 }
 
+interface SocialMediaLink {
+  icon: TemplateResult;
+  label: string;
+  url: string;
+}
+
 @customElement('qiskit-navbar')
 export class QiskitNavbar extends LitElement {
   static styles = [styles];
-
-  /**
-   * Link to the home page.
-   */
-  @property()
-  homeLink: HomeLink = {
-    url: '/',
-    segment: {
-      cta: 'home',
-      location: 'menu',
-    },
-  };
-
-  /**
-   * Main navigation links.
-   */
-  @property()
-  navItems: NavLink[] = [
-    {
-      label: 'Overview',
-      url: '/overview',
-      segment: {
-        cta: 'overview',
-        location: 'menu',
-      },
-    },
-    {
-      label: 'Learn',
-      url: '/learn',
-      segment: {
-        cta: 'learn',
-        location: 'menu',
-      },
-    },
-    {
-      label: 'Documentation',
-      url: '/documentation',
-      segment: {
-        cta: 'documentation',
-        location: 'menu',
-      },
-    },
-  ];
 
   /**
    * Whether to show the collapsible menu.
@@ -82,7 +46,7 @@ export class QiskitNavbar extends LitElement {
 
   protected render() {
     return html`<nav class="navbar">
-      <a href="${this.homeLink.url}"
+      <a href="${this._homeLink.url}"
         ><div class="navbar__logo">${this._svgQiskitLogo}</div></a
       >
 
@@ -92,14 +56,35 @@ export class QiskitNavbar extends LitElement {
         </div>
       </button>
 
-      <div class="navbar__collapse">
+      <div class="navbar__collapse ${this.showCollapsedMenu ? 'show' : null}">
         <ul class="navbar__nav">
-          ${this.navItems.map(
+          ${this._navItems.map(
             (item) => html`<li class="navbar__nav-item">
               <a class="navbar__nav-link" href="${item.url}">${item.label}</a>
             </li>`
           )}
         </ul>
+        <footer class="navbar__footer">
+          <div class="navbar__footer__social-links">
+            <h4 class="navbar__footer__social-links__title">Stay Connected</h4>
+            <div class="navbar__footer__social-links__icons">
+              ${this._socialMediaLinks.map(
+                (link) =>
+                  html`<a
+                    class="navbar__footer__social-links__icons__icon"
+                    href="${link.url}"
+                    rel="noopener"
+                    target="_blank"
+                    title="${link.label}"
+                    >${link.icon}</a
+                  >`
+              )}
+            </div>
+          </div>
+          <div class="navbar__footer__notice">
+            © Qiskit | All Rights Reserved
+          </div>
+        </footer>
       </div>
     </nav>`;
   }
@@ -252,6 +237,150 @@ export class QiskitNavbar extends LitElement {
       d="M100 112.8a6.1 6.1 0 00-.9 0L72.8 67.6 48.8 26a6 6 0 10-4.5 2.2 6.6 6.6 0 00.8 0l24 41.3 10.8 18.7L95.3 115a6 6 0 104.7-2.2z"
     ></path>
   </svg>`;
+
+  /**
+   * Medium icon.
+   */
+  private _svgMedium = svg`<svg
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    width="20"
+    height="20"
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+    <path
+      d="M4,4V28H28V4ZM23.9385,9.6865,22.6514,10.92a.3766.3766,0,0,0-.1431.3613v9.0674a.3765.3765,0,0,0,.1431.3613l1.257,1.2339v.271h-6.323v-.271L18.8877,20.68c.1279-.128.1279-.1656.1279-.3609V12.99l-3.62,9.1958H14.906L10.6907,12.99v6.1631a.8505.8505,0,0,0,.2334.7071l1.6936,2.0547v.2709H7.8154v-.2709L9.509,19.86a.82.82,0,0,0,.2183-.7071V12.0264A.6231.6231,0,0,0,9.5239,11.5L8.0186,9.6865v-.271h4.6743l3.613,7.9239,3.1765-7.9239h4.4561Z"
+    ></path>
+    <path
+      fill="none"
+      d="M9.7273,12.0266A.6246.6246,0,0,0,9.524,11.5L8.0186,9.6863V9.4154H12.693l3.613,7.9238,3.1764-7.9238h4.4561v.2709L22.6513,10.92a.3763.3763,0,0,0-.143.3612v9.0676a.3763.3763,0,0,0,.143.3612l1.2571,1.2341v.2709H17.5856v-.2709L18.8878,20.68c.1279-.1279.1279-.1656.1279-.3612V12.99l-3.62,9.1955h-.4893L10.6907,12.99v6.1629a.8506.8506,0,0,0,.2334.7074l1.6936,2.0543v.2709H7.8154v-.2709L9.509,19.86a.82.82,0,0,0,.2183-.7074Z"
+      data-icon-path="inner-path"
+    ></path>
+  </svg>`;
+
+  /**
+   * Twitter icon.
+   */
+  private _svgTwitter = svg`<svg
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    width="20"
+    height="20"
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+    <path
+      d="M11.92,24.94A12.76,12.76,0,0,0,24.76,12.1c0-.2,0-.39,0-.59A9.4,9.4,0,0,0,27,9.18a9.31,9.31,0,0,1-2.59.71,4.56,4.56,0,0,0,2-2.5,8.89,8.89,0,0,1-2.86,1.1,4.52,4.52,0,0,0-7.7,4.11,12.79,12.79,0,0,1-9.3-4.71,4.51,4.51,0,0,0,1.4,6,4.47,4.47,0,0,1-2-.56v.05A4.53,4.53,0,0,0,9.5,17.83a4.53,4.53,0,0,1-2,.08A4.51,4.51,0,0,0,11.68,21,9.05,9.05,0,0,1,6.07,23,9.77,9.77,0,0,1,5,22.91a12.77,12.77,0,0,0,6.92,2"
+    ></path>
+  </svg>`;
+
+  /**
+   * Slack icon.
+   */
+  private _svgSlack = svg`<svg
+     focusable="false"
+     preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg"
+     fill="currentColor"
+     width="20"
+     height="20"
+     viewBox="0 0 32 32"
+     aria-hidden="true"
+   >
+     <path
+       d="M9.0423 19.1661A2.5212 2.5212 0 116.5212 16.645H9.0423zM10.3127 19.1661a2.5212 2.5212 0 015.0423 0v6.3127a2.5212 2.5212 0 11-5.0423 0zM12.8339 9.0423A2.5212 2.5212 0 1115.355 6.5212V9.0423zM12.8339 10.3127a2.5212 2.5212 0 010 5.0423H6.5212a2.5212 2.5212 0 110-5.0423zM22.9577 12.8339a2.5212 2.5212 0 112.5211 2.5211H22.9577zM21.6873 12.8339a2.5212 2.5212 0 01-5.0423 0V6.5212a2.5212 2.5212 0 115.0423 0zM19.1661 22.9577a2.5212 2.5212 0 11-2.5211 2.5211V22.9577zM19.1661 21.6873a2.5212 2.5212 0 010-5.0423h6.3127a2.5212 2.5212 0 110 5.0423z"
+     ></path>
+   </svg>`;
+
+  /**
+   * YouTube icon.
+   */
+  private _svgYoutube = svg`<svg
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    width="20"
+    height="20"
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+    <path
+      d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z"
+    ></path>
+  </svg>`;
+
+  /**
+   * Link to the home page.
+   */
+  private _homeLink: HomeLink = {
+    url: '/',
+    segment: {
+      cta: 'home',
+      location: 'menu',
+    },
+  };
+
+  /**
+   * Main navigation links.
+   */
+  private _navItems: NavLink[] = [
+    {
+      label: 'Overview',
+      url: '/overview',
+      segment: {
+        cta: 'overview',
+        location: 'menu',
+      },
+    },
+    {
+      label: 'Learn',
+      url: '/learn',
+      segment: {
+        cta: 'learn',
+        location: 'menu',
+      },
+    },
+    {
+      label: 'Documentation',
+      url: '/documentation',
+      segment: {
+        cta: 'documentation',
+        location: 'menu',
+      },
+    },
+  ];
+
+  /**
+   * Social media links.
+   */
+  private _socialMediaLinks: SocialMediaLink[] = [
+    {
+      icon: this._svgTwitter,
+      label: 'Twitter',
+      url: 'https://twitter.com/Qiskit',
+    },
+    {
+      icon: this._svgSlack,
+      label: 'Slack',
+      url: 'https://ibm.co/joinqiskitslack',
+    },
+    {
+      icon: this._svgYoutube,
+      label: 'YouTube',
+      url: 'https://www.youtube.com/Qiskit',
+    },
+    {
+      icon: this._svgMedium,
+      label: 'Medium',
+      url: 'https://medium.com/Qiskit',
+    },
+  ];
 }
 
 declare global {
