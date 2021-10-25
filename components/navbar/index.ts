@@ -10,11 +10,17 @@ import { LitElement, html, svg } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import styles from './index.scss';
+import 'carbon-web-components/es/components/dropdown/dropdown.js';
 
 // TODO: Define how to pass Segment data to the consumer.
 interface SegmentData {
   cta: string;
   location: string;
+}
+
+interface DropdownNavItem {
+  label: string;
+  subItems: NavLink[];
 }
 
 interface HomeLink {
@@ -38,11 +44,33 @@ interface SocialMediaLink {
 export class QiskitNavbar extends LitElement {
   static styles = [styles];
 
-  /**
-   * Whether to show the collapsible menu.
-   */
-  @property({ type: Boolean })
-  showCollapsedMenu = false;
+  private _navItemDropdownSubItemTemplate(dropdownNavSubItem: NavLink) {
+    return html`<a class="navbar__nav-subitem" href="${dropdownNavSubItem.url}"
+      ><bx-dropdown-item
+        class="navbar__nav-dropdown-item"
+        value="${dropdownNavSubItem.label}"
+        ><span class="navbar__nav-dropdown-item-text"
+          >${dropdownNavSubItem.label}
+        </span></bx-dropdown-item
+      ></a
+    >`;
+  }
+
+  private _navItemDropdownTemplate(dropdownNavItem: DropdownNavItem) {
+    return html`<bx-dropdown
+      class="navbar__nav-dropdown"
+      trigger-content="${dropdownNavItem.label}"
+      >${dropdownNavItem.subItems.map((item) =>
+        this._navItemDropdownSubItemTemplate(item)
+      )}</bx-dropdown
+    >`;
+  }
+
+  private _navItemLinkTemplate(link: NavLink) {
+    return html`<a class="navbar__nav-link" href="${link.url}"
+      >${link.label}</a
+    >`;
+  }
 
   protected render() {
     return html`<nav class="navbar">
@@ -60,7 +88,9 @@ export class QiskitNavbar extends LitElement {
         <ul class="navbar__nav">
           ${this._navItems.map(
             (item) => html`<li class="navbar__nav-item">
-              <a class="navbar__nav-link" href="${item.url}">${item.label}</a>
+              ${'subItems' in item
+                ? this._navItemDropdownTemplate(item)
+                : this._navItemLinkTemplate(item)}
             </li>`
           )}
         </ul>
@@ -98,6 +128,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * Close icon.
+   * TODO: Extract to a separate file.
    */
   private _svgClose = svg`<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <title>close</title>
@@ -118,6 +149,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * Menu icon.
+   * TODO: Extract to a separate file.
    */
   private _svgMenu = svg`<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <title>menu</title>
@@ -141,6 +173,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * Qiskit logo.
+   * TODO: Extract to a separate file.
    */
   private _svgQiskitLogo = svg`<svg
     version="1.2"
@@ -240,6 +273,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * Medium icon.
+   * TODO: Extract to a separate file.
    */
   private _svgMedium = svg`<svg
     focusable="false"
@@ -263,6 +297,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * Twitter icon.
+   * TODO: Extract to a separate file.
    */
   private _svgTwitter = svg`<svg
     focusable="false"
@@ -281,6 +316,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * Slack icon.
+   * TODO: Extract to a separate file.
    */
   private _svgSlack = svg`<svg
      focusable="false"
@@ -299,6 +335,7 @@ export class QiskitNavbar extends LitElement {
 
   /**
    * YouTube icon.
+   * TODO: Extract to a separate file.
    */
   private _svgYoutube = svg`<svg
     focusable="false"
@@ -329,7 +366,7 @@ export class QiskitNavbar extends LitElement {
   /**
    * Main navigation links.
    */
-  private _navItems: NavLink[] = [
+  private _navItems: Array<NavLink | DropdownNavItem> = [
     {
       label: 'Overview',
       url: '/overview',
@@ -345,6 +382,27 @@ export class QiskitNavbar extends LitElement {
         cta: 'learn',
         location: 'menu',
       },
+    },
+    {
+      label: 'Community',
+      subItems: [
+        {
+          label: 'Events',
+          url: '/events',
+          segment: {
+            cta: 'events',
+            location: 'menu',
+          },
+        },
+        {
+          label: 'Advocates',
+          url: '/advocates',
+          segment: {
+            cta: 'advocates',
+            location: 'menu',
+          },
+        },
+      ],
     },
     {
       label: 'Documentation',
@@ -373,7 +431,7 @@ export class QiskitNavbar extends LitElement {
     {
       icon: this._svgYoutube,
       label: 'YouTube',
-      url: 'https://www.youtube.com/Qiskit',
+      url: 'https://youtube.com/Qiskit',
     },
     {
       icon: this._svgMedium,
@@ -381,6 +439,12 @@ export class QiskitNavbar extends LitElement {
       url: 'https://medium.com/Qiskit',
     },
   ];
+
+  /**
+   * Whether to show the collapsible menu.
+   */
+  @property({ type: Boolean })
+  showCollapsedMenu = false;
 }
 
 declare global {

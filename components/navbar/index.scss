@@ -139,6 +139,68 @@ $nav-item--spacing-x: $spacing-06;
     }
   }
 
+  &__nav-dropdown {
+    height: $nav-item--height;
+
+    @include carbon--breakpoint-down('lg') {
+      width: 100%;
+    }
+
+    &:hover {
+      @include carbon--breakpoint-up('lg') {
+        text-decoration: underline;
+      }
+    }
+
+    &::part(menu-body) {
+      top: calc(100% + 1rem);
+
+      @include carbon--breakpoint-down('lg') {
+        box-shadow: none;
+        max-height: initial;
+        position: relative;
+        top: 0;
+      }
+    }
+
+    &::part(trigger-button) {
+      --cds-body-short-01-font-size: 1rem;
+      --cds-body-short-01-letter-spacing: 0;
+      --cds-body-short-01-line-height: 1.5;
+      --cds-text-01: #{$nav-item--color};
+
+      background-color: $white-0;
+      height: $nav-item--height;
+      padding-left: $nav-item--spacing-x;
+    }
+
+    &[open] {
+      @include carbon--breakpoint-down('lg') {
+        height: $nav-item--height * 3;
+      }
+
+      &::part(trigger-button) {
+        background-color: $nav-dropdown-item--background;
+
+        @include carbon--breakpoint-down('lg') {
+          border-bottom: $nav-item--border;
+          margin-bottom: -1px;
+        }
+      }
+    }
+  }
+
+  &__nav-dropdown-item {
+    background: transparent;
+  }
+
+  &__nav-dropdown-item-text {
+    @include carbon--type-style('body-long-02');
+
+    color: $nav-item--color;
+    line-height: 0;
+  }
+
   &__nav-item {
     display: flex;
     margin: 0;
@@ -146,10 +208,6 @@ $nav-item--spacing-x: $spacing-06;
     @include carbon--breakpoint-down('lg') {
       border-bottom: $nav-item--border;
       min-height: $nav-item--height;
-    }
-
-    &__profile {
-      position: relative;
     }
   }
 
@@ -166,6 +224,31 @@ $nav-item--spacing-x: $spacing-06;
     }
 
     &:hover {
+      @include carbon--breakpoint-up('lg') {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__nav-subitem {
+    align-items: center;
+    background-color: $nav-dropdown-item--background;
+    border-bottom: $nav-item--border;
+    color: $nav-item--color;
+    display: flex;
+    height: $nav-item--height;
+    padding: 0 $spacing-03;
+    text-decoration: none;
+
+    &:last-child {
+      @include carbon--breakpoint-up('lg') {
+        border: 0;
+      }
+    }
+
+    &:hover {
+      background-color: $cool-gray-20;
+
       @include carbon--breakpoint-up('lg') {
         text-decoration: underline;
       }

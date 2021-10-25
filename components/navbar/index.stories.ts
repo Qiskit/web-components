@@ -13,4 +13,4 @@ export default {
   title: 'Navbar',
 };
 
-export const Default = () => html` <qiskit-navbar></qiskit-navbar> `;
+export const Default = () => html`<qiskit-navbar></qiskit-navbar>`;
