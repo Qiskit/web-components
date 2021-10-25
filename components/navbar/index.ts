@@ -44,88 +44,6 @@ interface SocialMediaLink {
 export class QiskitNavbar extends LitElement {
   static styles = [styles];
 
-  private _navItemDropdownSubItemTemplate(dropdownNavSubItem: NavLink) {
-    return html`<a class="navbar__nav-subitem" href="${dropdownNavSubItem.url}"
-      ><bx-dropdown-item
-        class="navbar__nav-dropdown-item"
-        value="${dropdownNavSubItem.label}"
-        ><span class="navbar__nav-dropdown-item-text"
-          >${dropdownNavSubItem.label}
-        </span></bx-dropdown-item
-      ></a
-    >`;
-  }
-
-  private _navItemDropdownTemplate(dropdownNavItem: DropdownNavItem) {
-    return html`<bx-dropdown
-      class="navbar__nav-dropdown"
-      trigger-content="${dropdownNavItem.label}"
-      >${dropdownNavItem.subItems.map((item) =>
-        this._navItemDropdownSubItemTemplate(item)
-      )}</bx-dropdown
-    >`;
-  }
-
-  private _navItemLinkTemplate(link: NavLink) {
-    return html`<a class="navbar__nav-link" href="${link.url}"
-      >${link.label}</a
-    >`;
-  }
-
-  protected render() {
-    return html`<nav class="navbar">
-      <a href="${this._homeLink.url}"
-        ><div class="navbar__logo">${this._svgQiskitLogo}</div></a
-      >
-
-      <button class="navbar__toggler" @click="${this._toggleCollapsedMenu}">
-        <div class="navbar__toggler__icon">
-          ${this.showCollapsedMenu ? this._svgClose : this._svgMenu}
-        </div>
-      </button>
-
-      <div class="navbar__collapse ${this.showCollapsedMenu ? 'show' : null}">
-        <ul class="navbar__nav">
-          ${this._navItems.map(
-            (item) => html`<li class="navbar__nav-item">
-              ${'subItems' in item
-                ? this._navItemDropdownTemplate(item)
-                : this._navItemLinkTemplate(item)}
-            </li>`
-          )}
-        </ul>
-        <footer class="navbar__footer">
-          <div class="navbar__footer__social-links">
-            <h4 class="navbar__footer__social-links__title">Stay Connected</h4>
-            <div class="navbar__footer__social-links__icons">
-              ${this._socialMediaLinks.map(
-                (link) =>
-                  html`<a
-                    class="navbar__footer__social-links__icons__icon"
-                    href="${link.url}"
-                    rel="noopener"
-                    target="_blank"
-                    title="${link.label}"
-                    >${link.icon}</a
-                  >`
-              )}
-            </div>
-          </div>
-          <div class="navbar__footer__notice">
-            © Qiskit | All Rights Reserved
-          </div>
-        </footer>
-      </div>
-    </nav>`;
-  }
-
-  /**
-   * Toggle the collapsible menu.
-   */
-  private _toggleCollapsedMenu() {
-    this.showCollapsedMenu = !this.showCollapsedMenu;
-  }
-
   /**
    * Close icon.
    * TODO: Extract to a separate file.
@@ -445,6 +363,88 @@ export class QiskitNavbar extends LitElement {
    */
   @property({ type: Boolean })
   showCollapsedMenu = false;
+
+  protected render() {
+    return html`<nav class="navbar">
+      <a href="${this._homeLink.url}"
+        ><div class="navbar__logo">${this._svgQiskitLogo}</div></a
+      >
+
+      <button class="navbar__toggler" @click="${this._toggleCollapsedMenu}">
+        <div class="navbar__toggler__icon">
+          ${this.showCollapsedMenu ? this._svgClose : this._svgMenu}
+        </div>
+      </button>
+
+      <div class="navbar__collapse ${this.showCollapsedMenu ? 'show' : null}">
+        <ul class="navbar__nav">
+          ${this._navItems.map(
+            (item) => html`<li class="navbar__nav-item">
+              ${'subItems' in item
+                ? this._navItemDropdownTemplate(item)
+                : this._navItemLinkTemplate(item)}
+            </li>`
+          )}
+        </ul>
+        <footer class="navbar__footer">
+          <div class="navbar__footer__social-links">
+            <h4 class="navbar__footer__social-links__title">Stay Connected</h4>
+            <div class="navbar__footer__social-links__icons">
+              ${this._socialMediaLinks.map(
+                (link) =>
+                  html`<a
+                    class="navbar__footer__social-links__icons__icon"
+                    href="${link.url}"
+                    rel="noopener"
+                    target="_blank"
+                    title="${link.label}"
+                    >${link.icon}</a
+                  >`
+              )}
+            </div>
+          </div>
+          <div class="navbar__footer__notice">
+            © Qiskit | All Rights Reserved
+          </div>
+        </footer>
+      </div>
+    </nav>`;
+  }
+
+  /**
+   * Toggle the collapsible menu.
+   */
+  private _toggleCollapsedMenu() {
+    this.showCollapsedMenu = !this.showCollapsedMenu;
+  }
+
+  private _navItemDropdownSubItemTemplate(dropdownNavSubItem: NavLink) {
+    return html`<a class="navbar__nav-subitem" href="${dropdownNavSubItem.url}"
+      ><bx-dropdown-item
+        class="navbar__nav-dropdown-item"
+        value="${dropdownNavSubItem.label}"
+        ><span class="navbar__nav-dropdown-item-text"
+          >${dropdownNavSubItem.label}
+        </span></bx-dropdown-item
+      ></a
+    >`;
+  }
+
+  private _navItemDropdownTemplate(dropdownNavItem: DropdownNavItem) {
+    return html`<bx-dropdown
+      class="navbar__nav-dropdown"
+      trigger-content="${dropdownNavItem.label}"
+      >${dropdownNavItem.subItems.map((item) =>
+        this._navItemDropdownSubItemTemplate(item)
+      )}</bx-dropdown
+    >`;
+  }
+
+  private _navItemLinkTemplate(link: NavLink) {
+    return html`<a class="navbar__nav-link" href="${link.url}"
+      >${link.label}</a
+    >`;
+  }
 }
 
 declare global {
