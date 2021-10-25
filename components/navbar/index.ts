@@ -74,12 +74,24 @@ export class QiskitNavbar extends LitElement {
     },
   ];
 
+  /**
+   * Whether to show the collapsible menu.
+   */
+  @property({ type: Boolean })
+  showCollapsedMenu = false;
+
   protected render() {
     return html`<nav class="navbar">
-      <div>Toggler</div>
       <a href="${this.homeLink.url}"
         ><div class="navbar__logo">${this._svgQiskitLogo}</div></a
       >
+
+      <button class="navbar__toggler" @click="${this._toggleCollapsedMenu}">
+        <div class="navbar__toggler__icon">
+          ${this.showCollapsedMenu ? this._svgClose : this._svgMenu}
+        </div>
+      </button>
+
       <div class="navbar__collapse">
         <ul class="navbar__nav">
           ${this.navItems.map(
@@ -93,7 +105,57 @@ export class QiskitNavbar extends LitElement {
   }
 
   /**
-   * Qiskit logo in SVG format.
+   * Toggle the collapsible menu.
+   */
+  private _toggleCollapsedMenu() {
+    this.showCollapsedMenu = !this.showCollapsedMenu;
+  }
+
+  /**
+   * Close icon.
+   */
+  private _svgClose = svg`<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <title>close</title>
+    <polygon
+      class="cls-1"
+      points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
+    />
+    <rect class="cls-2" width="32" height="32" />
+    <style>
+      .cls-1 {
+        fill: #000000;
+      }
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </svg>`;
+
+  /**
+   * Menu icon.
+   */
+  private _svgMenu = svg`<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <title>menu</title>
+    <rect x="4" y="6" width="24" height="2" />
+    <rect x="4" y="24" width="24" height="2" />
+    <rect x="4" y="12" width="24" height="2" />
+    <rect x="4" y="18" width="24" height="2" />
+    <rect
+      id="_Transparent_Rectangle_"
+      data-name="&lt;Transparent Rectangle&gt;"
+      class="cls-1"
+      width="32"
+      height="32"
+    />
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </svg>`;
+
+  /**
+   * Qiskit logo.
    */
   private _svgQiskitLogo = svg`<svg
     version="1.2"
