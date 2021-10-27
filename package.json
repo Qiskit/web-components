@@ -1,5 +1,5 @@
 {
-  "name": "qiskit-components",
+  "name": "qiskit-web-components",
   "private": true,
   "license": "MIT",
   "type": "module",
