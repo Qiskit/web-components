@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./"
+  },
+  "include": ["*.ts", "../scss.d.ts"],
+  "exclude": ["*.test.ts", "*.stories.ts"]
+}
