@@ -8,6 +8,8 @@
 import type { TemplateResult } from 'lit';
 import { LitElement, html, svg } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import type { Ref } from 'lit/directives/ref.js';
+import { createRef, ref } from 'lit/directives/ref.js';
 
 import styles from './index.scss';
 import 'carbon-web-components/es/components/dropdown/dropdown.js';
@@ -376,13 +378,13 @@ export class QiskitNavbar extends LitElement {
         </div>
       </button>
 
-      <div class="navbar__collapse ${this.showCollapsedMenu ? 'show' : null}">
+      <div class="navbar__menu ${this.showCollapsedMenu ? 'show' : null}">
         <ul class="navbar__nav">
           ${this._navItems.map(
-            (item) => html`<li class="navbar__nav-item">
-              ${'subItems' in item
-                ? this._navItemDropdownTemplate(item)
-                : this._navItemLinkTemplate(item)}
+            (navItem) => html`<li class="navbar__nav-item">
+              ${'subItems' in navItem
+                ? this._navDropdownHTML(navItem)
+                : this._navLinkHTML(navItem)}
             </li>`
           )}
         </ul>
@@ -412,12 +414,31 @@ export class QiskitNavbar extends LitElement {
   }
 
   /**
+   * Closes a dropdown.
+   */
+  private _closeDropdown(dropdownRef: Ref) {
+    // TODO: Close the dropdown.
+    console.log('TODO: Close the dropdown.', dropdownRef);
+  }
+
+  /**
+   * Handles the event when a dropdown item is selected.
+   */
+  private _onDropdownBeingSelected(e: CustomEvent, dropdownRef: Ref) {
+    e.preventDefault();
+    this._closeDropdown(dropdownRef);
+  }
+
+  /**
    * Toggle the collapsible menu.
    */
   private _toggleCollapsedMenu() {
     this.showCollapsedMenu = !this.showCollapsedMenu;
   }
 
+  /**
+   * Render a dropdown item.
+   */
   private _navItemDropdownSubItemTemplate(dropdownNavSubItem: NavLink) {
     return html`<a class="navbar__nav-subitem" href="${dropdownNavSubItem.url}"
       ><bx-dropdown-item
@@ -430,17 +451,28 @@ export class QiskitNavbar extends LitElement {
     >`;
   }
 
-  private _navItemDropdownTemplate(dropdownNavItem: DropdownNavItem) {
+  /**
+   * Render a dropdown nav item.
+   */
+  private _navDropdownHTML(dropdownNavItem: DropdownNavItem) {
+    const dropdownRef = createRef();
+
     return html`<bx-dropdown
+      ${ref(dropdownRef)}
       class="navbar__nav-dropdown"
       trigger-content="${dropdownNavItem.label}"
+      @bx-dropdown-beingselected="${(e: CustomEvent) =>
+        this._onDropdownBeingSelected(e, dropdownRef)}"
       >${dropdownNavItem.subItems.map((item) =>
         this._navItemDropdownSubItemTemplate(item)
       )}</bx-dropdown
     >`;
   }
 
-  private _navItemLinkTemplate(link: NavLink) {
+  /**
+   * Render a nav link.
+   */
+  private _navLinkHTML(link: NavLink): TemplateResult {
     return html`<a class="navbar__nav-link" href="${link.url}"
       >${link.label}</a
     >`;
