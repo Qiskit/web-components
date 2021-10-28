@@ -2,6 +2,5 @@ node_modules/
 components/**/*.d.ts
 components/**/*.js
 components/**/*.js.map
-!components/rollup.config.js
 !components/scss.d.ts
 storybook-static/
