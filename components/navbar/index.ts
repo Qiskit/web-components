@@ -150,50 +150,59 @@ export class QiskitNavbar extends LitElement {
   showCollapsedMenu = false;
 
   protected render() {
-    return html`<nav class="navbar">
-      <a href="${this._homeLink.url}"
-        ><div class="navbar__logo">${qiskitLogoIcon}</div></a
-      >
+    return html`
+      <nav class="navbar">
+        <a href="${this._homeLink.url}">
+          <div class="navbar__logo">${qiskitLogoIcon}</div>
+        </a>
 
-      <button class="navbar__toggler" @click="${this._toggleCollapsedMenu}">
-        <div class="navbar__toggler__icon">
-          ${this.showCollapsedMenu ? closeIcon : menuIcon}
-        </div>
-      </button>
+        <button class="navbar__toggler" @click="${this._toggleCollapsedMenu}">
+          <div class="navbar__toggler__icon">
+            ${this.showCollapsedMenu ? closeIcon : menuIcon}
+          </div>
+        </button>
 
-      <div class="navbar__menu ${this.showCollapsedMenu ? 'show' : null}">
-        <ul class="navbar__nav">
-          ${this._navItems.map(
-            (navItem) => html`<li class="navbar__nav-item">
-              ${'subItems' in navItem
-                ? this._navDropdownHTML(navItem)
-                : this._navLinkHTML(navItem)}
-            </li>`
-          )}
-        </ul>
-        <footer class="navbar__footer">
-          <div class="navbar__footer__social-links">
-            <h4 class="navbar__footer__social-links__title">Stay Connected</h4>
-            <div class="navbar__footer__social-links__icons">
-              ${this._socialMediaLinks.map(
-                (link) =>
-                  html`<a
-                    class="navbar__footer__social-links__icons__icon"
-                    href="${link.url}"
-                    rel="noopener"
-                    target="_blank"
-                    title="${link.label}"
-                    >${link.icon}</a
-                  >`
-              )}
+        <div class="navbar__menu ${this.showCollapsedMenu ? 'show' : null}">
+          <ul class="navbar__nav">
+            ${this._navItems.map(
+              (navItem) => html`
+                <li class="navbar__nav-item">
+                  ${'subItems' in navItem
+                    ? this._navDropdownHTML(navItem)
+                    : this._navLinkHTML(navItem)}
+                </li>
+              `
+            )}
+          </ul>
+          <footer class="navbar__footer">
+            <div class="navbar__footer__social-links">
+              <h4 class="navbar__footer__social-links__title">
+                Stay Connected
+              </h4>
+              <div class="navbar__footer__social-links__icons">
+                ${this._socialMediaLinks.map(
+                  (link) =>
+                    html`
+                      <a
+                        class="navbar__footer__social-links__icons__icon"
+                        href="${link.url}"
+                        rel="noopener"
+                        target="_blank"
+                        title="${link.label}"
+                      >
+                        ${link.icon}
+                      </a>
+                    `
+                )}
+              </div>
             </div>
-          </div>
-          <div class="navbar__footer__notice">
-            © Qiskit | All Rights Reserved
-          </div>
-        </footer>
-      </div>
-    </nav>`;
+            <div class="navbar__footer__notice">
+              © Qiskit | All Rights Reserved
+            </div>
+          </footer>
+        </div>
+      </nav>
+    `;
   }
 
   /**
@@ -223,15 +232,18 @@ export class QiskitNavbar extends LitElement {
    * Render a dropdown item.
    */
   private _navItemDropdownSubItemTemplate(dropdownNavSubItem: NavLink) {
-    return html`<a class="navbar__nav-subitem" href="${dropdownNavSubItem.url}"
-      ><bx-dropdown-item
-        class="navbar__nav-dropdown-item"
-        value="${dropdownNavSubItem.label}"
-        ><span class="navbar__nav-dropdown-item-text"
-          >${dropdownNavSubItem.label}
-        </span></bx-dropdown-item
-      ></a
-    >`;
+    return html`
+      <a class="navbar__nav-subitem" href="${dropdownNavSubItem.url}">
+        <bx-dropdown-item
+          class="navbar__nav-dropdown-item"
+          value="${dropdownNavSubItem.label}"
+        >
+          <span class="navbar__nav-dropdown-item-text">
+            ${dropdownNavSubItem.label}
+          </span>
+        </bx-dropdown-item>
+      </a>
+    `;
   }
 
   /**
@@ -240,25 +252,28 @@ export class QiskitNavbar extends LitElement {
   private _navDropdownHTML(dropdownNavItem: DropdownNavItem) {
     const dropdownRef = createRef();
 
-    return html`<bx-dropdown
-      ${ref(dropdownRef)}
-      class="navbar__nav-dropdown"
-      trigger-content="${dropdownNavItem.label}"
-      @bx-dropdown-beingselected="${(e: CustomEvent) =>
-        this._onDropdownBeingSelected(e, dropdownRef)}"
-      >${dropdownNavItem.subItems.map((item) =>
-        this._navItemDropdownSubItemTemplate(item)
-      )}</bx-dropdown
-    >`;
+    return html`
+      <bx-dropdown
+        ${ref(dropdownRef)}
+        class="navbar__nav-dropdown"
+        trigger-content="${dropdownNavItem.label}"
+        @bx-dropdown-beingselected="${(e: CustomEvent) =>
+          this._onDropdownBeingSelected(e, dropdownRef)}"
+      >
+        ${dropdownNavItem.subItems.map((item) =>
+          this._navItemDropdownSubItemTemplate(item)
+        )}
+      </bx-dropdown>
+    `;
   }
 
   /**
    * Render a nav link.
    */
   private _navLinkHTML(link: NavLink): TemplateResult {
-    return html`<a class="navbar__nav-link" href="${link.url}"
-      >${link.label}</a
-    >`;
+    return html`
+      <a class="navbar__nav-link" href="${link.url}">${link.label}</a>
+    `;
   }
 }
 
