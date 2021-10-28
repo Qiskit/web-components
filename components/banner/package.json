@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qiskit-community/qiskit-components.git",
+    "url": "https://github.com/qiskit-community/qiskit-web-components.git",
     "directory": "components/banner"
   },
   "main": "index.js",
