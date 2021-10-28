@@ -11,8 +11,10 @@ import { customElement, property } from 'lit/decorators.js';
 import type { Ref } from 'lit/directives/ref.js';
 import { createRef, ref } from 'lit/directives/ref.js';
 
-import styles from './index.scss';
 import 'carbon-web-components/es/components/dropdown/dropdown.js';
+import 'carbon-web-components/es/components/dropdown/dropdown-item.js';
+
+import styles from './index.scss';
 
 // TODO: Define how to pass Segment data to the consumer.
 interface SegmentData {
