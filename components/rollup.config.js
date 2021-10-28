@@ -16,5 +16,5 @@ export default {
     format: 'esm',
     sourcemap: true,
   },
-  external: ['tslib', 'lit', 'lit/decorators.js'],
+  external: ['tslib', 'lit', /^lit\/.*/, /^carbon-web-components\/.*/],
 };
