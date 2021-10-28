@@ -1,5 +1,11 @@
 # @qiskit/navbar
 
+## 0.1.1
+
+### Patch Changes
+
+- 902444e: Extract icons to a separate files
+
 ## 0.1.0
 
 ### Minor Changes
