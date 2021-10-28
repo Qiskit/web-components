@@ -4,8 +4,7 @@
   "license": "MIT",
   "type": "module",
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=7.0.0"
+    "node": "16"
   },
   "scripts": {
     "analyze-lit": "lit-analyzer \"components/*/*.ts\" --strict",
