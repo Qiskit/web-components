@@ -1,6 +1,6 @@
 {
   "name": "@qiskit/navbar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Navbar under the Qiskit design system",
   "license": "MIT",
   "repository": {
