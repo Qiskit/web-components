@@ -1,6 +1,6 @@
 {
-  "name": "qiskit-web-components",
-  "private": true,
+  "name": "@qiskit/web-components",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "engines": {
