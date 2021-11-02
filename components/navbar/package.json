@@ -1,7 +1,7 @@
 {
   "name": "@qiskit/navbar",
-  "version": "0.1.0",
-  "description": "Qiskit navbar",
+  "version": "0.1.1",
+  "description": "Navbar under the Qiskit design system",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "tsc && rollup --config ../rollup.config.js",
+    "build": "tsc && rollup --config ../../rollup.config.js",
     "prepack": "npm run build"
   },
   "files": [
@@ -31,7 +31,7 @@
     "@carbon/type": "^10.37.0",
     "carbon-components": "^10.45.0",
     "carbon-web-components": "^1.17.0",
-    "lit": "^2.0.0",
+    "lit": "^2.0.2",
     "tslib": "^2.3.1"
   },
   "types": "index.d.ts"
