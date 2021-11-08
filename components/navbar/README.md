@@ -1,11 +1,5 @@
 # Banner
 
-## Installation
-
-```
-npm install @qiskit/navbar
-```
-
 ## Example usage
 
 ```html

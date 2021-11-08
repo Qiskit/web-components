@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "./",
-    "skipLibCheck": true
-  },
-  "include": ["*.ts", "../scss.d.ts"],
-  "exclude": ["*.test.ts", "*.stories.ts"]
-}
