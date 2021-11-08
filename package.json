@@ -8,6 +8,7 @@
   },
   "scripts": {
     "analyze-lit": "lit-analyzer \"components/*/*.ts\" --strict",
+    "build": "tsc && rollup --config rollup.config.js",
     "dev": "npm run storybook:start",
     "format": "npm-run-all format:*",
     "format:eslint": "npm run lint:eslint -- --fix",
@@ -23,6 +24,12 @@
     "test": "web-test-runner",
     "test:watch": "web-test-runner --watch"
   },
+  "files": [
+    "components/**/*.{d.ts,js,js.map}",
+    "!components/**/*.stories.{d.ts,js,js.map}",
+    "!components/**/*.test.{d.ts,js,js.map}",
+    "!components/scss.d.ts"
+  ],
   "dependencies": {
     "@carbon/colors": "^10.34.0",
     "@carbon/layout": "^10.34.0",
