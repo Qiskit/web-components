@@ -7,11 +7,10 @@
 
 import { esbuildPlugin } from '@web/dev-server-esbuild';
 import { fromRollup } from '@web/dev-server-rollup';
-import rollupPostcss from 'rollup-plugin-postcss';
-import rollupPostcssLit from 'rollup-plugin-postcss-lit';
+import rollupLitcss from 'rollup-plugin-lit-css';
+import sass from 'sass';
 
-const postcss = fromRollup(rollupPostcss);
-const postcssLit = fromRollup(rollupPostcssLit);
+const litcss = fromRollup(rollupLitcss);
 
 export default {
   nodeResolve: true,
@@ -20,7 +19,10 @@ export default {
   },
   plugins: [
     esbuildPlugin({ ts: true }),
-    postcss({ inject: false }),
-    postcssLit(),
+    litcss({
+      include: '**/*.scss',
+      transform: (data, { filePath }) =>
+        sass.renderSync({ data, file: filePath }).css.toString(),
+    }),
   ],
 };

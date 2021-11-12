@@ -6,8 +6,8 @@
  */
 
 const typescript = require('@rollup/plugin-typescript');
-const postcss = require('rollup-plugin-postcss');
-const postcssLit = require('rollup-plugin-postcss-lit');
+const litcss = require('rollup-plugin-lit-css');
+const sass = require('sass');
 
 module.exports = {
   stories: ['../components/**/*.stories.ts'],
@@ -19,8 +19,11 @@ module.exports = {
         sourceMap: false,
         inlineSources: false,
       }),
-      postcss({ inject: false }),
-      postcssLit()
+      litcss({
+        include: '**/*.scss',
+        transform: (data, { filePath }) =>
+          sass.renderSync({ data, file: filePath }).css.toString(),
+      })
     );
 
     return config;
