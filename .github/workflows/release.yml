@@ -9,8 +9,8 @@ jobs:
   release:
     name: Release
 
-    # Prevents changesets action from creating a PR on forks
-    if: github.repository == github.event.pull_request.head.repo.full_name
+    # Prevent changesets action from creating a PR on forks
+    if: github.repository == 'qiskit-community/qiskit-web-components'
 
     runs-on: ubuntu-latest
 

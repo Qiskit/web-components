@@ -12,6 +12,9 @@ jobs:
   deploy-storybook:
     name: Deploy Storybook
 
+    # Prevent creating a deployment on forks
+    if: github.repository == 'qiskit-community/qiskit-web-components'
+
     runs-on: ubuntu-latest
 
     steps:
