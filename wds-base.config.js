@@ -10,6 +10,15 @@ import { fromRollup } from '@web/dev-server-rollup';
 import rollupLitcss from 'rollup-plugin-lit-css';
 import sass from 'sass';
 
+const transformSassToCss = (data, { filePath }) =>
+  sass
+    .renderSync({
+      data,
+      file: filePath,
+      includePaths: [new URL('node_modules/', import.meta.url).pathname],
+    })
+    .css.toString();
+
 const litcss = fromRollup(rollupLitcss);
 
 export default {
@@ -21,8 +30,7 @@ export default {
     esbuildPlugin({ ts: true }),
     litcss({
       include: '**/*.scss',
-      transform: (data, { filePath }) =>
-        sass.renderSync({ data, file: filePath }).css.toString(),
+      transform: transformSassToCss,
     }),
   ],
 };

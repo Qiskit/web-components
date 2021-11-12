@@ -5,9 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+const { join } = require('path');
+
 const typescript = require('@rollup/plugin-typescript');
-const litcss = require('rollup-plugin-lit-css');
+const { default: litcss } = require('rollup-plugin-lit-css');
 const sass = require('sass');
+
+const transformSassToCss = (data, { filePath }) =>
+  sass
+    .renderSync({
+      data,
+      file: filePath,
+      includePaths: [join(__dirname, '../node_modules')],
+    })
+    .css.toString();
 
 module.exports = {
   stories: ['../components/**/*.stories.ts'],
@@ -21,8 +32,7 @@ module.exports = {
       }),
       litcss({
         include: '**/*.scss',
-        transform: (data, { filePath }) =>
-          sass.renderSync({ data, file: filePath }).css.toString(),
+        transform: transformSassToCss,
       })
     );
 

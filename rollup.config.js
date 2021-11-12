@@ -8,13 +8,22 @@
 import litcss from 'rollup-plugin-lit-css';
 import sass from 'sass';
 
+const transformSassToCss = (data, { filePath }) =>
+  sass
+    .renderSync({
+      data,
+      file: filePath,
+      includePaths: [new URL('node_modules/', import.meta.url).pathname],
+    })
+    .css.toString();
+
 export default {
   input: 'index.js',
   plugins: [
     litcss({
       include: '**/*.scss',
-      transform: (data, { filePath }) =>
-        sass.renderSync({ data, file: filePath }).css.toString(),
+      transform: transformSassToCss,
+      uglify: true,
     }),
   ],
   output: {
