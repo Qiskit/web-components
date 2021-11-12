@@ -5,12 +5,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import postcss from 'rollup-plugin-postcss';
-import postcssLit from 'rollup-plugin-postcss-lit';
+import litcss from 'rollup-plugin-lit-css';
+import sass from 'sass';
+
+const transformSassToCss = (data, { filePath }) =>
+  sass
+    .renderSync({
+      data,
+      file: filePath,
+      includePaths: [new URL('node_modules/', import.meta.url).pathname],
+    })
+    .css.toString();
 
 export default {
   input: 'index.js',
-  plugins: [postcss({ inject: false, minimize: true }), postcssLit()],
+  plugins: [
+    litcss({
+      include: '**/*.scss',
+      transform: transformSassToCss,
+      uglify: true,
+    }),
+  ],
   output: {
     dir: './',
     format: 'esm',
