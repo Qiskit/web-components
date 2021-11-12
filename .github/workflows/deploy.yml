@@ -12,7 +12,7 @@ jobs:
   deploy-storybook:
     name: Deploy Storybook
 
-    # Prevents changesets action from creating a PR on forks
+    # Prevent creating a deployment on forks
     if: github.repository == 'qiskit-community/qiskit-web-components'
 
     runs-on: ubuntu-latest
