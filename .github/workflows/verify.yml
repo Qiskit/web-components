@@ -73,7 +73,7 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
-      - run: npm run build --workspaces
+      - run: npm run build
 
   build-storybook:
     name: Build Storybook

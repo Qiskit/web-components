@@ -1,12 +1,10 @@
 # Banner
 
-## Installation
-
-```
-npm install @qiskit/navbar
-```
-
 ## Example usage
+
+```javascript
+import '@qiskit/web-components/navbar';
+```
 
 ```html
 <qiskit-navbar></qiskit-navbar>

@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { readdirSync } from 'fs';
+
 import litcss from 'rollup-plugin-lit-css';
 import sass from 'sass';
 
@@ -17,8 +19,12 @@ const transformSassToCss = (data, { filePath }) =>
     })
     .css.toString();
 
-export default {
-  input: 'index.js',
+const componentPaths = readdirSync('components/', { withFileTypes: true })
+  .filter((dirent) => dirent.isDirectory())
+  .map((dirent) => dirent.name);
+
+export default componentPaths.map((component) => ({
+  input: `components/${component}/index.js`,
   plugins: [
     litcss({
       include: '**/*.scss',
@@ -27,9 +33,9 @@ export default {
     }),
   ],
   output: {
-    dir: './',
+    dir: `components/${component}/`,
     format: 'esm',
     sourcemap: true,
   },
   external: ['tslib', 'lit', /^lit\/.*/, /^carbon-web-components\/.*/],
-};
+}));
