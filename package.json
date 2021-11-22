@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
+  "exports": {
+    "./banner": {
+      "default": "./components/banner/index.js"
+    },
+    "./navbar": {
+      "default": "./components/navbar/index.js"
+    }
+  },
   "engines": {
     "node": "16.x"
   },
