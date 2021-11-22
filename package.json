@@ -23,6 +23,7 @@
     "format:prettier": "prettier . --ignore-path .gitignore --write",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint . --ignore-path .gitignore",
+    "prepack": "npm run build",
     "prepare": "husky install",
     "release": "changeset publish",
     "start": "npm run storybook:start",
