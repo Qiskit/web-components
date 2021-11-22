@@ -29,8 +29,7 @@
     "@carbon/colors": "^10.34.0",
     "@carbon/layout": "^10.34.0",
     "@carbon/type": "^10.38.0",
-    "carbon-components": "~10.47.1",
-    "carbon-web-components": "^1.18.0",
+    "carbon-web-components": "^1.19.0",
     "lit": "^2.0.2",
     "tslib": "^2.3.1"
   },
