@@ -74,10 +74,7 @@
     "typescript": "~4.5.2"
   },
   "eslintConfig": {
-    "extends": "ibmresearch/typescript",
-    "rules": {
-      "import/no-unresolved": "off"
-    },
+    "extends": "ibmresearch",
     "overrides": [
       {
         "files": "components/**/*",
