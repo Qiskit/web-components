@@ -39,8 +39,8 @@
   "dependencies": {
     "@carbon/colors": "^10.34.0",
     "@carbon/layout": "^10.34.0",
-    "@carbon/type": "^10.38.0",
-    "carbon-web-components": "^1.19.0",
+    "@carbon/type": "^10.39.0",
+    "carbon-web-components": "^1.20.0",
     "lit": "^2.0.2",
     "lit-element": "^3.0.2",
     "lit-html": "^2.0.2",
