@@ -10,7 +10,7 @@ jobs:
     name: Release
 
     # Prevent changesets action from creating a PR on forks
-    if: github.repository == 'qiskit-community/qiskit-web-components'
+    if: github.repository == 'Qiskit/web-components'
 
     runs-on: ubuntu-latest
 
