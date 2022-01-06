@@ -1,7 +1,3 @@
-> 🛠 **Status: Experimental**
->
-> This project is currently in development.
-
 # Qiskit Components
 
 Qiskit Components is a future-looking project to develop Qiskit design system based around Web Components, ES Modules, and modern browser standards.
