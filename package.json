@@ -96,7 +96,12 @@
     "singleQuote": true
   },
   "stylelint": {
-    "customSyntax": "postcss-lit",
-    "extends": "stylelint-config-ibmresearch"
+    "extends": "stylelint-config-ibmresearch",
+    "overrides": [
+      {
+        "files": "components/**/*.ts",
+        "customSyntax": "postcss-lit"
+      }
+    ]
   }
 }
