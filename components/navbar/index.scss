@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/colors/scss/colors';
-@import '@carbon/layout/scss/layout';
-@import '@carbon/type/scss/type';
+/* stylelint-disable scss/dollar-variable-pattern */
+
+@import "@carbon/colors/scss/colors";
+@import "@carbon/layout/scss/layout";
+@import "@carbon/type/scss/type";
 
 $nav-dropdown-item--background: $cool-gray-10;
 $nav-item--border: 1px solid $cool-gray-20;
@@ -16,42 +18,43 @@ $nav-item--height: 3.5rem;
 $nav-item--spacing-x: $spacing-06;
 
 .navbar {
-  @include carbon--type-style('body-long-02');
+  @include carbon--type-style("body-long-02");
 
-  align-items: center;
-  border-bottom: $nav-item--border;
-  display: flex;
-  font-family: carbon--font-family('sans');
-  min-height: $nav-item--height;
-  justify-content: space-between;
-  width: 100%;
-
-  @include carbon--breakpoint-down('lg') {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: $nav-item--height 1fr;
-    grid-template-areas: 'logo toggler' 'nav nav';
-
-    @include carbon--breakpoint-up('md') {
+  @include carbon--breakpoint-down("lg") {
+    @include carbon--breakpoint-up("md") {
       height: $nav-item--height;
     }
+
+    display: grid;
+    grid-template-areas: "logo toggler" "nav nav";
+    grid-template-rows: $nav-item--height 1fr;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+    grid-template-columns: 1fr auto;
   }
 
-  &__footer {
-    color: $cool-gray-60;
-    display: block;
-    margin-bottom: $spacing-08;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: $nav-item--height;
+  border-bottom: $nav-item--border;
+  font-family: carbon--font-family("sans");
 
-    @include carbon--breakpoint-up('md') {
+  &__footer {
+    @include carbon--breakpoint-up("md") {
       display: none;
     }
 
-    &__notice {
-      @include carbon--type-style('caption-01');
+    display: block;
+    margin-bottom: $spacing-08;
+    padding: 0;
+    color: $cool-gray-60;
 
-      background: $cool-gray-10;
+    &__notice {
+      @include carbon--type-style("caption-01");
+
       padding: $spacing-05 $nav-item--spacing-x;
+      background: $cool-gray-10;
     }
 
     &__social-links {
@@ -59,9 +62,9 @@ $nav-item--spacing-x: $spacing-06;
 
       &__icons {
         display: grid;
-        gap: $spacing-03 $spacing-05;
-        grid-template-columns: auto 1fr;
         grid-template-rows: 1fr 1fr;
+        grid-template-columns: auto 1fr;
+        gap: $spacing-03 $spacing-05;
         justify-items: start;
 
         &__icon {
@@ -70,7 +73,7 @@ $nav-item--spacing-x: $spacing-06;
       }
 
       &__title {
-        @include carbon--type-style('expressive-heading-01');
+        @include carbon--type-style("expressive-heading-01");
       }
     }
   }
@@ -82,9 +85,9 @@ $nav-item--spacing-x: $spacing-06;
       hue-rotate(265deg) brightness(81%) contrast(87%);
 
     display: flex;
-    filter: $filter--cool-gray-60;
     height: 1.5rem;
     margin-left: $nav-item--spacing-x;
+    filter: $filter--cool-gray-60;
 
     &_active {
       filter: $filter--purple-70;
@@ -92,7 +95,7 @@ $nav-item--spacing-x: $spacing-06;
   }
 
   &__menu {
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint-down("lg") {
       grid-area: nav;
 
       &:not(.show) {
@@ -100,67 +103,67 @@ $nav-item--spacing-x: $spacing-06;
       }
     }
 
-    @include carbon--breakpoint-down('md') {
+    @include carbon--breakpoint-down("md") {
       display: grid;
       grid-template-rows: 1fr auto;
     }
 
     &.show {
-      @include carbon--breakpoint-down('lg') {
-        background-color: $white-0;
-        border-top: 1px solid $white-0;
-        box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
-        height: calc(100vh - #{$nav-item--height});
-        margin-left: auto;
-        margin-top: -1px;
-        width: 12rem;
+      @include carbon--breakpoint-down("lg") {
         z-index: 1000;
+        width: 12rem;
+        height: calc(100vh - #{$nav-item--height});
+        margin-top: -1px;
+        margin-left: auto;
+        border-top: 1px solid $white-0;
+        background-color: $white-0;
+        box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 25%);
       }
 
-      @include carbon--breakpoint-down('md') {
+      @include carbon--breakpoint-down("md") {
+        width: 100%;
+        margin-top: initial;
+        margin-left: initial;
         border-top: none;
         box-shadow: none;
-        margin-left: initial;
-        margin-top: initial;
-        width: 100%;
       }
     }
   }
 
   &__nav {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint-down("lg") {
       flex-direction: column;
     }
+
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
   }
 
   &__nav-dropdown {
-    height: $nav-item--height;
-
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint-down("lg") {
       width: 100%;
     }
 
+    height: $nav-item--height;
+
     &:hover {
-      @include carbon--breakpoint-up('lg') {
+      @include carbon--breakpoint-up("lg") {
         text-decoration: underline;
       }
     }
 
     &::part(menu-body) {
-      top: calc(100% + 1rem);
-
-      @include carbon--breakpoint-down('lg') {
-        box-shadow: none;
-        max-height: initial;
+      @include carbon--breakpoint-down("lg") {
         position: relative;
         top: 0;
+        max-height: initial;
+        box-shadow: none;
       }
+
+      top: calc(100% + 1rem);
     }
 
     &::part(trigger-button) {
@@ -169,23 +172,23 @@ $nav-item--spacing-x: $spacing-06;
       --cds-body-short-01-line-height: 1.5;
       --cds-text-01: #{$nav-item--color};
 
-      background-color: $white-0;
       height: $nav-item--height;
       padding-left: $nav-item--spacing-x;
+      background-color: $white-0;
     }
 
     &[open] {
-      @include carbon--breakpoint-down('lg') {
+      @include carbon--breakpoint-down("lg") {
         height: $nav-item--height * 3;
       }
 
       &::part(trigger-button) {
-        background-color: $nav-dropdown-item--background;
-
-        @include carbon--breakpoint-down('lg') {
-          border-bottom: $nav-item--border;
+        @include carbon--breakpoint-down("lg") {
           margin-bottom: -1px;
+          border-bottom: $nav-item--border;
         }
+
+        background-color: $nav-dropdown-item--background;
       }
     }
   }
@@ -195,81 +198,81 @@ $nav-item--spacing-x: $spacing-06;
   }
 
   &__nav-dropdown-item-text {
-    @include carbon--type-style('body-long-02');
+    @include carbon--type-style("body-long-02");
 
     color: $nav-item--color;
     line-height: 0;
   }
 
   &__nav-item {
+    @include carbon--breakpoint-down("lg") {
+      min-height: $nav-item--height;
+      border-bottom: $nav-item--border;
+    }
+
     display: flex;
     margin: 0;
-
-    @include carbon--breakpoint-down('lg') {
-      border-bottom: $nav-item--border;
-      min-height: $nav-item--height;
-    }
   }
 
   &__nav-link {
-    align-items: center;
-    color: $nav-item--color;
-    display: flex;
-    height: $nav-item--height;
-    padding: 0 $nav-item--spacing-x;
-    text-decoration: none;
-
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint-down("lg") {
       max-width: 100%;
     }
 
+    display: flex;
+    align-items: center;
+    height: $nav-item--height;
+    padding: 0 $nav-item--spacing-x;
+    color: $nav-item--color;
+    text-decoration: none;
+
     &:hover {
-      @include carbon--breakpoint-up('lg') {
+      @include carbon--breakpoint-up("lg") {
         text-decoration: underline;
       }
     }
   }
 
   &__nav-subitem {
-    align-items: center;
-    background-color: $nav-dropdown-item--background;
-    border-bottom: $nav-item--border;
-    color: $nav-item--color;
     display: flex;
+    align-items: center;
     height: $nav-item--height;
     padding: 0 $spacing-03;
+    border-bottom: $nav-item--border;
+    background-color: $nav-dropdown-item--background;
+    color: $nav-item--color;
     text-decoration: none;
 
     &:last-child {
-      @include carbon--breakpoint-up('lg') {
+      @include carbon--breakpoint-up("lg") {
         border: 0;
       }
     }
 
     &:hover {
-      background-color: $cool-gray-20;
-
-      @include carbon--breakpoint-up('lg') {
+      @include carbon--breakpoint-up("lg") {
         text-decoration: underline;
       }
+
+      background-color: $cool-gray-20;
     }
   }
 
   &__toggler {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin-right: $nav-item--spacing-x;
-
-    @include carbon--breakpoint-up('lg') {
+    @include carbon--breakpoint-up("lg") {
       display: none;
     }
 
+    margin-right: $nav-item--spacing-x;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+
     &__icon {
-      fill: $nav-item--color;
-      height: 1.25rem;
       width: 1.25rem;
+      height: 1.25rem;
+      fill: $nav-item--color;
     }
   }
 }
