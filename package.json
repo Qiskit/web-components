@@ -12,12 +12,12 @@
     "node": "16.x"
   },
   "scripts": {
-    "analyze-lit": "lit-analyzer \"components/*/*.ts\" --strict",
+    "analyze-lit": "lit-analyzer components/**/*.ts --strict",
     "build": "tsc && rollup --config rollup.config.js",
     "dev": "npm run storybook:start",
     "format": "npm-run-all format:*",
     "format:eslint": "npm run lint:eslint -- --fix",
-    "format:prettier": "prettier . --ignore-path .gitignore --write",
+    "format:prettier": "prettier '**/*' --ignore-unknown --ignore-path .gitignore --write",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint . --ignore-path .gitignore",
     "prepack": "npm run build",
@@ -83,7 +83,7 @@
     ]
   },
   "lint-staged": {
-    "**/*.{html,js,json,md,ts,yml}": "prettier --ignore-path .gitignore --write",
+    "**/*": "prettier --ignore-unknown --ignore-path .gitignore --write",
     "**/*.{js,ts}": "eslint --ignore-path .gitignore --fix"
   },
   "prettier": {
