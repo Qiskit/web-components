@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.1.3
+
+### Patch Changes
+
+- 8fd2919: Remove the mandatory Node v16
+
 ## 0.1.2
 
 ### Patch Changes
