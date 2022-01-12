@@ -9,9 +9,6 @@
     "./banner": "./components/banner/index.js",
     "./navbar": "./components/navbar/index.js"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "scripts": {
     "analyze-lit": "lit-analyzer components/**/*.ts --strict",
     "build": "tsc && rollup --config rollup.config.js",
