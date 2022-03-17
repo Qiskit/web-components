@@ -20,8 +20,8 @@
     "lint": "npm-run-all --parallel lint:*",
     "lint:eslint": "eslint . --ignore-path .gitignore",
     "lint:stylelint": "stylelint 'components/**/*.{scss,ts}' --ignore-path .gitignore",
+    "postinstall": "npx simple-git-hooks",
     "prepack": "npm run build",
-    "prepare": "husky install",
     "release": "changeset publish",
     "start": "npm run storybook:start",
     "storybook:build": "build-storybook",
@@ -62,9 +62,8 @@
     "eslint-plugin-lit": "^1.6.1",
     "eslint-plugin-lit-a11y": "^2.2.0",
     "eslint-plugin-wc": "^1.3.2",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.3.5",
     "lit-analyzer": "^1.2.1",
+    "nano-staged": "~0.6.0",
     "npm-run-all": "^4.1.5",
     "postcss-lit": "~0.4.3",
     "prettier": "~2.5.1",
@@ -72,6 +71,7 @@
     "rollup": "^2.70.0",
     "rollup-plugin-lit-css": "^3.2.1",
     "sass": "^1.49.9",
+    "simple-git-hooks": "^2.7.0",
     "stylelint": "^14.5.3",
     "stylelint-config-ibmresearch": "~0.12.0",
     "stylelint-config-standard-scss": "^3.0.0",
@@ -86,13 +86,16 @@
       }
     ]
   },
-  "lint-staged": {
+  "nano-staged": {
     "**/*": "prettier --ignore-unknown --ignore-path .gitignore --write",
     "**/*.{js,ts}": "eslint --ignore-path .gitignore --fix",
     "components/**/*.{scss,ts}": "stylelint --ignore-path .gitignore --fix"
   },
   "prettier": {
     "singleQuote": true
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
   },
   "stylelint": {
     "extends": "stylelint-config-ibmresearch",
