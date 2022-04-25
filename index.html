@@ -32,7 +32,7 @@
   
 <script>(function () {
   function polyfillsLoader() {
-    function loadScript(src, type, attributes = []) {
+    function loadScript(src, type, attributes) {
       return new Promise(function (resolve) {
         var script = document.createElement('script');
 
@@ -46,9 +46,12 @@
 
         script.src = src;
         script.onload = onLoaded;
-        attributes.forEach(att => {
-          script.setAttribute(att.name, att.value);
-        });
+
+        if (attributes) {
+          attributes.forEach(function (att) {
+            script.setAttribute(att.name, att.value);
+          });
+        }
 
         script.onerror = function () {
           console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
@@ -61,28 +64,28 @@
     }
 
     var polyfills = [];
-    polyfills.push(loadScript('./polyfills/regenerator-runtime.de2e6a3a74a500cae72a3cab1a403efc.js'));
+    polyfills.push(loadScript('./polyfills/regenerator-runtime.61d4e435f5b81f2e452f58d03b45a67e.js'));
 
     if (!('fetch' in window) || !('Request' in window) || !('signal' in window.Request.prototype)) {
-      polyfills.push(loadScript('./polyfills/fetch.c406ed8f3fd5c584ab4b8ee2407c3814.js'));
+      polyfills.push(loadScript('./polyfills/fetch.9fea781fdb463cf8794e4571ee0d6635.js'));
     }
 
-    polyfills.push(loadScript('./polyfills/systemjs.6744a76d48d4fcc398208e8269c87aa1.js'));
+    polyfills.push(loadScript('./polyfills/systemjs.302350bfbba79e33779c71913f7ca01a.js'));
 
     if (!('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
-      polyfills.push(loadScript('./polyfills/intersection-observer.83ec8aa758f883d6da14b722e6a50fcc.js'));
+      polyfills.push(loadScript('./polyfills/intersection-observer.ed3b4417df0895e4cf8465d32b69adc6.js'));
     }
 
     if (!('ResizeObserver' in window)) {
-      polyfills.push(loadScript('./polyfills/resize-observer.c66e75decd4adba0d63c03d136370195.js'));
+      polyfills.push(loadScript('./polyfills/resize-observer.467474095074c8a92dde0e006c40eb12.js'));
     }
 
     if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
-      polyfills.push(loadScript('./polyfills/webcomponents.d7ffce1754011cfedff5f846f12e0c11.js'));
+      polyfills.push(loadScript('./polyfills/webcomponents.e33eebff4291eee0cd4581b2e60455e9.js'));
     }
 
     if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
-      polyfills.push(loadScript('./polyfills/custom-elements-es5-adapter.3342b468203af1a14ca005e80d14148f.js'));
+      polyfills.push(loadScript('./polyfills/custom-elements-es5-adapter.79106fd9b808b3bbd70d54b934850301.js'));
     }
 
     function loadFiles() {
@@ -104,7 +107,7 @@
       polyfillsLoader();
     }
 
-    s.src = "./polyfills/core-js.245d5ffa15f213dd2d5392af3ef88ce6.js";
+    s.src = "./polyfills/core-js.fc1e3410047c43e3ed248d5e604dcf3e.js";
     s.onload = onLoaded;
 
     s.onerror = function () {
