@@ -4,129 +4,127 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
- @import "@carbon/colors/scss/colors";
- @import "@carbon/layout/scss/layout";
- @import "@carbon/type/scss/type";
+@import "@carbon/colors/scss/colors";
+@import "@carbon/layout/scss/layout";
+@import "@carbon/type/scss/type";
 
- :host{
+:host {
   margin: 0;
- }
+}
 
- footer{
-   display: block;
- }
+footer {
+  display: block;
+}
 
- .secondary-footer{
-   display:block;
-   padding: 2rem 0 4.5rem;
- }
+.secondary-footer {
+  display: block;
+  padding: 2rem 0 4.5rem;
+}
 
- .main-footer {
+.main-footer {
   display: flex;
   flex-wrap: wrap;
-  background-color:#f2f4f8;
   justify-content: space-around;
   padding: 2rem 0;
   padding-right: 2.5rem;
   padding-left: 2.5rem;
+  background-color: #f2f4f8;
 }
 
 .app-logo {
+  flex: 1.5 150px;
+  flex-basis: 0;
   height: 32px;
-  fill: #697077;
   margin-right: auto;
-  flex:1.5 150px;
-  flex-basis: 0px;
   font-family: carbon--font-family("sans");
-}
-
-.app-logo-gradient{
   fill: #697077;
-  color: #697077;
+}
+
+.app-logo-gradient {
   background-color: #697077;
-}
-
-.footer-section-title{
-  margin-bottom: 1.5rem;
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: .16px;
   color: #697077;
-  display: block;
-  font-family: "IBM Plex Sans SemiBold", sans-serif;
+  fill: #697077;
 }
 
-li{
+.footer-section-title {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: #697077;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: "IBM Plex Sans SemiBold", sans-serif;
+  line-height: 1.25;
+  letter-spacing: 0.16px;
+}
+
+li {
   list-style: none;
 }
 
-ul{
+ul {
   padding-left: 0;
 }
 
-.link{
-  text-decoration: none;
+.link {
   display: inline-block;
   width: 100%;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
   color: #697077;
-  font-size: .75rem;
   font-weight: 400;
+  font-size: 0.75rem;
   line-height: 1.3333;
-  letter-spacing: .32px;
+  letter-spacing: 0.32px;
+  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-.social-media{
+.social-media {
   display: grid;
-  grid-template-columns: auto 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   grid-gap: 0 1rem;
   gap: 0 1rem;
   justify-items: start;
 }
 
-.section{
+.section {
   flex: 1;
+  padding-right: 1rem;
+  padding-left: 1rem;
   font: inherit;
   font-size: inherit;
   font-size: 100%;
-  padding-right: 1rem;
-padding-left: 1rem;
-
 }
 
-.page-footer-secondary{
-  background-color: #ffffff;
+.page-footer-secondary {
   display: flex;
   justify-content: space-between;
   padding-right: 2.5rem;
   padding-left: 2.5rem;
+  background-color: #fff;
 
   .caption {
-    font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.3333;
-    letter-spacing: .32px;
     color: #343a3f;
+    font-weight: 400;
+    font-size: 0.75rem;
     font-family: "IBM Plex Sans", sans-serif;
+    line-height: 1.3333;
+    letter-spacing: 0.32px;
   }
 
-  .page-footer-secondary-links{
-    
+  .page-footer-secondary-links {
     padding-left: 2.5rem;
-
   }
-  a{
+
+  a {
+    margin-bottom: 1rem;
     margin-left: 2rem;
     color: #697077;
-    text-decoration: none;
-    margin-bottom: 1rem;
     font-family: carbon--font-family("sans");
+    text-decoration: none;
   }
 
   a:hover {
@@ -134,7 +132,7 @@ padding-left: 1rem;
   }
 }
 
-@include carbon--breakpoint-down("md"){
+@include carbon--breakpoint-down("md") {
   .app-logo {
     flex: 500px;
     height: 32px;
@@ -142,17 +140,16 @@ padding-left: 1rem;
     padding-left: 0.5rem;
   }
 
-  .page-footer-secondary-links{
+  .page-footer-secondary-links {
     display: flex;
     flex-basis: 0;
-    justify-content: space-between;
     flex-flow: column wrap;
+    justify-content: space-between;
     margin-bottom: 1rem;
     padding-left: 0;
   }
 
-  .section:last-child{
+  .section:last-child {
     flex: 500px;
   }
-
 }

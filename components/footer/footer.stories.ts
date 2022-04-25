@@ -12,139 +12,134 @@ export default {
   title: 'qiskit-footer',
 };
 
-
 const short_content = [
   {
-    "title": "Learn",
-    "items": [
+    title: 'Learn',
+    items: [
       {
-        "label": "Textbook",
-        "url": "https://qiskit.org/textbook-beta"
+        label: 'Textbook',
+        url: 'https://qiskit.org/textbook-beta',
       },
       {
-        "label": "Tutorials",
-        "url": "https://github.com/Qiskit/qiskit-tutorials"
+        label: 'Tutorials',
+        url: 'https://github.com/Qiskit/qiskit-tutorials',
       },
       {
-        "label": "Videos",
-        "url": "https://www.youtube.com/qiskit"
-      }
-    ]
+        label: 'Videos',
+        url: 'https://www.youtube.com/qiskit',
+      },
+    ],
   },
   {
-    "title": "Community",
-    "items": [
+    title: 'Community',
+    items: [
       {
-        "label": "Events",
-        "url": "https://qiskit.org/events"
+        label: 'Events',
+        url: 'https://qiskit.org/events',
       },
       {
-        "label": "Advocates",
-        "url": "https://qiskit.org/advocates#become-an-advocate"
+        label: 'Advocates',
+        url: 'https://qiskit.org/advocates#become-an-advocate',
       },
       {
-        "label": "Code of conduct",
-        "url": "https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md"
-      }
-    ]
+        label: 'Code of conduct',
+        url: 'https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md',
+      },
+    ],
   },
   {
-    "title": "Support",
-    "items": [
+    title: 'Support',
+    items: [
       {
-        "label": "Github",
-        "url": "https://github.com/Qiskit"
+        label: 'Github',
+        url: 'https://github.com/Qiskit',
       },
       {
-        "label": "Stack Exchange",
-        "url": "https://quantumcomputing.stackexchange.com/questions/tagged/qiskit"
+        label: 'Stack Exchange',
+        url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
       },
       {
-        "label": "Documentation",
-        "url": "https://qiskit.org/documentation/"
-      }
-    ]
+        label: 'Documentation',
+        url: 'https://qiskit.org/documentation/',
+      },
+    ],
   },
-]
+];
 
 export const ShortContent = () => html`
-  <qiskit-footer .info=${short_content}
-  ></qiskit-footer>
+  <qiskit-footer .info=${short_content}></qiskit-footer>
 `;
-
 
 const long_content = [
   {
-    "title": "Learn",
-    "items": [
+    title: 'Learn',
+    items: [
       {
-        "label": "Textbook",
-        "url": "https://qiskit.org/textbook-beta"
+        label: 'Textbook',
+        url: 'https://qiskit.org/textbook-beta',
       },
       {
-        "label": "Tutorials",
-        "url": "https://github.com/Qiskit/qiskit-tutorials"
+        label: 'Tutorials',
+        url: 'https://github.com/Qiskit/qiskit-tutorials',
       },
       {
-        "label": "Videos",
-        "url": "https://www.youtube.com/qiskit"
+        label: 'Videos',
+        url: 'https://www.youtube.com/qiskit',
       },
       {
-        "label": "foo",
-        "url": "https://qiskit.org/textbook-beta"
+        label: 'foo',
+        url: 'https://qiskit.org/textbook-beta',
       },
       {
-        "label": "lorem ipsum",
-        "url": "https://qiskit.org/textbook-beta"
-      }
-    ]
+        label: 'lorem ipsum',
+        url: 'https://qiskit.org/textbook-beta',
+      },
+    ],
   },
   {
-    "title": "Community",
-    "items": [
+    title: 'Community',
+    items: [
       {
-        "label": "Events",
-        "url": "https://qiskit.org/events"
+        label: 'Events',
+        url: 'https://qiskit.org/events',
       },
       {
-        "label": "Advocates",
-        "url": "https://qiskit.org/advocates#become-an-advocate"
+        label: 'Advocates',
+        url: 'https://qiskit.org/advocates#become-an-advocate',
       },
       {
-        "label": "Code of conduct",
-        "url": "https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md"
-      }
-    ]
+        label: 'Code of conduct',
+        url: 'https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md',
+      },
+    ],
   },
   {
-    "title": "Support",
-    "items": [
+    title: 'Support',
+    items: [
       {
-        "label": "Github",
-        "url": "https://github.com/Qiskit"
+        label: 'Github',
+        url: 'https://github.com/Qiskit',
       },
       {
-        "label": "Stack Exchange",
-        "url": "https://quantumcomputing.stackexchange.com/questions/tagged/qiskit"
+        label: 'Stack Exchange',
+        url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
       },
       {
-        "label": "Documentation",
-        "url": "https://qiskit.org/documentation/"
+        label: 'Documentation',
+        url: 'https://qiskit.org/documentation/',
       },
       {
-        "label": "other",
-        "url": "https://qiskit.org/textbook-beta"
+        label: 'other',
+        url: 'https://qiskit.org/textbook-beta',
       },
       {
-        "label": "another one",
-        "url": "https://qiskit.org/textbook-beta"
-      }
-    ]
+        label: 'another one',
+        url: 'https://qiskit.org/textbook-beta',
+      },
+    ],
   },
-]
-
+];
 
 export const LongContent = () => html`
-  <qiskit-footer .info=${long_content}
-  ></qiskit-footer>
+  <qiskit-footer .info=${long_content}></qiskit-footer>
 `;

@@ -14,64 +14,62 @@ describe('footer', () => {
   it('loads default content', async () => {
     const short_content = [
       {
-        "title": "Learn",
-        "items": [
+        title: 'Learn',
+        items: [
           {
-            "label": "Textbook",
-            "url": "https://qiskit.org/textbook-beta"
+            label: 'Textbook',
+            url: 'https://qiskit.org/textbook-beta',
           },
           {
-            "label": "Tutorials",
-            "url": "https://qiskit.org/textbook-beta"
+            label: 'Tutorials',
+            url: 'https://qiskit.org/textbook-beta',
           },
           {
-            "label": "Videos",
-            "url": "https://qiskit.org/textbook-beta"
-          }
-        ]
+            label: 'Videos',
+            url: 'https://qiskit.org/textbook-beta',
+          },
+        ],
       },
       {
-        "title": "Community",
-        "items": [
+        title: 'Community',
+        items: [
           {
-            "label": "Events",
-            "url": "https://qiskit.org/textbook-beta"
+            label: 'Events',
+            url: 'https://qiskit.org/textbook-beta',
           },
           {
-            "label": "Advocates",
-            "url": "https://qiskit.org/textbook-beta"
+            label: 'Advocates',
+            url: 'https://qiskit.org/textbook-beta',
           },
           {
-            "label": "Code of conduct",
-            "url": "https://qiskit.org/textbook-beta"
-          }
-        ]
+            label: 'Code of conduct',
+            url: 'https://qiskit.org/textbook-beta',
+          },
+        ],
       },
       {
-        "title": "Support",
-        "items": [
+        title: 'Support',
+        items: [
           {
-            "label": "Github",
-            "url": "https://qiskit.org/textbook-beta"
+            label: 'Github',
+            url: 'https://qiskit.org/textbook-beta',
           },
           {
-            "label": "Stack Exchange",
-            "url": "https://qiskit.org/textbook-beta"
+            label: 'Stack Exchange',
+            url: 'https://qiskit.org/textbook-beta',
           },
           {
-            "label": "Documentation",
-            "url": "https://qiskit.org/textbook-beta"
-          }
-        ]
+            label: 'Documentation',
+            url: 'https://qiskit.org/textbook-beta',
+          },
+        ],
       },
-    ]
+    ];
     const el = await fixture(
-      html`<qiskit-footer .info=${short_content}
-      ></qiskit-footer>`
+      html`<qiskit-footer .info=${short_content}></qiskit-footer>`
     );
-      
-    expect(el.shadowRoot?.hasChildNodes()).to.be.equal(true);
-    expect(el.shadowRoot?.childElementCount).to.be.equal(1);
 
+    expect(el.shadowRoot?.hasChildNodes()).to.be.equal(true);
+    expect(el.shadowRoot?.innerHTML).to.contains('<footer>');
   });
 });
