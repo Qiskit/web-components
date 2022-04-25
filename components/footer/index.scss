@@ -1,0 +1,158 @@
+/**
+ * Copyright (c) IBM, Corp. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+ @import "@carbon/colors/scss/colors";
+ @import "@carbon/layout/scss/layout";
+ @import "@carbon/type/scss/type";
+
+ :host{
+  margin: 0;
+ }
+
+ footer{
+   display: block;
+ }
+
+ .secondary-footer{
+   display:block;
+   padding: 2rem 0 4.5rem;
+ }
+
+ .main-footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color:#f2f4f8;
+  justify-content: space-around;
+  padding: 2rem 0;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+}
+
+.app-logo {
+  height: 32px;
+  fill: #697077;
+  margin-right: auto;
+  flex:1.5 150px;
+  flex-basis: 0px;
+  font-family: carbon--font-family("sans");
+}
+
+.app-logo-gradient{
+  fill: #697077;
+  color: #697077;
+  background-color: #697077;
+}
+
+.footer-section-title{
+  margin-bottom: 1.5rem;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: .16px;
+  color: #697077;
+  display: block;
+  font-family: "IBM Plex Sans SemiBold", sans-serif;
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding-left: 0;
+}
+
+.link{
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  padding-bottom: .5rem;
+  color: #697077;
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1.3333;
+  letter-spacing: .32px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.social-media{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0 1rem;
+  gap: 0 1rem;
+  justify-items: start;
+}
+
+.section{
+  flex: 1;
+  font: inherit;
+  font-size: inherit;
+  font-size: 100%;
+  padding-right: 1rem;
+padding-left: 1rem;
+
+}
+
+.page-footer-secondary{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+
+  .caption {
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.3333;
+    letter-spacing: .32px;
+    color: #343a3f;
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+
+  .page-footer-secondary-links{
+    
+    padding-left: 2.5rem;
+
+  }
+  a{
+    margin-left: 2rem;
+    color: #697077;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-family: carbon--font-family("sans");
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@include carbon--breakpoint-down("md"){
+  .app-logo {
+    flex: 500px;
+    height: 32px;
+    margin-bottom: 5%;
+    padding-left: 0.5rem;
+  }
+
+  .page-footer-secondary-links{
+    display: flex;
+    flex-basis: 0;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    margin-bottom: 1rem;
+    padding-left: 0;
+  }
+
+  .section:last-child{
+    flex: 500px;
+  }
+
+}
