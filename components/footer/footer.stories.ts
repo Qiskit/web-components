@@ -23,11 +23,11 @@ const short_content = [
       },
       {
         "label": "Tutorials",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://github.com/Qiskit/qiskit-tutorials"
       },
       {
         "label": "Videos",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://www.youtube.com/qiskit"
       }
     ]
   },
@@ -36,15 +36,15 @@ const short_content = [
     "items": [
       {
         "label": "Events",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://qiskit.org/events"
       },
       {
         "label": "Advocates",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://qiskit.org/advocates#become-an-advocate"
       },
       {
         "label": "Code of conduct",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md"
       }
     ]
   },
@@ -53,15 +53,15 @@ const short_content = [
     "items": [
       {
         "label": "Github",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://github.com/Qiskit"
       },
       {
         "label": "Stack Exchange",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://quantumcomputing.stackexchange.com/questions/tagged/qiskit"
       },
       {
         "label": "Documentation",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://qiskit.org/documentation/"
       }
     ]
   },
@@ -83,11 +83,11 @@ const long_content = [
       },
       {
         "label": "Tutorials",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://github.com/Qiskit/qiskit-tutorials"
       },
       {
         "label": "Videos",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://www.youtube.com/qiskit"
       },
       {
         "label": "foo",
@@ -104,15 +104,15 @@ const long_content = [
     "items": [
       {
         "label": "Events",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://qiskit.org/events"
       },
       {
         "label": "Advocates",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://qiskit.org/advocates#become-an-advocate"
       },
       {
         "label": "Code of conduct",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md"
       }
     ]
   },
@@ -121,15 +121,15 @@ const long_content = [
     "items": [
       {
         "label": "Github",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://github.com/Qiskit"
       },
       {
         "label": "Stack Exchange",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://quantumcomputing.stackexchange.com/questions/tagged/qiskit"
       },
       {
         "label": "Documentation",
-        "url": "https://qiskit.org/textbook-beta"
+        "url": "https://qiskit.org/documentation/"
       },
       {
         "label": "other",
