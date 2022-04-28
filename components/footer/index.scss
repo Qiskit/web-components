@@ -34,16 +34,19 @@ footer {
 .app-logo {
   flex: 1.5 150px;
   flex-basis: 0;
-  height: 32px;
   margin-right: auto;
   font-family: carbon--font-family("sans");
   fill: #697077;
-}
 
-.app-logo-gradient {
-  background-color: #697077;
-  color: #697077;
-  fill: #697077;
+  svg {
+    height: 32px;
+  }
+
+  path {
+    background-color: #697077;
+    color: #697077;
+    fill: #697077;
+  }
 }
 
 .footer-section-title {
@@ -88,6 +91,10 @@ a:hover {
   grid-gap: 0 1rem;
   gap: 0 1rem;
   justify-items: start;
+
+  svg {
+    color: #697077;
+  }
 }
 
 .section {
