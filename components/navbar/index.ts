@@ -20,6 +20,7 @@ import { menuIcon } from './icons/menu.js';
 import { qiskitLogoIcon } from './icons/qiskit-logo.js';
 import { slackIcon } from './icons/slack.js';
 import { twitterIcon } from './icons/twitter.js';
+import { userIcon } from './icons/user.js';
 import { youtubeIcon } from './icons/youtube.js';
 import styles from './index.scss';
 
@@ -173,6 +174,11 @@ export class QiskitNavbar extends LitElement {
                 </li>
               `
             )}
+            <li href="/account" class="navbar__menu__account">
+              <a href="/account" class="navbar__menu__account__link">
+                ${userIcon}
+              </a>
+            </li>
           </ul>
           <footer class="navbar__footer">
             <div class="navbar__footer__social-links">

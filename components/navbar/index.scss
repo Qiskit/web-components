@@ -40,6 +40,33 @@ $nav-item--spacing-x: $spacing-06;
   border-bottom: $nav-item--border;
   font-family: carbon--font-family("sans");
 
+  &__menu__account {
+    display: inline-flex;
+    max-width: 20rem;
+    background-color: #6929c4;
+    outline: 0;
+
+    &__link {
+      padding: calc(0.875rem - 5px) 16px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: transparent;
+      color: white;
+
+      svg {
+        display: block;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 2rem;
+        height: 2rem;
+        padding-top: 1px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        fill: #fff;
+      }
+    }
+  }
+
   &__footer {
     @include carbon--breakpoint-up("md") {
       display: none;
