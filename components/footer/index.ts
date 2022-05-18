@@ -34,7 +34,7 @@ export class QiskitFooter extends LitElement {
 
   create_list_sections(items: Array<Link>) {
     const aux: Array<TemplateResult> = [];
-    items.forEach((link: Link) => {
+    items.map((link: Link) => {
       aux.push(html` <li>
         <a
           class="link"
@@ -49,9 +49,9 @@ export class QiskitFooter extends LitElement {
     return aux;
   }
 
-  render() {
+  create_footer_section(info: Array<Column>) {
     const itemTemplates: Array<TemplateResult> = [];
-    this.info.forEach((column: Column) => {
+    info.map((column: Column) => {
       itemTemplates.push(html`
         <div class="section">
           <h2 class="footer-section-title">${column.title}</h2>
@@ -61,14 +61,17 @@ export class QiskitFooter extends LitElement {
         </div>
       `);
     });
+    return itemTemplates;
+  }
 
+  render() {
     return html`
       <footer>
         <section>
           <div class="main-footer">
             <div class="app-logo">${qiskitLogoIcon}</div>
 
-            ${itemTemplates}
+            ${this.create_footer_section(this.info)}
 
             <div class="section">
               <h2 class="footer-section-title">Stay Connected</h2>
@@ -126,13 +129,10 @@ export class QiskitFooter extends LitElement {
           </div>
         </section>
         <div class="secondary-footer">
-          <section class="page-footer-secondary" data-v-a0480b7a="">
-            <div class="caption" data-v-a0480b7a="">
-              ©Qiskit | All Rights Reserved
-            </div>
-            <div class="page-footer-secondary-links" data-v-a0480b7a="">
+          <section class="page-footer-secondary">
+            <div class="caption">©Qiskit | All Rights Reserved</div>
+            <div class="page-footer-secondary-links">
               <a
-                data-v-a0480b7a=""
                 href="https://www.ibm.com/legal?lnk=flg-tous-usen"
                 rel="noopener"
                 target="_blank"
@@ -142,7 +142,6 @@ export class QiskitFooter extends LitElement {
               >
                 Terms of use </a
               ><a
-                data-v-a0480b7a=""
                 href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
                 rel="noopener"
                 target="_blank"
@@ -152,7 +151,6 @@ export class QiskitFooter extends LitElement {
               >
                 Accessibility </a
               ><a
-                data-v-a0480b7a=""
                 href="mailto:hello@qiskit.camp"
                 style="cursor: pointer;"
                 label="Contact"
@@ -160,7 +158,6 @@ export class QiskitFooter extends LitElement {
               >
                 Contact </a
               ><a
-                data-v-a0480b7a=""
                 href="https://quantum-computing.ibm.com/terms/privacy"
                 rel="noopener"
                 target="_blank"
