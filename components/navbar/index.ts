@@ -68,6 +68,17 @@ export class QiskitNavbar extends LitElement {
   };
 
   /**
+   * Link to the user account page.
+   */
+  private _userLink: HomeLink = {
+    url: '/account',
+    segment: {
+      cta: 'account',
+      location: 'menu',
+    },
+  };
+
+  /**
    * Main navigation links.
    */
   private _navItems: Array<NavLink | DropdownNavItem> = [
@@ -174,8 +185,11 @@ export class QiskitNavbar extends LitElement {
                 </li>
               `
             )}
-            <li href="/account" class="navbar__menu__account">
-              <a href="/account" class="navbar__menu__account__link">
+            <li class="navbar__menu__account">
+              <a
+                href="${this._userLink.url}"
+                class="navbar__menu__account__link"
+              >
                 ${userIcon}
               </a>
             </li>
