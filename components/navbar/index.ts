@@ -14,14 +14,14 @@ import { createRef, ref } from 'lit/directives/ref.js';
 import 'carbon-web-components/es/components/dropdown/dropdown.js';
 import 'carbon-web-components/es/components/dropdown/dropdown-item.js';
 
-import { closeIcon } from './icons/close.js';
-import { mediumIcon } from './icons/medium.js';
-import { menuIcon } from './icons/menu.js';
-import { qiskitLogoIcon } from './icons/qiskit-logo.js';
-import { slackIcon } from './icons/slack.js';
-import { twitterIcon } from './icons/twitter.js';
+import { closeIcon } from '../icons/close.js';
+import { mediumIcon } from '../icons/medium.js';
+import { menuIcon } from '../icons/menu.js';
+import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
+import { slackIcon } from '../icons/slack.js';
+import { twitterIcon } from '../icons/twitter.js';
+import { youtubeIcon } from '../icons/youtube.js';
 import { userIcon } from './icons/user.js';
-import { youtubeIcon } from './icons/youtube.js';
 import styles from './index.scss';
 
 // TODO: Define how to pass Segment data to the consumer.
