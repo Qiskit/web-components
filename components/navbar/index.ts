@@ -20,8 +20,8 @@ import { menuIcon } from '../icons/menu.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { slackIcon } from '../icons/slack.js';
 import { twitterIcon } from '../icons/twitter.js';
+import { userIcon } from '../icons/user.js';
 import { youtubeIcon } from '../icons/youtube.js';
-import { userIcon } from './icons/user.js';
 import styles from './index.scss';
 
 // TODO: Define how to pass Segment data to the consumer.
