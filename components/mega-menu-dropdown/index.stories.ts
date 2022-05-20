@@ -100,16 +100,15 @@ const tripleColumnMultiBlock = [
 
 export const Default = () =>
   html`<mega-menu-dropdown
-    placeholder="asd"
     .content="${tripleColumnMultiBlock}"
   ></mega-menu-dropdown>`;
 export const SingleColumn = () =>
   html`<mega-menu-dropdown
-    placeholder="asd"
+    placeholder="Browse"
     .content="${singleColumn}"
   ></mega-menu-dropdown>`;
 export const TripleColumn = () =>
   html`<mega-menu-dropdown
-    placeholder="asd"
+    placeholder="Search"
     .content="${tripleColumn}"
   ></mega-menu-dropdown>`;

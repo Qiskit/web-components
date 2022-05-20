@@ -5,12 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { toSVG } from '@carbon/icon-helpers';
+import Chevron from '@carbon/icons/es/chevron--down/16';
 import { LitElement, html } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
+import { property, customElement, query, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
 
 import styles from './index.scss';
+
+interface HighlightTextState {
+  text: string;
+  isHighlighted: boolean;
+}
 
 interface NavLink {
   label: string;
@@ -22,107 +30,12 @@ interface MegaMenuDropdownGroup {
   content: NavLink[];
 }
 
-// type MegaMenuDropdownColumn = MegaMenuDropdownGroup[];
-
 interface MegaMenuDropdownBlock {
   title: string;
   content: MegaMenuDropdownGroup[];
 }
 
 type MegaMenuDropdownContent = MegaMenuDropdownBlock[];
-
-const contentView = (content: MegaMenuDropdownContent) => html`
-  <nav class="app-mega-dropdown__content">
-    ${map(
-      content,
-      (block) => html`
-        <div class="app-mega-dropdown__content__block">
-          <h1 class="app-mega-dropdown__content__block__title">
-            ${block.title}
-          </h1>
-          <div
-            class="app-mega-dropdown__content__block__content"
-            style="--row-count-l: ${Math.ceil(40 / 3)}"
-          >
-            ${map(block.content, groupView)}
-          </div>
-        </div>
-      `
-    )}
-  </nav>
-`;
-
-const groupView = (group: MegaMenuDropdownGroup) => html`
-  <div
-    class="app-mega-dropdown__content__group"
-    style="--span: ${group.content.length + 2}"
-  >
-    <h2 class="app-mega-dropdown__content__group__title">
-      <a href=${group.title.url}>${group.title.label}</a>
-    </h2>
-    ${map(
-      group.content,
-      (groupLink) => html`
-        <a
-          class="app-mega-dropdown__content__group__item__link"
-          href=${groupLink.url}
-        >
-          ${groupLink.label}
-        </a>
-      `
-    )}
-  </div>
-`;
-
-const emptyContentView = () => html`
-  <div v-if="isFilteredContentEmpty" class="app-mega-dropdown__content-empty">
-    <h2 class="app-mega-dropdown__content-empty__title">Nothing here</h2>
-    <p class="app-mega-dropdown__content-empty__text">
-      Try broadening your search terms
-    </p>
-    <img
-      alt="empty search"
-      :src="emptySearchImage"
-      class="app-mega-dropdown__content-empty__image"
-    />
-  </div>
-`;
-/*
-          <!--QiskitBasicLink
-            class="
-              app-mega-dropdown__content-link
-              app-mega-dropdown__content-link_title
-            "
-            :url="group.title.url"
-          >
-            <span
-              v-for="part in splitTextInHighlightParts(group.title.label)"
-              :key="`${ part.index } -${ part.text.length } `"
-              :class="{
-                'app-mega-dropdown__content-link__text-highlight':
-                  part.isHighlighted,
-              }"
-              >{{ part.text }}</span
-            >
-          </QiskitBasicLink-->
-          <!--QiskitBasicLink
-            v-for="chapter in group.content"
-            :key="chapter.label"
-            class="app-mega-dropdown__content-link"
-            :url="chapter.url"
-          >
-            <span
-              v-for="part in splitTextInHighlightParts(chapter.label)"
-              :key="`${ part.index } -${ part.text.length } `"
-              :class="{
-                'app-mega-dropdown__content-link__text-highlight':
-                  part.isHighlighted,
-              }"
-              >{{ part.text }}</span
-            >
-          </QiskitBasicLink-->
-
-          */
 
 @customElement('mega-menu-dropdown')
 export class MegaMenuDropdown extends LitElement {
@@ -139,16 +52,90 @@ export class MegaMenuDropdown extends LitElement {
 
   protected _performedSearchEventTimeout: NodeJS.Timeout | null = null;
 
-  protected _showContent = true;
+  @state()
+  protected _showContent = false;
 
+  @state()
   protected _filteredContent!: MegaMenuDropdownContent;
+
+  private contentView = (content: MegaMenuDropdownContent) => html`
+    <nav class="content">
+      ${map(
+        content,
+        (block) => html`
+          <div class="content__block">
+            <h1 class="content__block__title">${block.title}</h1>
+            <div
+              class="content__block__content"
+              style="--elements-count: ${block.content.length}"
+            >
+              ${map(block.content, this.groupView)}
+            </div>
+          </div>
+        `
+      )}
+    </nav>
+  `;
+
+  private groupView = (group: MegaMenuDropdownGroup) => html`
+    <div class="content__group">
+      <a
+        class="content__group__title content__group__link"
+        href=${group.title.url}
+      >
+        ${this.highlightedText(group.title.label)}
+      </a>
+      ${map(
+        group.content,
+        (groupLink) => html`
+          <a class="content__group__link" href=${groupLink.url}>
+            ${this.highlightedText(groupLink.label)}
+          </a>
+        `
+      )}
+    </div>
+  `;
+
+  private highlightedText = (label: string) => html`
+    ${map(
+      this._splitTextInHighlightParts(label),
+      (part) => html`<span
+        class="${classMap({ 'text-highlight': part.isHighlighted })}"
+        >${part.text}</span
+      >`
+    )}
+  `;
+
+  private emptyContentView = () => html`
+    <div v-if="isFilteredContentEmpty" class="app-mega-dropdown__content-empty">
+      <h2 class="app-mega-dropdown__content-empty__title">Nothing here</h2>
+      <p class="app-mega-dropdown__content-empty__text">
+        Try broadening your search terms
+      </p>
+      <img
+        alt="empty search"
+        :src="emptySearchImage"
+        class="app-mega-dropdown__content-empty__image"
+      />
+    </div>
+  `;
+
+  private chevronWithClass = (className: string) =>
+    toSVG({
+      ...Chevron,
+      attrs: {
+        ...Chevron.attrs,
+        class: className,
+        preserveAspectRatio: 'none',
+      },
+    });
 
   render() {
     this._filteredContent = this._filteredContent || this.content;
 
     return html`
       <article class="app-mega-dropdown">
-        <label class="filter__wrapper">
+        <div class="filter">
           <input
             type="text"
             class="filter__input"
@@ -156,18 +143,14 @@ export class MegaMenuDropdown extends LitElement {
             @focus=${this._onShowContent}
             @keyup=${this._onTextOnTheFilterChanged}
           />
-          <!--svg
-            class="filter__icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-          >
-            <path d="M16 22L6 12l1.4-1.4 8.6 8.6 8.6-8.6L26 12z" />
-          </svg-->
-        </label>
+          <button class="filter__button" @click="${this._onSwitchShowContent}">
+            ${this.chevronWithClass('filter__icon')}
+          </button>
+        </div>
         ${when(this._showContent, () =>
           this._isFilteredContentEmpty
-            ? emptyContentView()
-            : contentView(this._filteredContent)
+            ? this.emptyContentView()
+            : this.contentView(this._filteredContent)
         )}
       </article>
     `;
@@ -194,61 +177,59 @@ export class MegaMenuDropdown extends LitElement {
   }
 
   _onShowContent() {
-    return;
+    this._filteredContent = this._filterContent();
+    this._showContent = true;
+  }
+  _onSwitchShowContent() {
+    this._showContent = !this._showContent;
+    if (this._showContent) {
+      this._filterInput.focus();
+    }
   }
 
   _onTextOnTheFilterChanged() {
-    console.log(this._textOnTheFilter);
     this._performedSearch();
-    // this._filteredContent = this._filterContent()
-    this._filteredContent = this.content;
+    this._filteredContent = this._filterContent();
   }
 
-  /*
   _filterContent(): MegaMenuDropdownContent {
     if (this._isFilterTextEmpty) {
       return this.content;
     }
 
     const wordsOnTheFilter: string[] = this._wordsOnTheFilter();
-    const filteredContent = this.content.map(
-      block => this._filterMegaDropdownBlock(block, wordsOnTheFilter)
+    console.dir(wordsOnTheFilter);
+
+    const filteredContent = this.content.map((block) =>
+      this._filterMegaDropdownBlock(block, wordsOnTheFilter)
     );
 
-    const nonEmptyColumnsFilteredContent = filteredContent.filter(
-      (column: MegaMenuDropdownBlock) => column.length > 0
+    const nonEmptyBlocksFilteredContent = filteredContent.filter(
+      (block) => block.content.length > 0
     );
-    
-    return nonEmptyColumnsFilteredContent;
+
+    return nonEmptyBlocksFilteredContent;
   }
 
   _filterMegaDropdownBlock(
     block: MegaMenuDropdownBlock,
     wordsOnTheFilter: string[]
   ): MegaMenuDropdownBlock {
-    const filteredBlock = block.map((column) =>
-      this._filterMegaDropdownColumn(column, wordsOnTheFilter)
+    const filteredBlock = block.content.map((group) =>
+      this._filterMegaDropdownGroup(group, wordsOnTheFilter)
     );
-    const nonEmptyColumnsFilteredBlock = filteredBlock.filter(
-      (block) => block.length > 0
+
+    const nonEmptyGroupFilteredBlock = filteredBlock.filter(
+      (group) => group.content.length > 0
     );
-    return nonEmptyGroupsFilteredColumn;
+
+    return {
+      title: block.title,
+      content: nonEmptyGroupFilteredBlock,
+    };
   }
 
-  _filterMegaDropdownColumn(
-    column: MegaMenuDropdownColumn,
-    wordsOnTheFilter: string[]
-  ): MegaMenuDropdownColumn {
-    const filteredColumn = column.map((group: MegaMenuDropdownGroup) =>
-      this._filterMegaDropdownGroupLinks(group, wordsOnTheFilter)
-    );
-    const nonEmptyGroupsFilteredColumn = filteredColumn.filter(
-      (group: MegaMenuDropdownGroup) => group.content.length > 0
-    );
-    return nonEmptyGroupsFilteredColumn;
-  }
-
-  _filterMegaDropdownGroupLinks(
+  _filterMegaDropdownGroup(
     group: MegaMenuDropdownGroup,
     wordsOnTheFilter: string[]
   ): MegaMenuDropdownGroup {
@@ -256,18 +237,94 @@ export class MegaMenuDropdown extends LitElement {
       group.title.label,
       wordsOnTheFilter
     );
+
     if (titleSelected) {
       return group;
     }
+
     const filteredLinks = group.content.filter((link: NavLink) =>
       this._containsWordsOnTheFilter(link.label, wordsOnTheFilter)
     );
+
     return {
       title: group.title,
       content: filteredLinks,
     };
   }
-  */
+
+  _containsWordsOnTheFilter(label: string, wordsOnTheFilter: string[]) {
+    return wordsOnTheFilter.some((word) => label.toLowerCase().includes(word));
+  }
+
+  _splitTextInHighlightParts(menuLabel: string): HighlightTextState[] {
+    const isTextEmpty = menuLabel.trim() === '';
+    if (this._isFilterTextEmpty || isTextEmpty) {
+      return [{ text: menuLabel, isHighlighted: false }];
+    }
+
+    const charIsHighlightArray = this._splitTextInHighlightedChars(
+      menuLabel,
+      this._wordsOnTheFilter()
+    );
+
+    return this._joinCharsByHighlightedState(charIsHighlightArray);
+  }
+
+  _splitTextInHighlightedChars(
+    menuLabel: string,
+    wordsOnTheFilter: string[]
+  ): HighlightTextState[] {
+    const charArray = Array.from(menuLabel);
+    // Assign the isHighlighted flag to each character
+    const highlightStates = charArray.map<HighlightTextState>(
+      (letter: string) => ({ text: letter, isHighlighted: false })
+    );
+    const lowerCaseText = menuLabel.toLowerCase();
+    wordsOnTheFilter.forEach((word: string) => {
+      // start highlighting index
+      let from = lowerCaseText.indexOf(word);
+      while (from >= 0) {
+        // end highlighting index
+        const to = from + word.length;
+        for (let i = from; i < to; i++) {
+          highlightStates[i].isHighlighted = true;
+        }
+        // the text could have the same word multiple times.
+        from = lowerCaseText.indexOf(word, Math.max(to, 1));
+      }
+    });
+    return highlightStates;
+  }
+
+  _joinCharsByHighlightedState(
+    highlightStateByChar: HighlightTextState[]
+  ): HighlightTextState[] {
+    const output = [
+      {
+        text: highlightStateByChar[0].text,
+        isHighlighted: highlightStateByChar[0].isHighlighted,
+        index: 0,
+      },
+    ];
+
+    for (let i = 1; i < highlightStateByChar.length; i++) {
+      const lastCharState = output[output.length - 1];
+      const currentChar = highlightStateByChar[i];
+      const highlightTextContinues =
+        lastCharState.isHighlighted === currentChar.isHighlighted;
+      if (highlightTextContinues) {
+        lastCharState.text = lastCharState.text.concat(currentChar.text);
+      } else {
+        output.push({
+          text: currentChar.text,
+          isHighlighted: currentChar.isHighlighted,
+          index: i,
+        });
+      }
+    }
+
+    return output;
+  }
 
   _performedSearch() {
     this._removePerformedSearchEventTimeout();

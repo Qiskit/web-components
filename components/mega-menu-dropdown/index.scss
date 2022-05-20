@@ -1,36 +1,122 @@
 @import "@carbon/colors/scss/colors";
 @import "@carbon/layout/scss/layout";
-@import "@carbon/type/scss/type";
+@import "@carbon/type/scss/styles";
 
 .app-mega-dropdown {
+  --qiskit-color-text-primary: #{$cool-gray-80};
+  --qiskit-color-border-highlight: #{$purple-70};
+  --qiskit-color-border-soft: #{$cool-gray-30};
+  --qiskit-color-text-highlight: #{$purple-20};
+
   position: relative;
+  font-family: carbon--font-family("sans");
+}
 
-  &__content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: beige;
+.filter {
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+  border-bottom: 1px solid var(--qiskit-color-border-highlight);
+  color: var(--qiskit-color-text-primary);
+  fill: var(--qiskit-color-text-primary);
 
-    &__block {
-      display: flex;
-      flex-direction: column;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid grey;
+  &__input {
+    flex: 1;
+    height: 2.5rem;
+    padding: $spacing-03;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
 
-      &__content {
-        --elements-count: 3;
-
-        column-count: 3;
-        column-count: min(var(--elements-count), 3);
-      }
+    &::placeholder {
+      color: inherit;
     }
 
-    &__group {
-      display: flex;
-      flex-direction: column;
-      break-inside: avoid;
-
-      // grid-row: auto / span var(--span, 1)
+    &:focus::placeholder {
+      opacity: 0.25;
     }
   }
+
+  &__button {
+    border: none;
+    background: none;
+    outline: none;
+  }
+
+  &__icon {
+    flex: 0 0 1rem;
+    cursor: pointer;
+
+    & > path {
+      transition: transform 0.2s ease-in-out;
+      transform: translate(0, 0);
+    }
+  }
+
+  &:hover &__icon > path {
+    transition: transform 0.2s ease-in-out;
+    transform: translate(0, 4px);
+  }
+}
+
+.content {
+  @include carbon--breakpoint-down("md") {
+    right: 0;
+    left: 0;
+    height: 80vh;
+  }
+
+  @include carbon--breakpoint-down("lg") {
+    width: 100%;
+  }
+
+  position: absolute;
+  top: 100%;
+  overflow-x: auto;
+  overflow-y: scroll;
+  width: 12 * 4rem;
+  height: 32rem;
+  padding: 0 $spacing-05;
+  background-color: var(--qiskit-color-background-primary);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--qiskit-color-border-soft);
+
+    &__title {
+      @include carbon--type-style("productive-heading-03");
+    }
+
+    &__content {
+      column-count: 3;
+      column-count: min(var(--elements-count, 3), 3);
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+
+    &__link {
+      @include carbon--type-style("body-long-01");
+
+      display: block;
+      padding-bottom: $spacing-05;
+      color: var(--qiskit-color-text-primary);
+      text-decoration: none;
+    }
+
+    &__title {
+      @include carbon--type-style("productive-heading-01");
+    }
+  }
+}
+
+.text-highlight {
+  background-color: var(--qiskit-color-text-highlight);
 }
