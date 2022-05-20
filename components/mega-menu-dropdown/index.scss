@@ -1,0 +1,36 @@
+@import "@carbon/colors/scss/colors";
+@import "@carbon/layout/scss/layout";
+@import "@carbon/type/scss/type";
+
+.app-mega-dropdown {
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: beige;
+
+    &__block {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid grey;
+
+      &__content {
+        --elements-count: 3;
+
+        column-count: 3;
+        column-count: min(var(--elements-count), 3);
+      }
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      break-inside: avoid;
+
+      // grid-row: auto / span var(--span, 1)
+    }
+  }
+}
