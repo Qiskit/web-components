@@ -123,6 +123,10 @@
     align-items: center;
     text-align: center;
 
+    &__title {
+      @include carbon--type-style("productive-heading-05");
+    }
+
     &__text {
       @include carbon--type-style("body-short-01");
     }

@@ -37,6 +37,16 @@ interface MegaMenuDropdownBlock {
 
 export type MegaMenuDropdownContent = MegaMenuDropdownBlock[];
 
+const chevronWithAttrs = (attrs: { [attr: string]: unknown }) =>
+  toSVG({
+    ...Chevron,
+    attrs: {
+      ...Chevron.attrs,
+      preserveAspectRatio: 'none',
+      ...attrs,
+    },
+  });
+
 @customElement('mega-menu-dropdown')
 export class MegaMenuDropdown extends LitElement {
   static styles = [styles];
@@ -118,16 +128,6 @@ export class MegaMenuDropdown extends LitElement {
     </div>
   `;
 
-  private chevronWithClass = (className: string) =>
-    toSVG({
-      ...Chevron,
-      attrs: {
-        ...Chevron.attrs,
-        class: className,
-        preserveAspectRatio: 'none',
-      },
-    });
-
   render() {
     this._filteredContent = this._filteredContent || this.content;
 
@@ -142,7 +142,7 @@ export class MegaMenuDropdown extends LitElement {
             @keyup=${this._onTextOnTheFilterChanged}
           />
           <button class="filter__button" @click="${this._onSwitchShowContent}">
-            ${this.chevronWithClass('filter__icon')}
+            ${chevronWithAttrs({ class: 'filter__icon' })}
           </button>
         </div>
         ${when(this._showContent, () =>
