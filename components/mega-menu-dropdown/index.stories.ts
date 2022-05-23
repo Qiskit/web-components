@@ -8,9 +8,10 @@
 import { html } from 'lit';
 
 import './index.js';
+import type { MegaMenuDropdownContent } from './index.js';
 
 export default {
-  title: 'MegaMenuDropdown',
+  title: 'Components/MegaMenuDropdown',
 };
 
 const menuColumn1 = [
@@ -98,17 +99,32 @@ const tripleColumnMultiBlock = [
   },
 ];
 
-export const Default = () =>
-  html`<mega-menu-dropdown
-    .content="${tripleColumnMultiBlock}"
+interface Args {
+  placeholder: string;
+  content: MegaMenuDropdownContent;
+}
+
+const Template = ({ placeholder, content }: Args) => {
+  return html`<mega-menu-dropdown
+    placeholder="${placeholder}"
+    .content="${content}"
   ></mega-menu-dropdown>`;
-export const SingleColumn = () =>
-  html`<mega-menu-dropdown
-    placeholder="Browse"
-    .content="${singleColumn}"
-  ></mega-menu-dropdown>`;
-export const TripleColumn = () =>
-  html`<mega-menu-dropdown
-    placeholder="Search"
-    .content="${tripleColumn}"
-  ></mega-menu-dropdown>`;
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  placeholder: 'lalala',
+  content: tripleColumnMultiBlock,
+};
+
+export const SingleColumn = Template.bind({});
+SingleColumn.args = {
+  placeholder: 'Browse',
+  content: singleColumn,
+};
+
+export const TripleColumn = Template.bind({});
+TripleColumn.args = {
+  placeholder: 'Search',
+  content: tripleColumn,
+};

@@ -35,7 +35,7 @@ interface MegaMenuDropdownBlock {
   content: MegaMenuDropdownGroup[];
 }
 
-type MegaMenuDropdownContent = MegaMenuDropdownBlock[];
+export type MegaMenuDropdownContent = MegaMenuDropdownBlock[];
 
 @customElement('mega-menu-dropdown')
 export class MegaMenuDropdown extends LitElement {
