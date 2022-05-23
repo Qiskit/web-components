@@ -54,6 +54,9 @@ export class MegaMenuDropdown extends LitElement {
   @query('.filter__input')
   protected _filterInput!: HTMLInputElement;
 
+  @query('.app-mega-dropdown')
+  protected _mainElement!: HTMLInputElement;
+
   @property()
   placeholder = 'Browse all content';
 
@@ -67,6 +70,8 @@ export class MegaMenuDropdown extends LitElement {
 
   @state()
   protected _filteredContent!: MegaMenuDropdownContent;
+
+  protected _clickListener!: (ev: MouseEvent) => void;
 
   private contentView = (content: MegaMenuDropdownContent) => html`
     <nav class="content">
@@ -154,8 +159,31 @@ export class MegaMenuDropdown extends LitElement {
     `;
   }
 
+  connectedCallback() {
+    super.connectedCallback?.();
+    this._clickListener = this._handleClick.bind(this);
+    document.addEventListener('mousedown', this._clickListener);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback?.();
+    document.removeEventListener('mousedown', this._clickListener);
+    this._removePerformedSearchEventTimeout();
+  }
+
+  _handleClick(e: MouseEvent) {
+    if (e?.target !== this) {
+      this._showContent = false;
+      this._textOnTheFilter = '';
+    }
+  }
+
   get _textOnTheFilter(): string {
     return this._filterInput.value.trim();
+  }
+
+  set _textOnTheFilter(val: string) {
+    this._filterInput.value = val;
   }
 
   get _isFilteredContentEmpty(): boolean {
@@ -196,7 +224,6 @@ export class MegaMenuDropdown extends LitElement {
     }
 
     const wordsOnTheFilter: string[] = this._wordsOnTheFilter();
-    console.dir(wordsOnTheFilter);
 
     const filteredContent = this.content.map((block) =>
       this._filterMegaDropdownBlock(block, wordsOnTheFilter)
