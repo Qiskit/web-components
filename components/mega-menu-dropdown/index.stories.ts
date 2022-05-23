@@ -138,26 +138,28 @@ interface Args {
   content: MegaMenuDropdownContent;
 }
 
-const Template = ({ placeholder, content }: Args) => {
+const TemplateFn = ({ placeholder, content }: Args) => {
   return html`<mega-menu-dropdown
     placeholder="${placeholder}"
     .content="${content}"
   ></mega-menu-dropdown>`;
 };
 
-export const Default = Template.bind({});
+type Template = typeof TemplateFn & { args?: { [attr: string]: unknown } };
+
+export const Default: Template = TemplateFn.bind({});
 Default.args = {
   placeholder: 'lalala',
   content: tripleColumnMultiBlock,
 };
 
-export const SingleColumn = Template.bind({});
+export const SingleColumn: Template = TemplateFn.bind({});
 SingleColumn.args = {
   placeholder: 'Browse',
   content: singleColumn,
 };
 
-export const TripleColumn = Template.bind({});
+export const TripleColumn: Template = TemplateFn.bind({});
 TripleColumn.args = {
   placeholder: 'Search',
   content: tripleColumn,
