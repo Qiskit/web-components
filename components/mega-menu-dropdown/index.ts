@@ -107,15 +107,13 @@ export class MegaMenuDropdown extends LitElement {
   `;
 
   private emptyContentView = () => html`
-    <div v-if="isFilteredContentEmpty" class="app-mega-dropdown__content-empty">
-      <h2 class="app-mega-dropdown__content-empty__title">Nothing here</h2>
-      <p class="app-mega-dropdown__content-empty__text">
-        Try broadening your search terms
-      </p>
+    <div v-if="isFilteredContentEmpty" class="content content-empty">
+      <h2 class="content-empty__title">Nothing here</h2>
+      <p class="content-empty__text">Try broadening your search terms</p>
       <img
         alt="empty search"
-        :src="emptySearchImage"
-        class="app-mega-dropdown__content-empty__image"
+        src="/components/mega-menu-dropdown/assets/empty-search.png"
+        class="content-empty__image"
       />
     </div>
   `;

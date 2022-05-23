@@ -115,6 +115,27 @@
       @include carbon--type-style("productive-heading-01");
     }
   }
+
+  &-empty {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__text {
+      @include carbon--type-style("body-short-01");
+    }
+
+    &__image {
+      width: 16rem;
+      max-width: 100%;
+      height: 18rem;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
 }
 
 .text-highlight {
