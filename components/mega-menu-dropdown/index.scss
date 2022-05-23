@@ -61,13 +61,13 @@
 }
 
 .content {
-  @include carbon--breakpoint-down("md") {
+  @include carbon--breakpoint-down(md) {
     right: 0;
     left: 0;
     height: 80vh;
   }
 
-  @include carbon--breakpoint-down("lg") {
+  @include carbon--breakpoint-down(lg) {
     width: 100%;
   }
 
@@ -75,6 +75,7 @@
   top: 100%;
   overflow-x: auto;
   overflow-y: scroll;
+  box-sizing: border-box;
   width: 12 * 4rem;
   height: 32rem;
   padding: 0 $spacing-05;
@@ -92,6 +93,15 @@
     }
 
     &__content {
+      @include carbon--breakpoint-down(lg) {
+        column-count: 2;
+        column-count: min(var(--elements-count, 2), 2);
+      }
+
+      @include carbon--breakpoint-down(md) {
+        column-count: 1;
+      }
+
       column-count: 3;
       column-count: min(var(--elements-count, 3), 3);
     }
