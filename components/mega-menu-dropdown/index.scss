@@ -88,6 +88,10 @@
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--qiskit-color-border-soft);
 
+    &:last-child {
+      border-bottom: none;
+    }
+
     &__title {
       @include carbon--type-style("productive-heading-03");
     }
