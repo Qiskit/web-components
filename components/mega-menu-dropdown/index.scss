@@ -85,7 +85,7 @@
   &__block {
     display: flex;
     flex-direction: column;
-    padding-bottom: 1rem;
+    padding-bottom: $spacing-05;
     border-bottom: 1px solid var(--qiskit-color-border-soft);
 
     &:last-child {
@@ -114,6 +114,7 @@
   &__group {
     display: flex;
     flex-direction: column;
+    margin: 0 0 $spacing-09 0;
     break-inside: avoid;
 
     &__link {
