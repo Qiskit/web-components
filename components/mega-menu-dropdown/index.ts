@@ -5,14 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { toSVG } from '@carbon/icon-helpers';
-import Chevron from '@carbon/icons/es/chevron--down/16.js';
 import { LitElement, html } from 'lit';
 import { property, customElement, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
 
+import chevronDown from '../icons/chevron-down.js';
 import styles from './index.scss';
 
 interface HighlightTextState {
@@ -36,16 +35,6 @@ interface MegaMenuDropdownBlock {
 }
 
 export type MegaMenuDropdownContent = MegaMenuDropdownBlock[];
-
-const chevronWithAttrs = (attrs: { [attr: string]: unknown }) =>
-  toSVG({
-    ...Chevron,
-    attrs: {
-      ...Chevron.attrs,
-      preserveAspectRatio: 'none',
-      ...attrs,
-    },
-  });
 
 @customElement('mega-menu-dropdown')
 export class MegaMenuDropdown extends LitElement {
@@ -147,7 +136,7 @@ export class MegaMenuDropdown extends LitElement {
             @keyup=${this._onTextOnTheFilterChanged}
           />
           <button class="filter__button" @click="${this._onSwitchShowContent}">
-            ${chevronWithAttrs({ class: 'filter__icon' })}
+            ${chevronDown({ class: 'filter__icon' })}
           </button>
         </div>
         ${when(this._showContent, () =>
