@@ -6,7 +6,7 @@
  */
 
 import { toSVG } from '@carbon/icon-helpers';
-import Chevron from '@carbon/icons/es/chevron--down/16';
+import Chevron from '@carbon/icons/es/chevron--down/16.js';
 import { LitElement, html } from 'lit';
 import { property, customElement, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
