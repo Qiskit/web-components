@@ -24,20 +24,20 @@ interface NavLink {
   url: string;
 }
 
-interface MegaMenuDropdownGroup {
+interface QiskitMegaMenuDropdownGroup {
   title: NavLink;
   content: NavLink[];
 }
 
-interface MegaMenuDropdownBlock {
+interface QiskitMegaMenuDropdownBlock {
   title: string;
-  content: MegaMenuDropdownGroup[];
+  content: QiskitMegaMenuDropdownGroup[];
 }
 
-export type MegaMenuDropdownContent = MegaMenuDropdownBlock[];
+export type QiskitMegaMenuDropdownContent = QiskitMegaMenuDropdownBlock[];
 
-@customElement('mega-menu-dropdown')
-export class MegaMenuDropdown extends LitElement {
+@customElement('qiskit-mega-menu-dropdown')
+export class QiskitMegaMenuDropdown extends LitElement {
   static styles = [styles];
 
   @query('.filter__input')
@@ -50,7 +50,7 @@ export class MegaMenuDropdown extends LitElement {
   placeholder = 'Browse all content';
 
   @property({ type: Array })
-  content: MegaMenuDropdownContent = [];
+  content: QiskitMegaMenuDropdownContent = [];
 
   protected _performedSearchEventTimeout: NodeJS.Timeout | null = null;
 
@@ -58,11 +58,11 @@ export class MegaMenuDropdown extends LitElement {
   protected _showContent = false;
 
   @state()
-  protected _filteredContent!: MegaMenuDropdownContent;
+  protected _filteredContent!: QiskitMegaMenuDropdownContent;
 
   protected _clickListener!: (ev: MouseEvent) => void;
 
-  private contentView = (content: MegaMenuDropdownContent) => html`
+  private contentView = (content: QiskitMegaMenuDropdownContent) => html`
     <nav class="content">
       ${map(
         content,
@@ -81,7 +81,7 @@ export class MegaMenuDropdown extends LitElement {
     </nav>
   `;
 
-  private groupView = (group: MegaMenuDropdownGroup) => html`
+  private groupView = (group: QiskitMegaMenuDropdownGroup) => html`
     <div class="content__group">
       <a
         class="content__group__title content__group__link"
@@ -207,7 +207,7 @@ export class MegaMenuDropdown extends LitElement {
     this._filteredContent = this._filterContent();
   }
 
-  _filterContent(): MegaMenuDropdownContent {
+  _filterContent(): QiskitMegaMenuDropdownContent {
     if (this._isFilterTextEmpty) {
       return this.content;
     }
@@ -226,9 +226,9 @@ export class MegaMenuDropdown extends LitElement {
   }
 
   _filterMegaDropdownBlock(
-    block: MegaMenuDropdownBlock,
+    block: QiskitMegaMenuDropdownBlock,
     wordsOnTheFilter: string[]
-  ): MegaMenuDropdownBlock {
+  ): QiskitMegaMenuDropdownBlock {
     const filteredBlock = block.content.map((group) =>
       this._filterMegaDropdownGroup(group, wordsOnTheFilter)
     );
@@ -244,9 +244,9 @@ export class MegaMenuDropdown extends LitElement {
   }
 
   _filterMegaDropdownGroup(
-    group: MegaMenuDropdownGroup,
+    group: QiskitMegaMenuDropdownGroup,
     wordsOnTheFilter: string[]
-  ): MegaMenuDropdownGroup {
+  ): QiskitMegaMenuDropdownGroup {
     const titleSelected = this._containsWordsOnTheFilter(
       group.title.label,
       wordsOnTheFilter
@@ -367,6 +367,6 @@ export class MegaMenuDropdown extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mega-menu-dropdown': MegaMenuDropdown;
+    'qiskit-mega-menu-dropdown': QiskitMegaMenuDropdown;
   }
 }
