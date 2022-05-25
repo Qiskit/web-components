@@ -8,10 +8,10 @@
 import { html } from 'lit';
 
 import './index.js';
-import type { MegaMenuDropdownContent } from './index.js';
+import type { QiskitMegaMenuDropdownContent } from './index.js';
 
 export default {
-  title: 'Components/MegaMenuDropdown',
+  title: 'MegaMenuDropdown',
 };
 
 const singleColumnGroups = [
@@ -135,14 +135,14 @@ const tripleColumnMultiBlock = [
 
 interface Args {
   placeholder: string;
-  content: MegaMenuDropdownContent;
+  content: QiskitMegaMenuDropdownContent;
 }
 
 const Template = ({ placeholder, content }: Args) => {
-  return html`<mega-menu-dropdown
+  return html`<qiskit-mega-menu-dropdown
     placeholder="${placeholder}"
     .content="${content}"
-  ></mega-menu-dropdown>`;
+  ></qiskit-mega-menu-dropdown>`;
 };
 
 type Story = typeof Template & { args?: { [attr: string]: unknown } };

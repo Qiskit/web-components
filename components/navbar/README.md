@@ -1,4 +1,4 @@
-# Banner
+# Navbar
 
 ## Example usage
 
