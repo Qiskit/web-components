@@ -38,6 +38,8 @@
   ],
   "dependencies": {
     "@carbon/colors": "^10.37.1",
+    "@carbon/icon-helpers": "^10.30.0",
+    "@carbon/icons": "^11.3.0",
     "@carbon/layout": "^10.37.1",
     "@carbon/type": "^10.44.0",
     "carbon-web-components": "^1.21.0",
@@ -50,6 +52,7 @@
     "@changesets/cli": "^2.22.0",
     "@open-wc/testing": "^3.1.5",
     "@rollup/plugin-typescript": "^8.3.2",
+    "@types/carbon__icon-helpers": "^10.7.2",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "@web/dev-server": "~0.1.31",
