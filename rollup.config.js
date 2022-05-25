@@ -23,6 +23,10 @@ const componentPaths = readdirSync('components/', { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory())
   .map((dirent) => dirent.name);
 
+// Remove icons from the list of components
+const iconsDirIndex = componentPaths.indexOf('icons');
+componentPaths.splice(iconsDirIndex, 1);
+
 export default componentPaths.map((component) => ({
   input: `components/${component}/index.js`,
   plugins: [
