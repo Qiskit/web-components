@@ -4,6 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+@use "@carbon/type";
 @import "@carbon/colors/scss/colors";
 @import "@carbon/layout/scss/layout";
 @import "@carbon/type/scss/type";
@@ -28,24 +29,24 @@ footer {
   padding: $spacing-07 0;
   padding-right: $spacing-08;
   padding-left: $spacing-08;
-  background-color: #f2f4f8;
+  background-color: $cool-gray-10;
 }
 
 .app-logo {
-  flex: 1.5 150px;
+  flex: 1.5 9.375rem;
   flex-basis: 0;
   margin-right: auto;
   font-family: carbon--font-family("sans");
-  fill: #697077;
+  fill: $cool-gray-60;
 
   svg {
-    height: 32px;
+    height: 2rem;
   }
 
   path {
-    background-color: #697077;
-    color: #697077;
-    fill: #697077;
+    background-color: $cool-gray-60;
+    color: $cool-gray-60;
+    fill: $cool-gray-60;
   }
 }
 
@@ -54,7 +55,7 @@ footer {
 
   display: block;
   margin-bottom: $spacing-06;
-  color: #697077;
+  color: $cool-gray-60;
 }
 
 li {
@@ -66,12 +67,12 @@ ul {
 }
 
 .link {
-  @include carbon--type-style("body-long-01");
+  @include type.type-style("legal-01");
 
   display: inline-block;
   width: 100%;
   padding-bottom: $spacing-03;
-  color: #697077;
+  color: $cool-gray-60;
   text-decoration: none;
 }
 
@@ -88,7 +89,7 @@ a:hover {
   justify-items: start;
 
   svg {
-    color: #697077;
+    color: $cool-gray-60;
   }
 
   a {
@@ -110,15 +111,12 @@ a:hover {
   justify-content: space-between;
   padding-right: $spacing-08;
   padding-left: $spacing-08;
-  background-color: #fff;
+  background-color: $carbon--white-0;
 
   .caption {
-    color: #343a3f;
-    font-weight: 400;
-    font-size: $spacing-04;
-    font-family: "IBM Plex Sans", sans-serif;
-    line-height: 1.3333;
-    letter-spacing: 0.32px;
+    @include type.type-style("label-01");
+
+    color: $cool-gray-80;
   }
 
   .page-footer-secondary-links {
@@ -126,10 +124,11 @@ a:hover {
   }
 
   a {
+    @include type.type-style("label-01");
+
     margin-bottom: $spacing-05;
     margin-left: $spacing-07;
-    color: #697077;
-    font-family: carbon--font-family("sans");
+    color: $cool-gray-60;
     text-decoration: none;
   }
 
@@ -140,8 +139,8 @@ a:hover {
 
 @include carbon--breakpoint-down("md") {
   .app-logo {
-    flex: 500px;
-    height: 32px;
+    flex: 31.25rem;
+    height: 2rem;
     margin-bottom: 5%;
     padding-left: $spacing-03;
   }
@@ -156,6 +155,6 @@ a:hover {
   }
 
   .section:last-child {
-    flex: 500px;
+    flex: 31.25rem;
   }
 }

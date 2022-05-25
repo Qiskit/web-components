@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html, type TemplateResult } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import { mediumIcon } from './icons/medium.js';
-import { qiskitLogoIcon } from './icons/qiskit-logo.js';
-import { slackIcon } from './icons/slack.js';
-import { twitterIcon } from './icons/twitter.js';
-import { youtubeIcon } from './icons/youtube.js';
+import { mediumIcon } from '../icons/medium.js';
+import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
+import { slackIcon } from '../icons/slack.js';
+import { twitterIcon } from '../icons/twitter.js';
+import { youtubeIcon } from '../icons/youtube.js';
 import styles from './index.scss';
 
 interface Link {
@@ -33,9 +33,8 @@ export class QiskitFooter extends LitElement {
   info = [{ title: '', items: [{ label: '', url: '' }] }];
 
   create_list_sections(items: Array<Link>) {
-    const aux: Array<TemplateResult> = [];
-    items.map((link: Link) => {
-      aux.push(html` <li>
+    return items.map((link: Link) => {
+      return html` <li>
         <a
           class="link"
           style="cursor: pointer;"
@@ -44,24 +43,21 @@ export class QiskitFooter extends LitElement {
         >
           <span>${link.label}</span>
         </a>
-      </li>`);
+      </li>`;
     });
-    return aux;
   }
 
   create_footer_section(info: Array<Column>) {
-    const itemTemplates: Array<TemplateResult> = [];
-    info.map((column: Column) => {
-      itemTemplates.push(html`
+    return info.map((column: Column) => {
+      return html`
         <div class="section">
           <h2 class="footer-section-title">${column.title}</h2>
           <ul>
             ${this.create_list_sections(column.items)}
           </ul>
         </div>
-      `);
+      `;
     });
-    return itemTemplates;
   }
 
   render() {
