@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.2.1
+
+### Patch Changes
+
+- 253c176: Fix the QiskitMegaMenuDropdown name
+
 ## 0.2.0
 
 ### Minor Changes
