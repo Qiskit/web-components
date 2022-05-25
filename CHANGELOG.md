@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.2.2
+
+### Patch Changes
+
+- fcbaf2f: Add missed exports
+
 ## 0.2.1
 
 ### Patch Changes
