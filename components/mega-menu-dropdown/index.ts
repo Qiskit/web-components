@@ -116,7 +116,7 @@ export class QiskitMegaMenuDropdown extends LitElement {
       <p class="content-empty__text">Try broadening your search terms</p>
       <img
         alt="empty search"
-        src="/components/mega-menu-dropdown/assets/empty-search.png"
+        src="${new URL('./assets/empty-search.png', import.meta.url).href}"
         class="content-empty__image"
       />
     </div>
