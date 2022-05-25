@@ -41,5 +41,11 @@ export default componentPaths.map((component) => ({
     format: 'esm',
     sourcemap: true,
   },
-  external: ['tslib', 'lit', /^lit\/.*/, /^carbon-web-components\/.*/],
+  external: [
+    'tslib',
+    'lit',
+    /^lit\/.*/,
+    /^carbon-web-components\/.*/,
+    /^@carbon\/.*/,
+  ],
 }));
