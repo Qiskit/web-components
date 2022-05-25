@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.2.0
+
+### Minor Changes
+
+- 461e7fd: Added the MegaMenuDropdown web-component as a migration from qiskit-vue repository.
+
 ## 0.1.3
 
 ### Patch Changes
