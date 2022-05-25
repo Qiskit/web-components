@@ -111,7 +111,7 @@ export class QiskitMegaMenuDropdown extends LitElement {
   `;
 
   private emptyContentView = () => html`
-    <div v-if="isFilteredContentEmpty" class="content content-empty">
+    <div class="content content-empty">
       <h2 class="content-empty__title">Nothing here</h2>
       <p class="content-empty__text">Try broadening your search terms</p>
       <img
