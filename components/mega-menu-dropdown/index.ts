@@ -44,7 +44,7 @@ export class MegaMenuDropdown extends LitElement {
   protected _filterInput!: HTMLInputElement;
 
   @query('.app-mega-dropdown')
-  protected _mainElement!: HTMLInputElement;
+  protected _mainElement!: HTMLElement;
 
   @property()
   placeholder = 'Browse all content';
