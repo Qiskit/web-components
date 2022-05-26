@@ -1,6 +1,6 @@
 {
   "name": "@qiskit/web-components",
-  "version": "0.2.3",
+  "version": "0.3.1",
   "license": "MIT",
   "repository": "github:Qiskit/web-components",
   "type": "module",
@@ -32,10 +32,10 @@
     "test:watch": "web-test-runner --watch"
   },
   "files": [
+    "assets/**/*",
     "components/**/*.{d.ts,js,js.map}",
     "!components/**/*.stories.{d.ts,js,js.map}",
     "!components/**/*.test.{d.ts,js,js.map}",
-    "components/*/assets/**/*",
     "!components/icons.d.ts",
     "!components/scss.d.ts"
   ],

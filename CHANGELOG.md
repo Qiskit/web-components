@@ -1,5 +1,22 @@
 # @qiskit/web-components
 
+## 0.3.1
+
+### Patch Changes
+
+- 222e165: Fix assets path for npm
+
+## 0.3.0
+
+### Minor Changes
+
+- 27ed9fe: Added a user account button for the navbar
+
+### Patch Changes
+
+- 77177e3: Fix MegaMenuDropdown empty image using import.meta.url
+- 1b8b9a3: Fixed border top of navbar nav-sub-item component
+
 ## 0.2.3
 
 ### Patch Changes
