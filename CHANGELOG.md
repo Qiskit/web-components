@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.3.1
+
+### Patch Changes
+
+- 222e165: Fix assets path for npm
+
 ## 0.3.0
 
 ### Minor Changes
