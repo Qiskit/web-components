@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.2.3
+
+### Patch Changes
+
+- d08f7f0: Add components assets to npm
+
 ## 0.2.2
 
 ### Patch Changes
