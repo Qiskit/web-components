@@ -6,6 +6,7 @@
  */
 
 const { join } = require('path');
+const copy = require('rollup-plugin-copy');
 
 const typescript = require('@rollup/plugin-typescript');
 const { default: litcss } = require('rollup-plugin-lit-css');
@@ -33,6 +34,9 @@ module.exports = {
       litcss({
         include: '**/*.scss',
         transform: transformSassToCss,
+      }),
+      copy({
+        targets: [{ src: 'assets', dest: 'storybook-static' }],
       })
     );
 
