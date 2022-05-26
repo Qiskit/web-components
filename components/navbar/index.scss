@@ -261,6 +261,8 @@ $nav-item--spacing-x: $spacing-06;
   }
 
   &__nav-subitem {
+    --cds-ui-03: transparent;
+
     display: flex;
     align-items: center;
     height: $nav-item--height;

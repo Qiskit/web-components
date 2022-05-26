@@ -1,6 +1,6 @@
 {
   "name": "@qiskit/web-components",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "repository": "github:Qiskit/web-components",
   "type": "module",
@@ -35,6 +35,7 @@
     "components/**/*.{d.ts,js,js.map}",
     "!components/**/*.stories.{d.ts,js,js.map}",
     "!components/**/*.test.{d.ts,js,js.map}",
+    "components/*/assets/**/*",
     "!components/icons.d.ts",
     "!components/scss.d.ts"
   ],
