@@ -60,8 +60,6 @@ export class QiskitMegaMenuDropdown extends LitElement {
   @state()
   protected _filteredContent!: QiskitMegaMenuDropdownContent;
 
-  protected _clickListener!: (ev: MouseEvent) => void;
-
   private contentView(content: QiskitMegaMenuDropdownContent) {
     return html`
       <nav class="content">
@@ -74,7 +72,7 @@ export class QiskitMegaMenuDropdown extends LitElement {
                 class="content__block__content"
                 style="--elements-count: ${block.content.length}"
               >
-                ${map(block.content, this.groupView)}
+                ${map(block.content, (group) => this.groupView(group))}
               </div>
             </div>
           `
@@ -157,22 +155,21 @@ export class QiskitMegaMenuDropdown extends LitElement {
 
   connectedCallback() {
     super.connectedCallback?.();
-    this._clickListener = this._handleClick.bind(this);
-    document.addEventListener('mousedown', this._clickListener);
+    document.addEventListener('mousedown', this._handleClick);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback?.();
-    document.removeEventListener('mousedown', this._clickListener);
+    document.removeEventListener('mousedown', this._handleClick);
     this._removePerformedSearchEventTimeout();
   }
 
-  _handleClick(e: MouseEvent) {
+  _handleClick = (e: MouseEvent) => {
     if (e?.target !== this) {
       this._showContent = false;
       this._textOnTheFilter = '';
     }
-  }
+  };
 
   get _textOnTheFilter(): string {
     return this._filterInput.value.trim();
