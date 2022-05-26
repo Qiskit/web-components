@@ -40,6 +40,33 @@ $nav-item--spacing-x: $spacing-06;
   border-bottom: $nav-item--border;
   font-family: carbon--font-family("sans");
 
+  &__menu__account {
+    display: inline-flex;
+    max-width: calc($spacing-13 * 2);
+    background-color: $carbon--purple-70;
+    outline: 0;
+
+    &__link {
+      padding: calc($spacing-05 - $spacing-02) $spacing-05;
+      border-width: calc($spacing-01 / 2);
+      border-style: solid;
+      border-color: transparent;
+      color: $carbon--white-0;
+
+      svg {
+        display: block;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: $spacing-07;
+        height: $spacing-07;
+        padding-top: calc($spacing-01 / 2);
+        border: $spacing-01 solid $carbon--white-0;
+        border-radius: 50%;
+        fill: $carbon--white-0;
+      }
+    }
+  }
+
   &__footer {
     @include carbon--breakpoint-up("md") {
       display: none;
@@ -234,6 +261,8 @@ $nav-item--spacing-x: $spacing-06;
   }
 
   &__nav-subitem {
+    --cds-ui-03: transparent;
+
     display: flex;
     align-items: center;
     height: $nav-item--height;

@@ -60,67 +60,72 @@ export class QiskitMegaMenuDropdown extends LitElement {
   @state()
   protected _filteredContent!: QiskitMegaMenuDropdownContent;
 
-  protected _clickListener!: (ev: MouseEvent) => void;
-
-  private contentView = (content: QiskitMegaMenuDropdownContent) => html`
-    <nav class="content">
-      ${map(
-        content,
-        (block) => html`
-          <div class="content__block">
-            <h1 class="content__block__title">${block.title}</h1>
-            <div
-              class="content__block__content"
-              style="--elements-count: ${block.content.length}"
-            >
-              ${map(block.content, this.groupView)}
+  private contentView(content: QiskitMegaMenuDropdownContent) {
+    return html`
+      <nav class="content">
+        ${map(
+          content,
+          (block) => html`
+            <div class="content__block">
+              <h1 class="content__block__title">${block.title}</h1>
+              <div
+                class="content__block__content"
+                style="--elements-count: ${block.content.length}"
+              >
+                ${map(block.content, (group) => this.groupView(group))}
+              </div>
             </div>
-          </div>
-        `
-      )}
-    </nav>
-  `;
+          `
+        )}
+      </nav>
+    `;
+  }
 
-  private groupView = (group: QiskitMegaMenuDropdownGroup) => html`
-    <div class="content__group">
-      <a
-        class="content__group__title content__group__link"
-        href=${group.title.url}
-      >
-        ${this.highlightedText(group.title.label)}
-      </a>
+  private groupView(group: QiskitMegaMenuDropdownGroup) {
+    return html`
+      <div class="content__group">
+        <a
+          class="content__group__title content__group__link"
+          href=${group.title.url}
+        >
+          ${this.highlightedText(group.title.label)}
+        </a>
+        ${map(
+          group.content,
+          (groupLink) => html`
+            <a class="content__group__link" href=${groupLink.url}>
+              ${this.highlightedText(groupLink.label)}
+            </a>
+          `
+        )}
+      </div>
+    `;
+  }
+
+  private highlightedText(label: string) {
+    return html`
       ${map(
-        group.content,
-        (groupLink) => html`
-          <a class="content__group__link" href=${groupLink.url}>
-            ${this.highlightedText(groupLink.label)}
-          </a>
-        `
+        this._splitTextInHighlightParts(label),
+        (part) => html`<span
+          class="${classMap({ 'text-highlight': part.isHighlighted })}"
+          >${part.text}</span
+        >`
       )}
-    </div>
-  `;
+    `;
+  }
 
-  private highlightedText = (label: string) => html`
-    ${map(
-      this._splitTextInHighlightParts(label),
-      (part) => html`<span
-        class="${classMap({ 'text-highlight': part.isHighlighted })}"
-        >${part.text}</span
-      >`
-    )}
-  `;
+  private emptyContentView() {
+    const imgSrc = new URL('../../assets/empty-search.png', import.meta.url)
+      .href;
 
-  private emptyContentView = () => html`
-    <div v-if="isFilteredContentEmpty" class="content content-empty">
-      <h2 class="content-empty__title">Nothing here</h2>
-      <p class="content-empty__text">Try broadening your search terms</p>
-      <img
-        alt="empty search"
-        src="/components/mega-menu-dropdown/assets/empty-search.png"
-        class="content-empty__image"
-      />
-    </div>
-  `;
+    return html`
+      <div class="content content-empty">
+        <h2 class="content-empty__title">Nothing here</h2>
+        <p class="content-empty__text">Try broadening your search terms</p>
+        <img alt="empty search" src="${imgSrc}" class="content-empty__image" />
+      </div>
+    `;
+  }
 
   render() {
     this._filteredContent = this._filteredContent || this.content;
@@ -150,22 +155,21 @@ export class QiskitMegaMenuDropdown extends LitElement {
 
   connectedCallback() {
     super.connectedCallback?.();
-    this._clickListener = this._handleClick.bind(this);
-    document.addEventListener('mousedown', this._clickListener);
+    document.addEventListener('mousedown', this._handleClick);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback?.();
-    document.removeEventListener('mousedown', this._clickListener);
+    document.removeEventListener('mousedown', this._handleClick);
     this._removePerformedSearchEventTimeout();
   }
 
-  _handleClick(e: MouseEvent) {
+  _handleClick = (e: MouseEvent) => {
     if (e?.target !== this) {
       this._showContent = false;
       this._textOnTheFilter = '';
     }
-  }
+  };
 
   get _textOnTheFilter(): string {
     return this._filterInput.value.trim();
