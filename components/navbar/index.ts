@@ -185,13 +185,18 @@ export class QiskitNavbar extends LitElement {
                 </li>
               `
             )}
-            <li class="navbar__menu__account">
-              <a
-                href="${this._userLink.url}"
-                class="navbar__menu__account__link"
-              >
-                ${userIcon}
-              </a>
+            <li class="navbar__nav-item">
+              <div class="navbar__menu__account">
+                <a
+                  href="${this._userLink.url}"
+                  class="navbar__menu__account__link"
+                >
+                  ${userIcon}
+                </a>
+                <p class="navbar__menu__account__tag">
+                  <a href="${this._userLink.url}">Profile</a>
+                </p>
+              </div>
             </li>
           </ul>
           <footer class="navbar__footer">
