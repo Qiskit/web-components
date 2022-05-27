@@ -62,7 +62,7 @@ export class QiskitMegaMenuDropdown extends LitElement {
 
   private contentView(content: QiskitMegaMenuDropdownContent) {
     return html`
-      <nav class="content">
+      <nav class="content" part="content">
         ${map(
           content,
           (block) => html`
@@ -119,7 +119,7 @@ export class QiskitMegaMenuDropdown extends LitElement {
       .href;
 
     return html`
-      <div class="content content-empty">
+      <div class="content content-empty" part="content">
         <h2 class="content-empty__title">Nothing here</h2>
         <p class="content-empty__text">Try broadening your search terms</p>
         <img alt="empty search" src="${imgSrc}" class="content-empty__image" />
@@ -132,15 +132,20 @@ export class QiskitMegaMenuDropdown extends LitElement {
 
     return html`
       <article class="app-mega-dropdown">
-        <div class="filter">
+        <div class="filter" part="filter">
           <input
             type="text"
             class="filter__input"
+            part="input"
             placeholder="${this.placeholder}"
             @focus=${this._onShowContent}
             @keyup=${this._onTextOnTheFilterChanged}
           />
-          <button class="filter__button" @click="${this._onSwitchShowContent}">
+          <button
+            class="filter__button"
+            part="filter-icon"
+            @click="${this._onSwitchShowContent}"
+          >
             ${chevronDown({ class: 'filter__icon' })}
           </button>
         </div>
