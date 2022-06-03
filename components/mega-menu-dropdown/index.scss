@@ -15,14 +15,14 @@
 .filter {
   display: flex;
   justify-content: space-between;
-  height: 3.5rem;
+  height: 2.5rem;
   border-bottom: 1px solid var(--qiskit-color-border-highlight);
   color: var(--qiskit-color-text-primary);
   fill: var(--qiskit-color-text-primary);
 
   &__input {
     flex: 1;
-    height: 2.5rem;
+    height: 1.5rem;
     padding: $spacing-03;
     border: none;
     background-color: transparent;
