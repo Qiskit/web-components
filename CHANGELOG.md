@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.3.2
+
+### Patch Changes
+
+- 4c36e21: Updated css for mega-menu-dropdown
+
 ## 0.3.1
 
 ### Patch Changes
