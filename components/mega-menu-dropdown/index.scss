@@ -38,7 +38,7 @@
 .filter {
   display: flex;
   justify-content: space-between;
-  height: 3.5rem;
+  height: 2.5rem;
   border-bottom: 1px solid var(--component-color-border-highlight);
   background-color: var(--component-color-background-primary);
   color: var(--component-color-text-primary);
@@ -46,7 +46,7 @@
 
   &__input {
     flex: 1;
-    height: 2.5rem;
+    height: 1.5rem;
     padding: $spacing-03;
     border: none;
     background-color: transparent;
