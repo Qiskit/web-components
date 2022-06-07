@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.3.3
+
+### Patch Changes
+
+- bb03ada: Improved css adding vars to provide flexibility to mega-menu-dropdown
+
 ## 0.3.2
 
 ### Patch Changes
