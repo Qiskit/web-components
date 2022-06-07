@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.3.4
+
+### Patch Changes
+
+- 23f0842: Added a variable for the input filter background color
+
 ## 0.3.3
 
 ### Patch Changes
