@@ -2,4 +2,4 @@
 "@qiskit/web-components": patch
 ---
 
-Improved css and added css parts to mega-menu-dropdown
+Improved css addeding vars to provide flexibility to mega-menu-dropdown
