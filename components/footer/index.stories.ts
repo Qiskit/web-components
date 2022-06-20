@@ -9,7 +9,7 @@ import { html } from 'lit';
 import './index.js';
 
 export default {
-  title: 'qiskit-footer',
+  title: 'Footer',
 };
 
 const short_content = [
@@ -51,7 +51,7 @@ const short_content = [
     title: 'Support',
     items: [
       {
-        label: 'Github',
+        label: 'GitHub',
         url: 'https://github.com/Qiskit',
       },
       {
@@ -117,7 +117,7 @@ const long_content = [
     title: 'Support',
     items: [
       {
-        label: 'Github',
+        label: 'GitHub',
         url: 'https://github.com/Qiskit',
       },
       {

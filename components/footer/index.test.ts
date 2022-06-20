@@ -51,7 +51,7 @@ describe('footer', () => {
         title: 'Support',
         items: [
           {
-            label: 'Github',
+            label: 'GitHub',
             url: 'https://qiskit.org/textbook-beta',
           },
           {

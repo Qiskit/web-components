@@ -11,9 +11,12 @@
 
 :host {
   margin: 0;
+  font-family: carbon--font-family("sans");
 }
 
 footer {
+  @include carbon--type-style("body-short-01");
+
   display: block;
 }
 
