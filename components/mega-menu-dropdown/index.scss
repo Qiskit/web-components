@@ -2,12 +2,40 @@
 @import "@carbon/layout/scss/layout";
 @import "@carbon/type/scss/styles";
 
-.app-mega-dropdown {
-  --qiskit-color-text-primary: #{$cool-gray-80};
-  --qiskit-color-border-highlight: #{$purple-70};
-  --qiskit-color-border-soft: #{$cool-gray-30};
-  --qiskit-color-text-highlight: #{$purple-20};
+:host {
+  --component-color-text-primary:
+    var(
+      --qiskit-color-text-primary,
+      #{$cool-gray-80}
+    );
+  --component-color-border-highlight:
+    var(
+      --qiskit-color-border-highlight,
+      #{$purple-70}
+    );
+  --component-color-border-soft:
+    var(
+      --qiskit-color-border-soft,
+      #{$cool-gray-30}
+    );
+  --component-color-text-highlight:
+    var(
+      --qiskit-color-text-highlight,
+      #{$purple-20}
+    );
+  --component-color-background-primary:
+    var(
+      --qiskit-color-background-primary,
+      #{$white-0}
+    );
+  --component-color-input-background:
+    var(
+      --qiskit-color-input-background,
+      #{$white-0}
+    );
+}
 
+.app-mega-dropdown {
   position: relative;
   font-family: carbon--font-family("sans");
 }
@@ -16,9 +44,10 @@
   display: flex;
   justify-content: space-between;
   height: 2.5rem;
-  border-bottom: 1px solid var(--qiskit-color-border-highlight);
-  color: var(--qiskit-color-text-primary);
-  fill: var(--qiskit-color-text-primary);
+  border-bottom: 1px solid var(--component-color-border-highlight);
+  background-color: var(--component-color-input-background);
+  color: var(--component-color-text-primary);
+  fill: var(--component-color-text-primary);
 
   &__input {
     flex: 1;
@@ -79,14 +108,14 @@
   width: 12 * 4rem;
   height: 32rem;
   padding: 0 $spacing-05;
-  background-color: var(--qiskit-color-background-primary);
+  background-color: var(--component-color-background-primary);
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 
   &__block {
     display: flex;
     flex-direction: column;
     padding-bottom: $spacing-05;
-    border-bottom: 1px solid var(--qiskit-color-border-soft);
+    border-bottom: 1px solid var(--component-color-border-soft);
 
     &:last-child {
       border-bottom: none;
@@ -122,7 +151,7 @@
 
       display: block;
       padding: $spacing-03 0 $spacing-03 0;
-      color: var(--qiskit-color-text-primary);
+      color: var(--component-color-text-primary);
       text-decoration: none;
     }
 
@@ -158,5 +187,5 @@
 }
 
 .text-highlight {
-  background-color: var(--qiskit-color-text-highlight);
+  background-color: var(--component-color-text-highlight);
 }

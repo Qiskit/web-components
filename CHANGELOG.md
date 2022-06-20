@@ -1,5 +1,17 @@
 # @qiskit/web-components
 
+## 0.3.4
+
+### Patch Changes
+
+- 23f0842: Added a variable for the input filter background color
+
+## 0.3.3
+
+### Patch Changes
+
+- bb03ada: Improved css adding vars to provide flexibility to mega-menu-dropdown
+
 ## 0.3.2
 
 ### Patch Changes
