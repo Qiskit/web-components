@@ -35,12 +35,7 @@ export class QiskitFooter extends LitElement {
   renderListSections(items: Link[]) {
     return items.map((link: Link) => {
       return html` <li>
-        <a
-          class="link"
-          style="cursor: pointer;"
-          label="${link.label}"
-          href="${link.url}"
-        >
+        <a class="link" label="${link.label}" href="${link.url}">
           <span>${link.label}</span>
         </a>
       </li>`;
@@ -76,7 +71,6 @@ export class QiskitFooter extends LitElement {
                   href="https://twitter.com/Qiskit"
                   rel="noopener"
                   target="_blank"
-                  style="cursor: pointer;"
                   label="Twitter"
                   icon="LogoTwitter20"
                   class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
@@ -88,7 +82,6 @@ export class QiskitFooter extends LitElement {
                   href="https://ibm.co/joinqiskitslack"
                   rel="noopener"
                   target="_blank"
-                  style="cursor: pointer;"
                   label="Slack"
                   icon="LogoSlack20"
                   class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
@@ -100,7 +93,6 @@ export class QiskitFooter extends LitElement {
                   href="https://www.youtube.com/Qiskit"
                   rel="noopener"
                   target="_blank"
-                  style="cursor: pointer;"
                   label="Youtube"
                   icon="LogoYouTube20"
                   class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
@@ -112,7 +104,6 @@ export class QiskitFooter extends LitElement {
                   href="https://medium.com/Qiskit"
                   rel="noopener"
                   target="_blank"
-                  style="cursor: pointer;"
                   label="Medium"
                   icon="LogoMedium20"
                   class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
@@ -132,7 +123,6 @@ export class QiskitFooter extends LitElement {
                 href="https://www.ibm.com/legal?lnk=flg-tous-usen"
                 rel="noopener"
                 target="_blank"
-                style="cursor: pointer;"
                 label="Terms of use"
                 class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
               >
@@ -141,14 +131,12 @@ export class QiskitFooter extends LitElement {
                 href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
                 rel="noopener"
                 target="_blank"
-                style="cursor: pointer;"
                 label="Accessibility"
                 class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
               >
                 Accessibility </a
               ><a
                 href="mailto:hello@qiskit.camp"
-                style="cursor: pointer;"
                 label="Contact"
                 class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
               >
@@ -157,7 +145,6 @@ export class QiskitFooter extends LitElement {
                 href="https://quantum-computing.ibm.com/terms/privacy"
                 rel="noopener"
                 target="_blank"
-                style="cursor: pointer;"
                 label="Privacy"
                 class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
               >

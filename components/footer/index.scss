@@ -81,6 +81,7 @@ ul {
 
 a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .social-media {
@@ -97,6 +98,7 @@ a:hover {
 
   a {
     padding-bottom: $spacing-03;
+    cursor: pointer;
   }
 }
 
@@ -137,6 +139,7 @@ a:hover {
 
   a:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
