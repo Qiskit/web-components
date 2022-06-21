@@ -53,7 +53,7 @@ export class QiskitFooter extends LitElement {
         <div class="section">
           <h2 class="footer-section-title">${column.title}</h2>
           <ul>
-            ${this.create_list_sections(column.items)}
+            ${this.renderListSections(column.items)}
           </ul>
         </div>
       `;
@@ -67,7 +67,7 @@ export class QiskitFooter extends LitElement {
           <div class="main-footer">
             <div class="app-logo">${qiskitLogoIcon}</div>
 
-            ${this.create_footer_section(this.info)}
+            ${this.renderFooterSection(this.info)}
 
             <div class="section">
               <h2 class="footer-section-title">Stay Connected</h2>
