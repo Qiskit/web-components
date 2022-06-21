@@ -32,7 +32,7 @@ export class QiskitFooter extends LitElement {
   @property({ attribute: false })
   info = [{ title: '', items: [{ label: '', url: '' }] }];
 
-  create_list_sections(items: Array<Link>) {
+  renderListSections(items: Link[]) {
     return items.map((link: Link) => {
       return html` <li>
         <a
