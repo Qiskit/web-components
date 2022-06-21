@@ -47,7 +47,7 @@ export class QiskitFooter extends LitElement {
     });
   }
 
-  create_footer_section(info: Array<Column>) {
+  renderFooterSection(info: Column[]) {
     return info.map((column: Column) => {
       return html`
         <div class="section">
