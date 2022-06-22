@@ -12,6 +12,7 @@ import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
 
 import chevronDown from '../icons/chevron-down.js';
+import { emptySearchIcon } from '../icons/empty-search.js';
 import styles from './index.scss';
 
 interface HighlightTextState {
@@ -115,14 +116,11 @@ export class QiskitMegaMenuDropdown extends LitElement {
   }
 
   private emptyContentView() {
-    const imgSrc = new URL('../../assets/empty-search.png', import.meta.url)
-      .href;
-
     return html`
       <div class="content content-empty">
         <h2 class="content-empty__title">Nothing here</h2>
         <p class="content-empty__text">Try broadening your search terms</p>
-        <img alt="empty search" src="${imgSrc}" class="content-empty__image" />
+        ${emptySearchIcon}
       </div>
     `;
   }
