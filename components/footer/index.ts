@@ -71,29 +71,29 @@ export class QiskitFooter extends LitElement {
               <nav class="social-media">
                 <a
                   href="https://twitter.com/Qiskit"
-                  rel="noopener"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ${twitterIcon}
                 </a>
                 <a
                   href="https://ibm.co/joinqiskitslack"
-                  rel="noopener"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ${slackIcon}
                 </a>
                 <a
                   href="https://www.youtube.com/Qiskit"
-                  rel="noopener"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ${youtubeIcon}
                 </a>
                 <a
                   href="https://medium.com/Qiskit"
-                  rel="noopener"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ${mediumIcon}
                 </a>
@@ -107,16 +107,16 @@ export class QiskitFooter extends LitElement {
             <div class="page-footer-secondary-links">
               <a
                 href="https://www.ibm.com/legal?lnk=flg-tous-usen"
-                rel="noopener"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="caption"
               >
                 Terms of use
               </a>
               <a
                 href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
-                rel="noopener"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="caption"
               >
                 Accessibility
@@ -124,8 +124,8 @@ export class QiskitFooter extends LitElement {
               <a href="mailto:hello@qiskit.camp" class="caption">Contact</a>
               <a
                 href="https://quantum-computing.ibm.com/terms/privacy"
-                rel="noopener"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="caption"
               >
                 Privacy
