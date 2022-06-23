@@ -33,26 +33,28 @@ export class QiskitFooter extends LitElement {
   info = [{ title: '', items: [{ label: '', url: '' }] }];
 
   renderListSections(items: Link[]) {
-    return items.map((link: Link) => {
-      return html` <li>
-        <a class="link" label="${link.label}" href="${link.url}">
-          <span>${link.label}</span>
-        </a>
-      </li>`;
-    });
+    return items.map(
+      (link: Link) => html`
+        <li>
+          <a class="link" href="${link.url}">
+            <span>${link.label}</span>
+          </a>
+        </li>
+      `
+    );
   }
 
   renderFooterSection(info: Column[]) {
-    return info.map((column: Column) => {
-      return html`
+    return info.map(
+      (column: Column) => html`
         <div class="section">
           <h2 class="footer-section-title">${column.title}</h2>
           <ul>
             ${this.renderListSections(column.items)}
           </ul>
         </div>
-      `;
-    });
+      `
+    );
   }
 
   render() {
@@ -71,10 +73,6 @@ export class QiskitFooter extends LitElement {
                   href="https://twitter.com/Qiskit"
                   rel="noopener"
                   target="_blank"
-                  label="Twitter"
-                  icon="LogoTwitter20"
-                  class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
-                  url="https://twitter.com/Qiskit"
                 >
                   ${twitterIcon}
                 </a>
@@ -82,10 +80,6 @@ export class QiskitFooter extends LitElement {
                   href="https://ibm.co/joinqiskitslack"
                   rel="noopener"
                   target="_blank"
-                  label="Slack"
-                  icon="LogoSlack20"
-                  class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
-                  url="https://ibm.co/joinqiskitslack"
                 >
                   ${slackIcon}
                 </a>
@@ -93,10 +87,6 @@ export class QiskitFooter extends LitElement {
                   href="https://www.youtube.com/Qiskit"
                   rel="noopener"
                   target="_blank"
-                  label="Youtube"
-                  icon="LogoYouTube20"
-                  class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
-                  url="https://www.youtube.com/Qiskit"
                 >
                   ${youtubeIcon}
                 </a>
@@ -104,10 +94,6 @@ export class QiskitFooter extends LitElement {
                   href="https://medium.com/Qiskit"
                   rel="noopener"
                   target="_blank"
-                  label="Medium"
-                  icon="LogoMedium20"
-                  class="app-link caption footer-section__link app-link_secondary footer-section__link_theme_light"
-                  url="https://medium.com/Qiskit"
                 >
                   ${mediumIcon}
                 </a>
@@ -123,30 +109,24 @@ export class QiskitFooter extends LitElement {
                 href="https://www.ibm.com/legal?lnk=flg-tous-usen"
                 rel="noopener"
                 target="_blank"
-                label="Terms of use"
-                class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
+                class="caption"
               >
-                Terms of use </a
-              ><a
+                Terms of use
+              </a>
+              <a
                 href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
                 rel="noopener"
                 target="_blank"
-                label="Accessibility"
-                class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
+                class="caption"
               >
-                Accessibility </a
-              ><a
-                href="mailto:hello@qiskit.camp"
-                label="Contact"
-                class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
-              >
-                Contact </a
-              ><a
+                Accessibility
+              </a>
+              <a href="mailto:hello@qiskit.camp" class="caption">Contact</a>
+              <a
                 href="https://quantum-computing.ibm.com/terms/privacy"
                 rel="noopener"
                 target="_blank"
-                label="Privacy"
-                class="caption page-footer-secondary-link page-footer-secondary-link_theme_light"
+                class="caption"
               >
                 Privacy
               </a>
