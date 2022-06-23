@@ -6,7 +6,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
 
 import { mediumIcon } from '../icons/medium.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
@@ -22,27 +22,67 @@ interface Link {
 
 interface Column {
   title: string;
-  items: Array<Link>;
+  items: Link[];
 }
 
 @customElement('qiskit-footer')
 export class QiskitFooter extends LitElement {
   static styles = [styles];
 
-  @property({ attribute: false })
-  info = [{ title: '', items: [{ label: '', url: '' }] }];
-
-  renderListSections(items: Link[]) {
-    return items.map(
-      (link: Link) => html`
-        <li>
-          <a class="link" href="${link.url}">
-            <span>${link.label}</span>
-          </a>
-        </li>
-      `
-    );
-  }
+  @state()
+  info = [
+    {
+      title: 'Learn',
+      items: [
+        {
+          label: 'Textbook',
+          url: 'https://qiskit.org/textbook-beta',
+        },
+        {
+          label: 'Tutorials',
+          url: 'https://github.com/Qiskit/qiskit-tutorials',
+        },
+        {
+          label: 'Videos',
+          url: 'https://www.youtube.com/qiskit',
+        },
+      ],
+    },
+    {
+      title: 'Community',
+      items: [
+        {
+          label: 'Events',
+          url: 'https://qiskit.org/events',
+        },
+        {
+          label: 'Advocates',
+          url: 'https://qiskit.org/advocates#become-an-advocate',
+        },
+        {
+          label: 'Code of conduct',
+          url: 'https://github.com/Qiskit/qiskit/blob/master/CODE_OF_CONDUCT.md',
+        },
+      ],
+    },
+    {
+      title: 'Support',
+      items: [
+        {
+          label: 'GitHub',
+          url: 'https://github.com/Qiskit',
+        },
+        {
+          label: 'Stack Exchange',
+          url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
+        },
+        {
+          label: 'Documentation',
+          url: 'https://qiskit.org/documentation/',
+        },
+      ],
+    },
+  ];
 
   renderFooterSection(info: Column[]) {
     return info.map(
@@ -50,7 +90,15 @@ export class QiskitFooter extends LitElement {
         <div class="section">
           <h2 class="footer-section-title">${column.title}</h2>
           <ul>
-            ${this.renderListSections(column.items)}
+            ${column.items.map(
+              (link) => html`
+                <li>
+                  <a class="link" href="${link.url}">
+                    <span>${link.label}</span>
+                  </a>
+                </li>
+              `
+            )}
           </ul>
         </div>
       `
