@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.5.0
+
+### Minor Changes
+
+- c9f64ed: Added the footer component
+
 ## 0.4.0
 
 ### Minor Changes
