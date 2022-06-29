@@ -1,0 +1,167 @@
+/**
+ * Copyright (c) IBM, Corp. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use "@carbon/type";
+@import "@carbon/colors/scss/colors";
+@import "@carbon/layout/scss/layout";
+@import "@carbon/type/scss/type";
+
+:host {
+  margin: 0;
+  font-family: carbon--font-family("sans");
+}
+
+footer {
+  @include carbon--type-style("body-short-01");
+
+  display: block;
+}
+
+.secondary-footer {
+  display: block;
+  padding: $spacing-07 0 calc($spacing-10 + 0.5rem);
+}
+
+.main-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: $spacing-07 0;
+  padding-right: $spacing-08;
+  padding-left: $spacing-08;
+  background-color: $cool-gray-10;
+}
+
+.app-logo {
+  flex: 1.5 9.375rem;
+  flex-basis: 0;
+  margin-right: auto;
+  font-family: carbon--font-family("sans");
+  fill: $cool-gray-60;
+
+  svg {
+    height: 2rem;
+  }
+
+  path {
+    background-color: $cool-gray-60;
+    color: $cool-gray-60;
+    fill: $cool-gray-60;
+  }
+}
+
+.footer-section-title {
+  @include carbon--type-style("productive-heading-02");
+
+  display: block;
+  margin-bottom: $spacing-06;
+  color: $cool-gray-60;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.link {
+  @include type.type-style("legal-01");
+
+  display: inline-block;
+  width: 100%;
+  padding-bottom: $spacing-03;
+  color: $cool-gray-60;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.social-media {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 1fr;
+  grid-gap: $spacing-03 $spacing-05;
+  gap: $spacing-03 $spacing-05;
+  justify-items: start;
+
+  svg {
+    color: $cool-gray-60;
+  }
+
+  a {
+    padding-bottom: $spacing-03;
+    cursor: pointer;
+  }
+}
+
+.section {
+  flex: 1;
+  padding-right: $spacing-05;
+  padding-left: $spacing-05;
+  font: inherit;
+  font-size: inherit;
+  font-size: 100%;
+}
+
+.page-footer-secondary {
+  display: flex;
+  justify-content: space-between;
+  padding-right: $spacing-08;
+  padding-left: $spacing-08;
+  background-color: $carbon--white-0;
+
+  .caption {
+    @include type.type-style("label-01");
+
+    color: $cool-gray-80;
+  }
+
+  .page-footer-secondary-links {
+    padding-left: $spacing-08;
+  }
+
+  a {
+    @include type.type-style("label-01");
+
+    margin-bottom: $spacing-05;
+    margin-left: $spacing-07;
+    color: $cool-gray-60;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+@include carbon--breakpoint-down("md") {
+  .app-logo {
+    flex: 31.25rem;
+    height: 2rem;
+    margin-bottom: 5%;
+    padding-left: $spacing-03;
+  }
+
+  .page-footer-secondary-links {
+    display: flex;
+    flex-basis: 0;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin-bottom: $spacing-05;
+    padding-left: 0;
+  }
+
+  .section:last-child {
+    flex: 31.25rem;
+  }
+}
