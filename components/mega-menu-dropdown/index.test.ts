@@ -8,7 +8,7 @@
 import { fixture, expect } from '@open-wc/testing';
 import { html } from 'lit/static-html.js';
 
-import { tripleColumnMultiBlock } from './mockData.js';
+import { tripleColumnMultiBlock } from './mockData.test.js';
 
 import './index.js';
 

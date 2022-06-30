@@ -13,7 +13,7 @@ import {
   singleColumn,
   tripleColumn,
   tripleColumnMultiBlock,
-} from './mockData.js';
+} from './mockData.test.js';
 
 export default {
   title: 'MegaMenuDropdown',
