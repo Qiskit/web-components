@@ -12,23 +12,22 @@ import { tripleColumnMultiBlock } from './mockData.test.js';
 
 import './index.js';
 
+async function mmdFixture() {
+  return await fixture(
+    html`<qiskit-mega-menu-dropdown
+      placeholder="Browse all content"
+      .content="${tripleColumnMultiBlock}"
+    ></qiskit-mega-menu-dropdown>`
+  );
+}
+
 describe('mega menu dropdown', () => {
   it('passes accessibility test', async () => {
-    const el = await fixture(
-      html`<qiskit-mega-menu-dropdown
-        placeholder="Browse all content"
-        .content="${tripleColumnMultiBlock}"
-      ></qiskit-mega-menu-dropdown>`
-    );
+    const el = await mmdFixture();
     await expect(el).to.be.accessible();
   });
   it('can be opened and closed', async () => {
-    const el: HTMLElement = await fixture(
-      html`<qiskit-mega-menu-dropdown
-        placeholder="Browse all content"
-        .content="${tripleColumnMultiBlock}"
-      ></qiskit-mega-menu-dropdown>`
-    );
+    const el = await mmdFixture();
 
     if (!el.shadowRoot) {
       expect.fail('Cannot find shadow root');
@@ -54,12 +53,7 @@ describe('mega menu dropdown', () => {
   });
 
   it('should show empty view', async () => {
-    const el: HTMLElement = await fixture(
-      html`<qiskit-mega-menu-dropdown
-        placeholder="Browse all content"
-        .content="${tripleColumnMultiBlock}"
-      ></qiskit-mega-menu-dropdown>`
-    );
+    const el = await mmdFixture();
 
     if (!el.shadowRoot) {
       expect.fail('Cannot find shadowRoot');
