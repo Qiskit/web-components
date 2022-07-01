@@ -117,6 +117,14 @@ export class QiskitNavbar extends LitElement {
             location: 'menu',
           },
         },
+        {
+          label: 'Ecosystem',
+          url: '/ecosystem',
+          segment: {
+            cta: 'ecosystem',
+            location: 'menu',
+          },
+        },
       ],
     },
     {
