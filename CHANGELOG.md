@@ -1,5 +1,16 @@
 # @qiskit/web-components
 
+## 0.6.0
+
+### Minor Changes
+
+- 3e29a65: Adds ecosystem link to the top menu
+
+### Patch Changes
+
+- 2f25621: Added a11y and a11y-test to the mega menu dropdown
+- 329d988: Added test to mmd component
+
 ## 0.5.0
 
 ### Minor Changes
