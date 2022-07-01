@@ -138,7 +138,11 @@ export class QiskitMegaMenuDropdown extends LitElement {
             @focus=${this._onShowContent}
             @keyup=${this._onTextOnTheFilterChanged}
           />
-          <button class="filter__button" @click="${this._onSwitchShowContent}">
+          <button
+            class="filter__button"
+            aria-label="display or hide content"
+            @click="${this._onSwitchShowContent}"
+          >
             ${chevronDown({ class: 'filter__icon' })}
           </button>
         </div>
