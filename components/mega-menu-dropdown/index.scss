@@ -118,7 +118,7 @@
         column-count: 1;
       }
 
-      column-count: min(var(--elements-count, 3), 3);
+      columns: min(var(--elements-count, 3), 3) 11rem;
     }
   }
 
