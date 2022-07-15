@@ -3,7 +3,7 @@
 ## Example usage
 
 ```javascript
-import '@qiskit/web-components/mega-menu-dropdown';
+import '@qiskit/web-components/components/mega-menu-dropdown';
 const content = [
   {
     title: 'Lorem Ipsum',

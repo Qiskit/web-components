@@ -3,7 +3,7 @@
 ## Example usage
 
 ```javascript
-import '@qiskit/web-components/banner';
+import '@qiskit/web-components/components/banner';
 ```
 
 ```html

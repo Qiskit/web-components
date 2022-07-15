@@ -15,7 +15,7 @@ Qiskit Components is a future-looking project to develop Qiskit design system ba
 ### Example
 
 ```javascript
-import '@qiskit/web-components/banner';
+import '@qiskit/web-components/components/banner';
 ```
 
 ```html
