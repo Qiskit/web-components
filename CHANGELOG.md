@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.6.1
+
+### Patch Changes
+
+- f9aea3c: Prevent narrow columns
+
 ## 0.6.0
 
 ### Minor Changes
