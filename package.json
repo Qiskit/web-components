@@ -11,6 +11,9 @@
     "./mega-menu-dropdown": "./components/mega-menu-dropdown/index.js",
     "./navbar": "./components/navbar/index.js"
   },
+  "engines": {
+    "npm": ">=8.3.0"
+  },
   "scripts": {
     "analyze-lit": "lit-analyzer components/**/*.ts --strict",
     "build": "tsc && rollup --config rollup.config.js",
@@ -42,6 +45,7 @@
   ],
   "dependencies": {
     "@carbon/colors": "^10.37.1",
+    "@carbon/ibmdotcom-web-components": "^1.20.0",
     "@carbon/icon-helpers": "^10.30.0",
     "@carbon/icons": "^11.3.0",
     "@carbon/layout": "^10.37.1",
@@ -99,6 +103,11 @@
     "**/*": "prettier --ignore-unknown --ignore-path .gitignore --write",
     "**/*.{js,ts}": "eslint --ignore-path .gitignore --fix",
     "components/**/*.{scss,ts}": "stylelint --ignore-path .gitignore --fix"
+  },
+  "overrides": {
+    "@carbon/ibmdotcom-web-components": {
+      "typescript": "$typescript"
+    }
   },
   "prettier": {
     "singleQuote": true
