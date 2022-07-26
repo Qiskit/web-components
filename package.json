@@ -45,7 +45,7 @@
   ],
   "dependencies": {
     "@carbon/colors": "^10.37.1",
-    "@carbon/ibmdotcom-web-components": "^1.20.0",
+    "@carbon/ibmdotcom-web-components": "^1.22.0-nightly",
     "@carbon/icon-helpers": "^10.30.0",
     "@carbon/icons": "^11.3.0",
     "@carbon/layout": "^10.37.1",
