@@ -19,58 +19,9 @@
   --qiskit-color-input-background: #{$white-0};
 }
 
-.app-mega-dropdown {
+.course-list {
   position: relative;
   font-family: carbon--font-family("sans");
-}
-
-.filter {
-  display: flex;
-  justify-content: space-between;
-  height: 2.5rem;
-  border-bottom: 1px solid var(--qiskit-color-border-highlight);
-  background-color: var(--qiskit-color-input-background);
-  color: var(--qiskit-color-text-primary);
-  fill: var(--qiskit-color-text-primary);
-
-  &__input {
-    flex: 1;
-    height: 1.5rem;
-    padding: $spacing-03;
-    border: none;
-    background-color: transparent;
-    color: inherit;
-    outline: none;
-
-    &::placeholder {
-      color: inherit;
-    }
-
-    &:focus::placeholder {
-      opacity: 0.25;
-    }
-  }
-
-  &__button {
-    border: none;
-    background: none;
-    outline: none;
-  }
-
-  &__icon {
-    flex: 0 0 1rem;
-    cursor: pointer;
-
-    & > path {
-      transition: transform 0.2s ease-in-out;
-      transform: translate(0, 0);
-    }
-  }
-
-  &:hover &__icon > path {
-    transition: transform 0.2s ease-in-out;
-    transform: translate(0, 4px);
-  }
 }
 
 .content {
@@ -166,8 +117,4 @@
       background-repeat: no-repeat;
     }
   }
-}
-
-course-list::part(text-highlight) {
-  background-color: var(--qiskit-color-text-highlight);
 }
