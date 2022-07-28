@@ -29,7 +29,7 @@
     "storybook:build": "build-storybook",
     "storybook:build:start": "web-dev-server --root-dir storybook-static --open",
     "storybook:start": "web-dev-server --config wds-storybook.config.js",
-    "test": "web-test-runner",
+    "test": "web-test-runner --coverage",
     "test:watch": "web-test-runner --watch"
   },
   "files": [
