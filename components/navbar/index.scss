@@ -32,6 +32,43 @@ $nav-item--spacing-x: $spacing-06;
     grid-template-columns: 1fr auto;
   }
 
+  @include carbon--breakpoint-down("lg") {
+    &__menu__account {
+      padding: 0 $spacing-03;
+      background-color: $carbon--white-0;
+
+      &__link {
+        padding:
+          calc($spacing-05 - $spacing-02) $spacing-03
+          calc($spacing-05 - $spacing-02) $spacing-05;
+        color: $carbon--purple-70;
+
+        svg {
+          width: $spacing-06;
+          height: $spacing-06;
+          border: calc($spacing-01 / 2) solid $carbon--purple-70;
+          fill: $carbon--purple-70;
+        }
+      }
+
+      &__tag {
+        @include carbon--type-style("body-long-02");
+
+        display: inline;
+        color: $carbon--purple-70;
+
+        a {
+          color: $carbon--purple-70;
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,6 +101,10 @@ $nav-item--spacing-x: $spacing-06;
         border-radius: 50%;
         fill: $carbon--white-0;
       }
+    }
+
+    &__tag {
+      display: none;
     }
   }
 
@@ -239,6 +280,12 @@ $nav-item--spacing-x: $spacing-06;
 
     display: flex;
     margin: 0;
+  }
+
+  &__nav-item:last-child {
+    @include carbon--breakpoint-down("lg") {
+      border-bottom: calc($spacing-01 / 2) solid $carbon--purple-70;
+    }
   }
 
   &__nav-link {
