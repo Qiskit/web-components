@@ -7,7 +7,7 @@
 
 import { html } from 'lit';
 
-import type { courseListContent } from './index.js';
+import type { CourseListContent } from './index.js';
 import './index.js';
 import {
   singleColumn,
@@ -16,11 +16,11 @@ import {
 } from './mockData.test.js';
 
 export default {
-  title: 'courseList',
+  title: 'CourseList',
 };
 
 interface Args {
-  content: courseListContent;
+  content: CourseListContent;
 }
 
 const Template = ({ content }: Args) => {

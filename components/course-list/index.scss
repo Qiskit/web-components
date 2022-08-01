@@ -15,12 +15,10 @@
   --qiskit-color-border-soft: #{$cool-gray-30};
 }
 
-.course-list {
+.content {
   position: relative;
   font-family: carbon--font-family("sans");
-}
 
-.content {
   &__block {
     display: flex;
     flex-direction: column;
