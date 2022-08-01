@@ -95,53 +95,6 @@
   background-color: var(--qiskit-color-background-primary);
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 
-  &__block {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: $spacing-05;
-    border-bottom: 1px solid var(--qiskit-color-border-soft);
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    &__title {
-      @include carbon--type-style("productive-heading-03");
-    }
-
-    &__content {
-      @include carbon--breakpoint-down(lg) {
-        column-count: min(var(--elements-count, 2), 2);
-      }
-
-      @include carbon--breakpoint-down(md) {
-        column-count: 1;
-      }
-
-      columns: min(var(--elements-count, 3), 3) 11rem;
-    }
-  }
-
-  &__group {
-    display: flex;
-    flex-direction: column;
-    margin: 0 0 $spacing-09 0;
-    break-inside: avoid;
-
-    &__link {
-      @include carbon--type-style("body-long-01");
-
-      display: block;
-      padding: $spacing-03 0 $spacing-03 0;
-      color: var(--qiskit-color-text-primary);
-      text-decoration: none;
-    }
-
-    &__title {
-      @include carbon--type-style("productive-heading-01");
-    }
-  }
-
   &-empty {
     display: flex;
     flex: 1;

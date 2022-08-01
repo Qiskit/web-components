@@ -12,11 +12,7 @@
 // TODO: Extract to a theme and improve the naming
 :host {
   --qiskit-color-text-primary: #{$cool-gray-80};
-  --qiskit-color-border-highlight: #{$purple-70};
   --qiskit-color-border-soft: #{$cool-gray-30};
-  --qiskit-color-text-highlight: #{$purple-20};
-  --qiskit-color-background-primary: #{$white-0};
-  --qiskit-color-input-background: #{$white-0};
 }
 
 .course-list {
@@ -25,27 +21,6 @@
 }
 
 .content {
-  @include carbon--breakpoint-down(md) {
-    right: 0;
-    left: 0;
-    height: 80vh;
-  }
-
-  @include carbon--breakpoint-down(lg) {
-    width: 100%;
-  }
-
-  position: absolute;
-  top: 100%;
-  overflow-x: auto;
-  overflow-y: scroll;
-  box-sizing: border-box;
-  width: 12 * 4rem;
-  height: 32rem;
-  padding: 0 $spacing-05;
-  background-color: var(--qiskit-color-background-primary);
-  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-
   &__block {
     display: flex;
     flex-direction: column;
@@ -90,31 +65,6 @@
 
     &__title {
       @include carbon--type-style("productive-heading-01");
-    }
-  }
-
-  &-empty {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    &__title {
-      @include carbon--type-style("productive-heading-05");
-    }
-
-    &__text {
-      @include carbon--type-style("body-short-01");
-    }
-
-    > svg {
-      width: 16rem;
-      max-width: 100%;
-      height: 18rem;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
     }
   }
 }
