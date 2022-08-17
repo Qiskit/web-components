@@ -47,9 +47,9 @@
     "@carbon/layout": "^10.37.1",
     "@carbon/type": "^10.44.0",
     "carbon-web-components": "^1.21.0",
-    "lit": "^2.2.8",
+    "lit": "^2.3.0",
     "lit-element": "^3.2.2",
-    "lit-html": "^2.2.7",
+    "lit-html": "^2.3.0",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
