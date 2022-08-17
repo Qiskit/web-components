@@ -9,7 +9,6 @@
 @import "@carbon/layout/scss/layout";
 @import "@carbon/type/scss/styles";
 
-// TODO: Extract to a theme and improve the naming
 :host {
   --qiskit-color-text-primary: #{$cool-gray-80};
   --qiskit-color-border-soft: #{$cool-gray-30};

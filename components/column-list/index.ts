@@ -10,34 +10,34 @@ interface NavLink {
   url: string;
 }
 
-interface CourseListGroup {
+interface ColumnListGroup {
   title: NavLink;
   content: NavLink[];
 }
 
-interface CourseListBlock {
+interface ColumnListBlock {
   title: string;
-  content: CourseListGroup[];
+  content: ColumnListGroup[];
 }
 
-export type CourseListContent = CourseListBlock[];
+export type ColumnListContent = ColumnListBlock[];
 
 type renderContentElementFunction = (
   element: NavLink
 ) => TemplateResult | string;
 
-@customElement('course-list')
-export class CourseList extends LitElement {
+@customElement('column-list')
+export class ColumnList extends LitElement {
   static styles = [styles];
 
   @property({ type: Array })
-  content: CourseListContent = [];
+  content: ColumnListContent = [];
 
   @property()
   renderContentElement: renderContentElementFunction = (element) =>
     element.label;
 
-  private groupView(group: CourseListGroup) {
+  private groupView(group: ColumnListGroup) {
     return html`
       <div class="content__group">
         <a

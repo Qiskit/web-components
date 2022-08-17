@@ -7,7 +7,7 @@
 
 import { html } from 'lit';
 
-import type { CourseListContent } from './index.js';
+import type { ColumnListContent } from './index.js';
 import './index.js';
 import {
   singleColumn,
@@ -16,15 +16,15 @@ import {
 } from './mockData.test.js';
 
 export default {
-  title: 'CourseList',
+  title: 'ColumnList',
 };
 
 interface Args {
-  content: CourseListContent;
+  content: ColumnListContent;
 }
 
 const Template = ({ content }: Args) => {
-  return html`<course-list .content="${content}"></course-list>`;
+  return html`<column-list .content="${content}"></column-list>`;
 };
 
 type Story = typeof Template & { args?: { [attr: string]: unknown } };
