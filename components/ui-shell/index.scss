@@ -1,0 +1,121 @@
+// @import "@carbon/colors/scss/colors";
+// @import "@carbon/layout/scss/layout";
+@import "@carbon/type/scss/type";
+
+// These are needed to pull in default carbon component styles
+@import "carbon-web-components/scss/components/ui-shell/header";
+@import "carbon-web-components/scss/components/ui-shell/side-nav";
+
+// These are needed to apply theming
+@import "carbon-components/scss/globals/scss/css--helpers";
+@import "carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins";
+
+$q: "qiskit";
+$prefix: "bx";
+
+:host {
+  --header-height: 3.5rem;
+
+  @include carbon--theme($carbon--theme--white, true);
+
+  font-family: carbon--font-family("sans");
+}
+
+.#{$q}-header {
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+  border-color: var(--cds-border-subtle);
+  background-color: var(--cds-ui-background);
+  color: var(--cds-text-primary);
+}
+
+:host(#{$q}-header-nav) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-header-nav);
+
+  .#{$prefix}-ce--header__divider {
+    display: none;
+  }
+}
+
+:host(#{$q}-header-menu) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-header-menu);
+
+  .#{$prefix}--header__menu-title {
+    background-color: var(--cds-ui-background);
+    color: var(--cds-text-primary);
+
+    &[aria-expanded="true"] {
+      background-color: var(--cds-ui-01);
+    }
+  }
+}
+
+:host(#{$q}-header-menu-item) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend .#{$prefix}--header__menu-item;
+
+  height: 3rem;
+  background-color: var(--cds-ui-01);
+  color: var(--cds-text-primary);
+
+  a.#{$prefix}--header__menu-item {
+    background-color: var(--cds-ui-01);
+  }
+}
+
+:host(#{$q}-header-menu-button) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-header-menu-button);
+
+  .#{$prefix}--header__menu-toggle,
+  .#{$prefix}--header__menu-trigger {
+    border: none;
+
+    > svg {
+      fill: var(--cds-text-primary);
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: var(--cds-ui-01);
+    }
+  }
+}
+
+a.#{$prefix}--header__name {
+  color: var(--cds-text-placeholder);
+}
+
+.#{$prefix}--header__menu-arrow {
+  fill: var(--cds-text-primary) !important;
+}
+
+a.#{$prefix}--header__menu-item {
+  background: var(--cds-ui-background);
+  color: var(--cds-text-primary);
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: var(--cds-ui-background);
+    color: var(--cds-text-primary);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border-color: var(--cds-border-subtle);
+  }
+}
+
+.#{$q}-side-nav {
+  top: var(--header-height);
+  right: 0;
+  left: auto;
+}
