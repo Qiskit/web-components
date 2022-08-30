@@ -1,5 +1,12 @@
 # @qiskit/web-components
 
+## 0.7.0
+
+### Minor Changes
+
+- 53e5328: Update Lit dependencies
+  Important: Lit and its underlying libraries can now be imported directly from Node without crashing.
+
 ## 0.6.1
 
 ### Patch Changes
