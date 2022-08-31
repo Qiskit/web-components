@@ -43,11 +43,11 @@ export class QiskitUIShell extends LitElement {
       children: [
         {
           label: 'Events',
-          url: '',
+          url: 'https://qiskit.org/events/',
         },
         {
           label: 'Advocates',
-          url: '',
+          url: 'https://qiskit.org/advocates/',
         },
       ],
     },
@@ -83,59 +83,26 @@ export class QiskitUIShell extends LitElement {
         class="qiskit-side-nav"
       >
         <bx-side-nav-items>
-          <bx-side-nav-menu title="L0 menu">
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-          </bx-side-nav-menu>
-          <bx-side-nav-menu title="L0 menu">
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-            <bx-side-nav-menu-item
-              active
-              aria-current="page"
-              href="www.ibm.com"
-            >
-              L0 menu item
-            </bx-side-nav-menu-item>
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-          </bx-side-nav-menu>
-          <bx-side-nav-menu title="L0 menu">
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-            <bx-side-nav-menu-item href="www.ibm.com">
-              L0 menu item
-            </bx-side-nav-menu-item>
-          </bx-side-nav-menu>
-          <bx-side-nav-divider></bx-side-nav-divider>
-          <bx-side-nav-link href="javascript:void(0)">L0 link</bx-side-nav-link>
-          <bx-side-nav-link href="javascript:void(0)">L0 link</bx-side-nav-link>
+          ${this._NAV_ITEMS.map((item) => {
+            if (item?.children) {
+              return this._getSideNavMenu(item);
+            } else {
+              return this._getSideNavLink(item);
+            }
+          })}
         </bx-side-nav-items>
       </bx-side-nav>
     `;
   }
 
   private _getHeaderNavItem(item: NavItem) {
-    return html` <qiskit-header-nav-item href="${item?.url}">
+    return html`<qiskit-header-nav-item href="${item?.url}">
       ${item?.label}
     </qiskit-header-nav-item>`;
   }
 
   private _getHeaderMenu(menu: NavItem) {
-    return html` <qiskit-header-menu
+    return html`<qiskit-header-menu
       menu-label="${menu?.label}"
       trigger-content="${menu?.label}"
     >
@@ -144,9 +111,29 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getHeaderMenuItem(item: NavItem) {
-    return html` <qiskit-header-menu-item href="${item?.url}">
+    return html`<qiskit-header-menu-item href="${item?.url}">
       ${item?.label}
     </qiskit-header-menu-item>`;
+  }
+
+  private _getSideNavLink(item: NavItem) {
+    return html`<bx-side-nav-link href="${item?.url}">
+        ${item?.label}
+      </bx-side-nav-link>
+      <bx-side-nav-divider></bx-side-nav-divider>`;
+  }
+
+  private _getSideNavMenu(menu: NavItem) {
+    return html`<bx-side-nav-menu title="${menu?.label}">
+        ${menu?.children?.map((item) => this._getSideNavMenuItem(item))}
+      </bx-side-nav-menu>
+      <bx-side-nav-divider></bx-side-nav-divider>`;
+  }
+
+  private _getSideNavMenuItem(item: NavItem) {
+    return html`<bx-side-nav-menu-item href="${item?.url}">
+      ${item?.label}
+    </bx-side-nav-menu-item>`;
   }
 }
 
