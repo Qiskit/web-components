@@ -6,8 +6,8 @@
  */
 
 import { LitElement, html } from 'lit';
+import type { TemplateResult } from 'lit';
 import { property, customElement, query, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
 
@@ -61,54 +61,13 @@ export class QiskitMegaMenuDropdown extends LitElement {
   @state()
   protected _filteredContent!: QiskitMegaMenuDropdownContent;
 
-  private contentView(content: QiskitMegaMenuDropdownContent) {
-    return html`
-      <nav class="content">
-        ${map(
-          content,
-          (block) => html`
-            <div class="content__block">
-              <h1 class="content__block__title">${block.title}</h1>
-              <div
-                class="content__block__content"
-                style="--elements-count: ${block.content.length}"
-              >
-                ${map(block.content, (group) => this.groupView(group))}
-              </div>
-            </div>
-          `
-        )}
-      </nav>
-    `;
-  }
-
-  private groupView(group: QiskitMegaMenuDropdownGroup) {
-    return html`
-      <div class="content__group">
-        <a
-          class="content__group__title content__group__link"
-          href=${group.title.url}
-        >
-          ${this.highlightedText(group.title.label)}
-        </a>
-        ${map(
-          group.content,
-          (groupLink) => html`
-            <a class="content__group__link" href=${groupLink.url}>
-              ${this.highlightedText(groupLink.label)}
-            </a>
-          `
-        )}
-      </div>
-    `;
-  }
-
-  private highlightedText(label: string) {
+  private highlightedText(element: NavLink): TemplateResult {
+    const label = element.label;
     return html`
       ${map(
         this._splitTextInHighlightParts(label),
         (part) => html`<span
-          class="${classMap({ 'text-highlight': part.isHighlighted })}"
+          part="${part.isHighlighted ? 'text-highlight' : ''}"
           >${part.text}</span
         >`
       )}
@@ -149,7 +108,12 @@ export class QiskitMegaMenuDropdown extends LitElement {
         ${when(this._showContent, () =>
           this._isFilteredContentEmpty
             ? this.emptyContentView()
-            : this.contentView(this._filteredContent)
+            : html`<column-list
+                class="content"
+                .content=${this._filteredContent}
+                .renderContentElement=${(el: NavLink) =>
+                  this.highlightedText(el)}
+              ></column-list>`
         )}
       </article>
     `;
