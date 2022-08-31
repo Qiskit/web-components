@@ -13,41 +13,68 @@ import './header/index.js';
 
 import styles from './index.scss';
 
+interface NavItem {
+  label: string;
+  url?: string;
+  children?: NavItem[];
+  segment?: SegmentData;
+}
+
+interface SegmentData {
+  cta: string;
+  location: string;
+}
+
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
   static styles = [styles];
+
+  private _NAV_ITEMS: NavItem[] = [
+    {
+      label: 'Overview',
+      url: 'https://qiskit.org/overview/',
+    },
+    {
+      label: 'Learn',
+      url: 'https://qiskit.org/learn/',
+    },
+    {
+      label: 'Community',
+      children: [
+        {
+          label: 'Events',
+          url: '',
+        },
+        {
+          label: 'Advocates',
+          url: '',
+        },
+      ],
+    },
+    {
+      label: 'Documentation',
+      url: 'https://qiskit.org/documentation/',
+    },
+  ];
 
   render() {
     return html`
       <bx-header aria-label="Qiskit" class="qiskit-header">
         <qiskit-header-name href="javascript:void 0">Qiskit</qiskit-header-name>
         <qiskit-header-nav menu-bar-label="Qikskit">
-          <qiskit-header-nav-item href="https://qiskit.org/overview/">
-            Overview
-          </qiskit-header-nav-item>
-          <qiskit-header-nav-item href="javascript:void 0">
-            Learn
-          </qiskit-header-nav-item>
-          <qiskit-header-menu
-            menu-label="Community"
-            trigger-content="Community"
-          >
-            <qiskit-header-menu-item href="javascript:void 0">
-              Events
-            </qiskit-header-menu-item>
-            <qiskit-header-menu-item href="javascript:void 0">
-              Advocates
-            </qiskit-header-menu-item>
-          </qiskit-header-menu>
-          <qiskit-header-nav-item href="javascript:void 0">
-            Documentation
-          </qiskit-header-nav-item>
+          ${this._NAV_ITEMS.map((item) => {
+            if (item.children) {
+              return this._getHeaderMenu(item);
+            } else {
+              return this._getHeaderNavItem(item);
+            }
+          })}
         </qiskit-header-nav>
-
         <qiskit-header-menu-button
           button-label-active="Close menu"
           button-label-inactive="Open menu"
-        ></qiskit-header-menu-button>
+        >
+        </qiskit-header-menu-button>
       </bx-header>
 
       <bx-side-nav
@@ -99,6 +126,27 @@ export class QiskitUIShell extends LitElement {
         </bx-side-nav-items>
       </bx-side-nav>
     `;
+  }
+
+  private _getHeaderNavItem(item: NavItem) {
+    return html` <qiskit-header-nav-item href="${item?.url}">
+      ${item?.label}
+    </qiskit-header-nav-item>`;
+  }
+
+  private _getHeaderMenu(menu: NavItem) {
+    return html` <qiskit-header-menu
+      menu-label="${menu?.label}"
+      trigger-content="${menu?.label}"
+    >
+      ${menu?.children?.map((item) => this._getHeaderMenuItem(item))}
+    </qiskit-header-menu>`;
+  }
+
+  private _getHeaderMenuItem(item: NavItem) {
+    return html` <qiskit-header-menu-item href="${item?.url}">
+      ${item?.label}
+    </qiskit-header-menu-item>`;
   }
 }
 
