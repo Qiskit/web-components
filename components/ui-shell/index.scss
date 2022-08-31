@@ -1,10 +1,7 @@
-// @import "@carbon/colors/scss/colors";
-// @import "@carbon/layout/scss/layout";
 @import "@carbon/type/scss/type";
+@import "@carbon/colors/scss/colors";
 
-// These are needed to pull in default carbon component styles
-@import "carbon-components/scss/components/ui-shell/header";
-@import "carbon-components/scss/components/ui-shell/side-nav";
+// These are needed to extend default carbon component styles
 @import "carbon-web-components/scss/components/ui-shell/header";
 @import "carbon-web-components/scss/components/ui-shell/side-nav";
 
@@ -30,6 +27,31 @@ $prefix: "bx";
   border-color: var(--cds-border-subtle);
   background-color: var(--cds-ui-background);
   color: var(--cds-text-secondary);
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  svg.menu__account__icon {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: $spacing-07;
+    height: $spacing-07;
+    padding-top: calc($spacing-01 / 2);
+    border: $spacing-01 solid $carbon--white-0;
+    border-radius: 50%;
+    fill: $carbon--white-0;
+  }
+}
+
+:host(#{$q}-header-name) {
+  a.#{$prefix}--header__name {
+    width: 140px;
+    min-height: var(--header-height);
+    color: var(--cds-ui-04);
+    filter:
+      invert(45%) sepia(16%) saturate(225%) hue-rotate(169deg)
+      brightness(91%) contrast(85%);
+    fill: var(--cds-ui-04);
+  }
 }
 
 :host(#{$q}-header-nav) {
@@ -41,9 +63,20 @@ $prefix: "bx";
   }
 }
 
+:host(#{$q}-header-nav-item.#{$q}-user-accout-icon) {
+  a {
+    background-color: $carbon--purple-70;
+    color: var(--cds-ui-background);
+  }
+}
+
 :host(#{$q}-header-menu) {
   /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
   @extend :host(#{$prefix}-header-menu);
+
+  .#{$prefix}--header__menu-arrow {
+    fill: var(--cds-text-secondary) !important;
+  }
 
   .#{$prefix}--header__menu-title {
     background-color: var(--cds-ui-background);
@@ -74,6 +107,8 @@ $prefix: "bx";
 
   .#{$prefix}--header__menu-toggle,
   .#{$prefix}--header__menu-trigger {
+    width: var(--header-height);
+    height: var(--header-height);
     border: none;
 
     > svg {
@@ -86,14 +121,6 @@ $prefix: "bx";
       background-color: var(--cds-ui-01);
     }
   }
-}
-
-a.#{$prefix}--header__name {
-  color: var(--cds-text-placeholder);
-}
-
-.#{$prefix}--header__menu-arrow {
-  fill: var(--cds-text-secondary) !important;
 }
 
 a.#{$prefix}--header__menu-item {
@@ -122,6 +149,30 @@ a.#{$prefix}--header__menu-item {
   top: var(--header-height);
   right: 0;
   left: auto;
+  box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 25%);
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  svg.menu__account__icon {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: $spacing-07;
+    height: $spacing-07;
+    padding-top: calc($spacing-01 / 2);
+    border: $spacing-01 solid $carbon--white-0;
+    border-radius: 50%;
+    fill: var(--cds-ui-background);
+    fill: $carbon--white-0;
+  }
+}
+
+:host(#{$q}-side-nav-link.#{$q}-user-accout-icon) {
+  .#{$prefix}--side-nav__link:hover,
+  .#{$prefix}--side-nav__link:focus,
+  .#{$prefix}--side-nav__link {
+    height: 3rem;
+    background-color: $carbon--purple-70;
+  }
 }
 
 :host(#{$q}-side-nav-link) {
@@ -133,6 +184,8 @@ a.#{$prefix}--header__menu-item {
   }
 
   .#{$prefix}--side-nav__link {
+    min-height: 2.8rem;
+
     &:hover {
       background-color: var(--cds-ui-background);
       text-decoration: underline;
@@ -151,6 +204,8 @@ a.#{$prefix}--header__menu-item {
 
   .#{$prefix}--side-nav__submenu {
     @include carbon--type-style("body-long-02");
+
+    min-height: 2.8rem;
 
     &:hover {
       background-color: var(--cds-ui-background);
@@ -173,6 +228,8 @@ a.#{$prefix}--header__menu-item {
   }
 
   .#{$prefix}--side-nav__link {
+    min-height: 2.8rem !important;
+
     &:hover {
       background-color: var(--cds-ui-background);
       text-decoration: underline;

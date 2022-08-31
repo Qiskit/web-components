@@ -6,12 +6,14 @@
  */
 
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import 'carbon-web-components/es/components/ui-shell/index.js';
 import './header/index.js';
 import './side-nav/index.js';
 
+import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
+import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
 
 interface NavItem {
@@ -29,6 +31,9 @@ interface SegmentData {
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
   static styles = [styles];
+
+  @property({ type: Boolean })
+  showAccountIcon = false;
 
   private _NAV_ITEMS: NavItem[] = [
     {
@@ -61,7 +66,9 @@ export class QiskitUIShell extends LitElement {
   render() {
     return html`
       <bx-header aria-label="Qiskit" class="qiskit-header">
-        <qiskit-header-name href="javascript:void 0">Qiskit</qiskit-header-name>
+        <qiskit-header-name href="https://qiskit.org/">
+          ${qiskitLogoIcon}
+        </qiskit-header-name>
         <qiskit-header-nav menu-bar-label="Qikskit">
           ${this._NAV_ITEMS.map((item) => {
             if (item.children) {
@@ -70,6 +77,7 @@ export class QiskitUIShell extends LitElement {
               return this._getHeaderNavItem(item);
             }
           })}
+          ${this.showAccountIcon ? this._getAccountHeaderNavItem() : null}
         </qiskit-header-nav>
         <qiskit-header-menu-button
           button-label-active="Close menu"
@@ -91,6 +99,7 @@ export class QiskitUIShell extends LitElement {
               return this._getSideNavLink(item);
             }
           })}
+          ${this.showAccountIcon ? this._getAccountSideNavLink() : null}
         </bx-side-nav-items>
       </bx-side-nav>
     `;
@@ -135,6 +144,24 @@ export class QiskitUIShell extends LitElement {
     return html`<qiskit-side-nav-menu-item href="${item?.url}">
       ${item?.label}
     </qiskit-side-nav-menu-item>`;
+  }
+
+  private _getAccountHeaderNavItem() {
+    return html`<qiskit-header-nav-item
+      href="https://learn.qiskit.org/account/"
+      class="qiskit-user-accout-icon"
+    >
+      ${userIcon}
+    </qiskit-header-nav-item>`;
+  }
+
+  private _getAccountSideNavLink() {
+    return html`<qiskit-side-nav-link
+      href="https://learn.qiskit.org/account/"
+      class="qiskit-user-accout-icon"
+    >
+      ${userIcon}
+    </qiskit-side-nav-link>`;
   }
 }
 
