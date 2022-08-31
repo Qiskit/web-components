@@ -3,6 +3,8 @@
 @import "@carbon/type/scss/type";
 
 // These are needed to pull in default carbon component styles
+@import "carbon-components/scss/components/ui-shell/header";
+@import "carbon-components/scss/components/ui-shell/side-nav";
 @import "carbon-web-components/scss/components/ui-shell/header";
 @import "carbon-web-components/scss/components/ui-shell/side-nav";
 
@@ -27,7 +29,7 @@ $prefix: "bx";
   height: var(--header-height);
   border-color: var(--cds-border-subtle);
   background-color: var(--cds-ui-background);
-  color: var(--cds-text-primary);
+  color: var(--cds-text-secondary);
 }
 
 :host(#{$q}-header-nav) {
@@ -45,7 +47,7 @@ $prefix: "bx";
 
   .#{$prefix}--header__menu-title {
     background-color: var(--cds-ui-background);
-    color: var(--cds-text-primary);
+    color: var(--cds-text-secondary);
 
     &[aria-expanded="true"] {
       background-color: var(--cds-ui-01);
@@ -59,7 +61,7 @@ $prefix: "bx";
 
   height: 3rem;
   background-color: var(--cds-ui-01);
-  color: var(--cds-text-primary);
+  color: var(--cds-text-secondary);
 
   a.#{$prefix}--header__menu-item {
     background-color: var(--cds-ui-01);
@@ -75,7 +77,7 @@ $prefix: "bx";
     border: none;
 
     > svg {
-      fill: var(--cds-text-primary);
+      fill: var(--cds-text-secondary);
     }
 
     &:focus,
@@ -91,18 +93,20 @@ a.#{$prefix}--header__name {
 }
 
 .#{$prefix}--header__menu-arrow {
-  fill: var(--cds-text-primary) !important;
+  fill: var(--cds-text-secondary) !important;
 }
 
 a.#{$prefix}--header__menu-item {
+  @include carbon--type-style("body-long-02");
+
   background: var(--cds-ui-background);
-  color: var(--cds-text-primary);
+  color: var(--cds-text-secondary);
 
   &:active,
   &:focus,
   &:hover {
     background-color: var(--cds-ui-background);
-    color: var(--cds-text-primary);
+    color: var(--cds-text-secondary);
   }
 
   &:hover {
@@ -118,4 +122,65 @@ a.#{$prefix}--header__menu-item {
   top: var(--header-height);
   right: 0;
   left: auto;
+}
+
+:host(#{$q}-side-nav-link) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-side-nav-link);
+
+  .#{$prefix}--side-nav__link-text {
+    @include carbon--type-style("body-long-02");
+  }
+
+  .#{$prefix}--side-nav__link {
+    &:hover {
+      background-color: var(--cds-ui-background);
+      text-decoration: underline;
+      text-decoration-color: var(--cds-text-secondary);
+    }
+
+    &:focus {
+      outline-color: var(--cds-border-subtle);
+    }
+  }
+}
+
+:host(#{$q}-side-nav-menu) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-side-nav-menu);
+
+  .#{$prefix}--side-nav__submenu {
+    @include carbon--type-style("body-long-02");
+
+    &:hover {
+      background-color: var(--cds-ui-background);
+      text-decoration: underline;
+      text-decoration-color: var(--cds-text-secondary);
+    }
+
+    &:focus {
+      outline-color: var(--cds-border-subtle);
+    }
+  }
+}
+
+:host(#{$q}-side-nav-menu-item) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-side-nav-menu-item);
+
+  .#{$prefix}--side-nav__link-text {
+    @include carbon--type-style("body-long-02");
+  }
+
+  .#{$prefix}--side-nav__link {
+    &:hover {
+      background-color: var(--cds-ui-background);
+      text-decoration: underline;
+      text-decoration-color: var(--cds-text-secondary);
+    }
+
+    &:focus {
+      outline-color: var(--cds-border-subtle);
+    }
+  }
 }

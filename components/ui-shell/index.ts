@@ -10,6 +10,7 @@ import { customElement } from 'lit/decorators.js';
 
 import 'carbon-web-components/es/components/ui-shell/index.js';
 import './header/index.js';
+import './side-nav/index.js';
 
 import styles from './index.scss';
 
@@ -117,23 +118,23 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getSideNavLink(item: NavItem) {
-    return html`<bx-side-nav-link href="${item?.url}">
+    return html`<qiskit-side-nav-link href="${item?.url}">
         ${item?.label}
-      </bx-side-nav-link>
+      </qiskit-side-nav-link>
       <bx-side-nav-divider></bx-side-nav-divider>`;
   }
 
   private _getSideNavMenu(menu: NavItem) {
-    return html`<bx-side-nav-menu title="${menu?.label}">
+    return html`<qiskit-side-nav-menu title="${menu?.label}">
         ${menu?.children?.map((item) => this._getSideNavMenuItem(item))}
-      </bx-side-nav-menu>
+      </qiskit-side-nav-menu>
       <bx-side-nav-divider></bx-side-nav-divider>`;
   }
 
   private _getSideNavMenuItem(item: NavItem) {
-    return html`<bx-side-nav-menu-item href="${item?.url}">
+    return html`<qiskit-side-nav-menu-item href="${item?.url}">
       ${item?.label}
-    </bx-side-nav-menu-item>`;
+    </qiskit-side-nav-menu-item>`;
   }
 }
 
