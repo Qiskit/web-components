@@ -1,4 +1,4 @@
-# Footer
+# UI shell
 
 ## Example usage
 
