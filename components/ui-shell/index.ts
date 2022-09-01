@@ -16,23 +16,7 @@ import './side-nav/index.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
-
-interface NavItem {
-  label: string;
-  url?: string;
-  children?: NavItem[];
-  segment?: SegmentData;
-}
-
-interface SegmentData {
-  cta: string;
-  location: string;
-}
-
-enum Variant {
-  DEFAULT = '',
-  WITH_ACCOUNT = 'with-account',
-}
+import { NavItem, TopLevelNavItem, Variant, NAV_ITEMS } from './settings.js';
 
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
@@ -41,33 +25,7 @@ export class QiskitUIShell extends LitElement {
   @property({ type: String })
   variant: Variant = Variant.DEFAULT;
 
-  private _NAV_ITEMS: NavItem[] = [
-    {
-      label: 'Overview',
-      url: 'https://qiskit.org/overview/',
-    },
-    {
-      label: 'Learn',
-      url: 'https://qiskit.org/learn/',
-    },
-    {
-      label: 'Community',
-      children: [
-        {
-          label: 'Events',
-          url: 'https://qiskit.org/events/',
-        },
-        {
-          label: 'Advocates',
-          url: 'https://qiskit.org/advocates/',
-        },
-      ],
-    },
-    {
-      label: 'Documentation',
-      url: 'https://qiskit.org/documentation/',
-    },
-  ];
+  private _NAV_ITEMS = NAV_ITEMS;
 
   render() {
     return html`
@@ -101,10 +59,10 @@ export class QiskitUIShell extends LitElement {
       >
         <bx-side-nav-items>
           ${this._NAV_ITEMS.map((item) => {
-            if (item?.children) {
-              return this._getSideNavMenu(item);
-            } else {
+            if (item?.url) {
               return this._getSideNavLink(item);
+            } else {
+              return this._getSideNavMenu(item);
             }
           })}
           ${this.variant === Variant.WITH_ACCOUNT
@@ -121,8 +79,17 @@ export class QiskitUIShell extends LitElement {
     </qiskit-header-nav-item>`;
   }
 
-  private _getHeaderMenu(menu: NavItem) {
-    return html`<qiskit-header-menu
+  private _getHeaderMenu(menu: TopLevelNavItem) {
+    const isMegaMenu = !!menu?.isMegaMenu;
+    if (isMegaMenu) {
+      return html` <qiskit-header-menu-mega
+        menu-label="${menu?.label}"
+        trigger-content="${menu?.label}"
+      >
+        ${menu?.children?.map((item) => this._getHeaderMenuItemMega(item))}
+      </qiskit-header-menu-mega>`;
+    }
+    return html` <qiskit-header-menu
       menu-label="${menu?.label}"
       trigger-content="${menu?.label}"
     >
@@ -134,6 +101,11 @@ export class QiskitUIShell extends LitElement {
     return html`<qiskit-header-menu-item href="${ifDefined(item?.url)}">
       ${item?.label}
     </qiskit-header-menu-item>`;
+  }
+
+  private _getHeaderMenuItemMega(item: NavItem) {
+    return html`<qiskit-header-menu-item-mega .item="${item}">
+    </qiskit-header-menu-item-mega>`;
   }
 
   private _getSideNavLink(item: NavItem) {
