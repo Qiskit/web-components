@@ -33,18 +33,17 @@ $prefix: "bx";
     display: block;
     overflow: hidden;
     box-sizing: border-box;
-    width: $spacing-07;
-    height: $spacing-07;
-    padding-top: calc($spacing-01 / 2);
-    border: $spacing-01 solid $carbon--white-0;
+    width: 2rem;
+    height: 2rem;
+    border: 0.125rem solid var(--cds-icon-on-color);
     border-radius: 50%;
-    fill: $carbon--white-0;
+    fill: var(--cds-icon-on-color);
   }
 }
 
 :host(#{$q}-header-name) {
   a.#{$prefix}--header__name {
-    width: 140px;
+    width: 8.75rem;
     min-height: var(--header-height);
     color: var(--cds-ui-04);
     filter:
@@ -156,13 +155,12 @@ a.#{$prefix}--header__menu-item {
     display: block;
     overflow: hidden;
     box-sizing: border-box;
-    width: $spacing-07;
-    height: $spacing-07;
-    padding-top: calc($spacing-01 / 2);
-    border: $spacing-01 solid $carbon--white-0;
+    width: 2rem;
+    height: 2rem;
+    border: 0.125rem solid var(--cds-icon-on-color);
     border-radius: 50%;
     fill: var(--cds-ui-background);
-    fill: $carbon--white-0;
+    fill: var(--cds-icon-on-color);
   }
 }
 
