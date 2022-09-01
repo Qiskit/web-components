@@ -16,4 +16,4 @@ export default {
 export const Default = () => html`<qiskit-ui-shell></qiskit-ui-shell>`;
 
 export const WithAccount = () =>
-  html`<qiskit-ui-shell showAccountIcon="true"></qiskit-ui-shell>`;
+  html`<qiskit-ui-shell variant="with-account"></qiskit-ui-shell>`;

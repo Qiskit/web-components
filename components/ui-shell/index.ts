@@ -7,6 +7,7 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import 'carbon-web-components/es/components/ui-shell/index.js';
 import './header/index.js';
@@ -28,12 +29,17 @@ interface SegmentData {
   location: string;
 }
 
+enum Variant {
+  DEFAULT = '',
+  WITH_ACCOUNT = 'with-account',
+}
+
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
   static styles = [styles];
 
-  @property({ type: Boolean })
-  showAccountIcon = false;
+  @property({ type: String })
+  variant: Variant = Variant.DEFAULT;
 
   private _NAV_ITEMS: NavItem[] = [
     {
@@ -77,7 +83,9 @@ export class QiskitUIShell extends LitElement {
               return this._getHeaderNavItem(item);
             }
           })}
-          ${this.showAccountIcon ? this._getAccountHeaderNavItem() : null}
+          ${this.variant === Variant.WITH_ACCOUNT
+            ? this._getAccountHeaderNavItem()
+            : null}
         </qiskit-header-nav>
         <qiskit-header-menu-button
           button-label-active="Close menu"
@@ -99,14 +107,16 @@ export class QiskitUIShell extends LitElement {
               return this._getSideNavLink(item);
             }
           })}
-          ${this.showAccountIcon ? this._getAccountSideNavLink() : null}
+          ${this.variant === Variant.WITH_ACCOUNT
+            ? this._getAccountSideNavLink()
+            : null}
         </bx-side-nav-items>
       </bx-side-nav>
     `;
   }
 
   private _getHeaderNavItem(item: NavItem) {
-    return html`<qiskit-header-nav-item href="${item?.url}">
+    return html`<qiskit-header-nav-item href="${ifDefined(item?.url)}">
       ${item?.label}
     </qiskit-header-nav-item>`;
   }
@@ -121,13 +131,13 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getHeaderMenuItem(item: NavItem) {
-    return html`<qiskit-header-menu-item href="${item?.url}">
+    return html`<qiskit-header-menu-item href="${ifDefined(item?.url)}">
       ${item?.label}
     </qiskit-header-menu-item>`;
   }
 
   private _getSideNavLink(item: NavItem) {
-    return html`<qiskit-side-nav-link href="${item?.url}">
+    return html`<qiskit-side-nav-link href="${ifDefined(item?.url)}">
         ${item?.label}
       </qiskit-side-nav-link>
       <bx-side-nav-divider></bx-side-nav-divider>`;
@@ -141,7 +151,7 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getSideNavMenuItem(item: NavItem) {
-    return html`<qiskit-side-nav-menu-item href="${item?.url}">
+    return html`<qiskit-side-nav-menu-item href="${ifDefined(item?.url)}">
       ${item?.label}
     </qiskit-side-nav-menu-item>`;
   }
