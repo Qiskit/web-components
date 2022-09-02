@@ -39,6 +39,13 @@ $prefix: "bx";
     border-radius: 50%;
     fill: var(--cds-icon-on-color);
   }
+
+  // This is needed to ensure svg
+  // renders in safari
+  svg {
+    width: 100%;
+    height: auto;
+  }
 }
 
 :host(#{$q}-header-name) {
