@@ -222,10 +222,10 @@ a.#{$prefix}--header__menu-item {
     box-sizing: border-box;
     width: 2rem;
     height: 2rem;
-    border: 0.125rem solid var(--cds-icon-on-color);
+    margin-right: var(--cds-spacing-03);
+    border: 0.125rem solid $carbon--purple-70;
     border-radius: 50%;
-    fill: var(--cds-ui-background);
-    fill: var(--cds-icon-on-color);
+    fill: $carbon--purple-70;
   }
 }
 
@@ -234,7 +234,13 @@ a.#{$prefix}--header__menu-item {
   .#{$prefix}--side-nav__link:focus,
   .#{$prefix}--side-nav__link {
     height: 3rem;
-    background-color: $carbon--purple-70;
+    background-color: var(--cds-ui-background);
+  }
+
+  .#{$prefix}--side-nav__link-text {
+    display: flex;
+    align-items: center;
+    color: $carbon--purple-70;
   }
 }
 
