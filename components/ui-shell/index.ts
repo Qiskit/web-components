@@ -170,7 +170,7 @@ export class QiskitUIShell extends LitElement {
       href="https://learn.qiskit.org/account/"
       class="qiskit-user-accout-icon"
     >
-      ${userIcon}
+      ${userIcon} <span>Profile</span>
     </qiskit-side-nav-link>`;
   }
 }
