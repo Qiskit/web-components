@@ -14,7 +14,9 @@ $prefix: "bx";
 
 :host {
   --header-height: 3.5rem;
+  --cool-gray-10: #{$carbon--cool-gray-10};
   --cool-gray-80: #{$carbon--cool-gray-80};
+  --purple-70: #{$carbon--purple-70};
 
   @include carbon--theme($carbon--theme--white, true);
 
@@ -68,7 +70,7 @@ $prefix: "bx";
 
 :host(#{$q}-header-nav-item.#{$q}-user-accout-icon) {
   a {
-    background-color: $carbon--purple-70;
+    background-color: var(--purple-70);
     color: var(--cds-ui-background);
   }
 }
@@ -86,7 +88,7 @@ $prefix: "bx";
     color: var(--cds-text-secondary);
 
     &[aria-expanded="true"] {
-      background-color: $carbon--cool-gray-10;
+      background-color: var(--cool-gray-10);
     }
   }
 }
@@ -100,7 +102,7 @@ $prefix: "bx";
   color: var(--cds-text-secondary);
 
   a.#{$prefix}--header__menu-item {
-    background-color: $carbon--cool-gray-10;
+    background-color: var(--cool-gray-10);
   }
 }
 
@@ -116,7 +118,7 @@ $prefix: "bx";
     color: var(--cds-text-secondary);
 
     &[aria-expanded="true"] {
-      background-color: $carbon--cool-gray-10;
+      background-color: var(--cool-gray-10);
     }
   }
 
@@ -132,7 +134,7 @@ $prefix: "bx";
     width: 100vw;
     height: auto;
     padding: var(--cds-spacing-05) var(--cds-spacing-03);
-    background-color: $carbon--cool-gray-10;
+    background-color: var(--cool-gray-10);
     box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
     transform: translateZ(0);
   }
@@ -228,9 +230,9 @@ a.#{$prefix}--header__menu-item {
     width: 2rem;
     height: 2rem;
     margin-right: var(--cds-spacing-03);
-    border: 0.125rem solid $carbon--purple-70;
+    border: 0.125rem solid var(--purple-70);
     border-radius: 50%;
-    fill: $carbon--purple-70;
+    fill: var(--purple-70);
   }
 }
 
@@ -245,7 +247,7 @@ a.#{$prefix}--header__menu-item {
   .#{$prefix}--side-nav__link-text {
     display: flex;
     align-items: center;
-    color: $carbon--purple-70;
+    color: var(--purple-70);
   }
 }
 
