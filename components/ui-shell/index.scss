@@ -14,6 +14,7 @@ $prefix: "bx";
 
 :host {
   --header-height: 3.5rem;
+  --cool-gray-80: #{$carbon--cool-gray-80};
 
   @include carbon--theme($carbon--theme--white, true);
 
@@ -52,11 +53,7 @@ $prefix: "bx";
   a.#{$prefix}--header__name {
     width: 8.75rem;
     min-height: var(--header-height);
-    color: var(--cds-ui-04);
-    filter:
-      invert(45%) sepia(16%) saturate(225%) hue-rotate(169deg)
-      brightness(91%) contrast(85%);
-    fill: var(--cds-ui-04);
+    fill: var(--cool-gray-80);
   }
 }
 
