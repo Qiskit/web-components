@@ -59,10 +59,10 @@ export class QiskitUIShell extends LitElement {
       >
         <bx-side-nav-items>
           ${this._NAV_ITEMS.map((item) => {
-            if (item?.url) {
-              return this._getSideNavLink(item);
-            } else {
+            if (item?.children) {
               return this._getSideNavMenu(item);
+            } else {
+              return this._getSideNavLink(item);
             }
           })}
           ${this.variant === Variant.WITH_ACCOUNT
@@ -115,15 +115,38 @@ export class QiskitUIShell extends LitElement {
       <bx-side-nav-divider></bx-side-nav-divider>`;
   }
 
-  private _getSideNavMenu(menu: NavItem) {
+  private _getSideNavMenu(menu: TopLevelNavItem) {
+    const isMegaMenu = !!menu?.isMegaMenu;
+    if (isMegaMenu) {
+      const submenu: NavItem[] = menu?.children || [];
+      return html`<qiskit-side-nav-menu title="${menu?.label}">
+          ${submenu?.map((submenuItem) => {
+            return html` <qiskit-side-nav-menu
+              title="${submenuItem?.label}"
+              class="qiskit-side-nav-submenu"
+            >
+              ${submenuItem?.children?.map((child) =>
+                this._getSideNavMenuItem(child, true)
+              )}
+            </qiskit-side-nav-menu>`;
+          })}
+        </qiskit-side-nav-menu>
+        <bx-side-nav-divider></bx-side-nav-divider>`;
+    }
     return html`<qiskit-side-nav-menu title="${menu?.label}">
         ${menu?.children?.map((item) => this._getSideNavMenuItem(item))}
       </qiskit-side-nav-menu>
       <bx-side-nav-divider></bx-side-nav-divider>`;
   }
 
-  private _getSideNavMenuItem(item: NavItem) {
-    return html`<qiskit-side-nav-menu-item href="${ifDefined(item?.url)}">
+  private _getSideNavMenuItem(item: NavItem, isSubmenuItem = false) {
+    const submenuClass = isSubmenuItem
+      ? 'qiskit-nav-submenu-item'
+      : 'qiskit-nav-menu-item';
+    return html`<qiskit-side-nav-menu-item
+      href="${ifDefined(item?.url)}"
+      class="${submenuClass}"
+    >
       ${item?.label}
     </qiskit-side-nav-menu-item>`;
   }
