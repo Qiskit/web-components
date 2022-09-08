@@ -124,6 +124,23 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         ],
       },
       {
+        label: 'Contributing',
+        children: [
+          {
+            label: 'Contributor Guide',
+            url: 'https://qiskit.org/documentation/contributing_to_qiskit.html',
+          },
+          {
+            label: 'Deprecation Policy',
+            url: 'https://qiskit.org/documentation/deprecation_policy.html',
+          },
+          {
+            label: 'Maintainer Guide',
+            url: 'https://qiskit.org/documentation/maintainers_guide.html',
+          },
+        ],
+      },
+      {
         label: 'Help and Learning',
         children: [
           {
