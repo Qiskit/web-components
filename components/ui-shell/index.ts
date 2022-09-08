@@ -114,7 +114,12 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getHeaderNavItem(item: NavItem) {
-    return html`<qiskit-header-nav-item href="${ifDefined(item?.url)}">
+    return html`<qiskit-header-nav-item
+      href="${ifDefined(item?.url)}"
+      @click="${() => {
+        this._handleClick(item?.label);
+      }}"
+    >
       ${item?.label}
     </qiskit-header-nav-item>`;
   }
@@ -129,7 +134,12 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getHeaderMenuItem(item: NavItem) {
-    return html`<qiskit-header-menu-item href="${ifDefined(item?.url)}">
+    return html`<qiskit-header-menu-item
+      href="${ifDefined(item?.url)}"
+      @click="${() => {
+        this._handleClick(item?.label);
+      }}"
+    >
       ${item?.label}
     </qiskit-header-menu-item>`;
   }
@@ -138,6 +148,9 @@ export class QiskitUIShell extends LitElement {
     return html`<qiskit-header-nav-item
       href="https://learn.qiskit.org/account/"
       class="qiskit-user-accout-icon"
+      @click="${() => {
+        this._handleClick('Account');
+      }}"
     >
       ${userIcon}
     </qiskit-header-nav-item>`;
@@ -181,6 +194,16 @@ export class QiskitUIShell extends LitElement {
       ${userIcon} <span>Profile</span>
     </qiskit-side-nav-link>`;
   }
+
+  _handleClick = (label: string) => {
+    this.dispatchEvent(
+      new CustomEvent('onClick', {
+        detail: { label },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  };
 }
 
 declare global {
