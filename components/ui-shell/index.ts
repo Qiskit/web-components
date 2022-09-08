@@ -75,7 +75,7 @@ export class QiskitUIShell extends LitElement {
         <qiskit-header-name href="https://qiskit.org/">
           ${qiskitLogoIcon}
         </qiskit-header-name>
-        <qiskit-header-nav menu-bar-label="Qikskit">
+        <qiskit-header-nav menu-bar-label="Qiskit">
           ${this._NAV_ITEMS.map((item) => {
             if (item.children) {
               return this._getHeaderMenu(item);
