@@ -62,7 +62,7 @@ $prefix: "bx";
   }
 }
 
-:host(#{$q}-header-name) {
+#{$prefix}-header-name {
   &::part(link) {
     width: 8.75rem;
     min-height: var(--header-height);

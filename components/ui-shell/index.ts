@@ -30,9 +30,9 @@ export class QiskitUIShell extends LitElement {
   render() {
     return html`
       <bx-header aria-label="Qiskit" class="qiskit-header">
-        <qiskit-header-name href="https://qiskit.org/">
+        <bx-header-name href="https://qiskit.org/">
           ${qiskitLogoIcon}
-        </qiskit-header-name>
+        </bx-header-name>
         <qiskit-header-nav menu-bar-label="Qiskit">
           ${this._getHeaderItems()}
           ${this.variant === Variant.HIDE_ACCOUNT
