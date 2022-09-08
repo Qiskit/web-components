@@ -44,7 +44,6 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
   {
     label: 'Documentation',
     isMegaMenu: true,
-    url: 'https://qiskit.org/documentation/',
     children: [
       {
         label: 'Get started',
@@ -60,7 +59,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         children: [
           {
             label: 'Qiskit Terra',
-            url: 'https://qiskit.org/documentation/apidoc/terra.html',
+            url: 'https://qiskit.org/documentation/',
           },
         ],
       },
