@@ -76,13 +76,7 @@ export class QiskitUIShell extends LitElement {
           ${qiskitLogoIcon}
         </qiskit-header-name>
         <qiskit-header-nav menu-bar-label="Qiskit">
-          ${this._NAV_ITEMS.map((item) => {
-            if (item.children) {
-              return this._getHeaderMenu(item);
-            } else {
-              return this._getHeaderNavItem(item);
-            }
-          })}
+          ${this._getHeaderItems()}
           ${this.variant === Variant.WITH_ACCOUNT
             ? this._getAccountHeaderNavItem()
             : null}
@@ -100,19 +94,23 @@ export class QiskitUIShell extends LitElement {
         class="qiskit-side-nav"
       >
         <bx-side-nav-items>
-          ${this._NAV_ITEMS.map((item) => {
-            if (item?.children) {
-              return this._getSideNavMenu(item);
-            } else {
-              return this._getSideNavLink(item);
-            }
-          })}
+          ${this._getSideNavItems()}
           ${this.variant === Variant.WITH_ACCOUNT
             ? this._getAccountSideNavLink()
             : null}
         </bx-side-nav-items>
       </bx-side-nav>
     `;
+  }
+
+  private _getHeaderItems() {
+    return this._NAV_ITEMS.map((item) => {
+      if (item.children) {
+        return this._getHeaderMenu(item);
+      } else {
+        return this._getHeaderNavItem(item);
+      }
+    });
   }
 
   private _getHeaderNavItem(item: NavItem) {
@@ -136,6 +134,25 @@ export class QiskitUIShell extends LitElement {
     </qiskit-header-menu-item>`;
   }
 
+  private _getAccountHeaderNavItem() {
+    return html`<qiskit-header-nav-item
+      href="https://learn.qiskit.org/account/"
+      class="qiskit-user-accout-icon"
+    >
+      ${userIcon}
+    </qiskit-header-nav-item>`;
+  }
+
+  private _getSideNavItems() {
+    return this._NAV_ITEMS.map((item) => {
+      if (item?.children) {
+        return this._getSideNavMenu(item);
+      } else {
+        return this._getSideNavLink(item);
+      }
+    });
+  }
+
   private _getSideNavLink(item: NavItem) {
     return html`<qiskit-side-nav-link href="${ifDefined(item?.url)}">
         ${item?.label}
@@ -154,15 +171,6 @@ export class QiskitUIShell extends LitElement {
     return html`<qiskit-side-nav-menu-item href="${ifDefined(item?.url)}">
       ${item?.label}
     </qiskit-side-nav-menu-item>`;
-  }
-
-  private _getAccountHeaderNavItem() {
-    return html`<qiskit-header-nav-item
-      href="https://learn.qiskit.org/account/"
-      class="qiskit-user-accout-icon"
-    >
-      ${userIcon}
-    </qiskit-header-nav-item>`;
   }
 
   private _getAccountSideNavLink() {
