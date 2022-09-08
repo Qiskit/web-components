@@ -80,7 +80,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
             url: 'https://qiskit.org/documentation/apidoc/ibmq-provider.html',
           },
           {
-            label: 'All providers',
+            label: 'Partners',
             url: 'https://qiskit.org/documentation/partners/',
           },
         ],
@@ -124,25 +124,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         ],
       },
       {
-        label: 'Partners',
-        children: [
-          {
-            label: 'All providers',
-            url: 'https://qiskit.org/documentation/partners/',
-          },
-        ],
-      },
-      {
-        label: 'Learning Tools',
-        children: [
-          {
-            label: 'Qiskit textboox',
-            url: 'https://qiskit.org/learn/',
-          },
-        ],
-      },
-      {
-        label: 'Get Help',
+        label: 'Help and Learning',
         children: [
           {
             label: 'Stack Exchange',
@@ -155,6 +137,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           {
             label: 'Slack',
             url: 'https://qiskit.slack.com/',
+          },
+          {
+            label: 'Qiskit textboox',
+            url: 'https://qiskit.org/learn/',
           },
         ],
       },
