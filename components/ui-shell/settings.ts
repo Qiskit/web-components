@@ -146,11 +146,11 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         children: [
           {
             label: 'Stack Exchange',
-            url: 'https://qiskit.org/documentation/', //TODO: update
+            url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
           },
           {
-            label: 'qiskit-community-feedback',
-            url: 'https://qiskit.org/documentation/', //TODO: update
+            label: 'Qiskit Feedback',
+            url: 'https://github.com/Qiskit/feedback',
           },
           {
             label: 'Slack',
