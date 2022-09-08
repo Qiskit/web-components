@@ -1,0 +1,251 @@
+@import "@carbon/type/scss/type";
+@import "@carbon/colors/scss/colors";
+
+// These are needed to extend default carbon component styles
+@import "carbon-web-components/scss/components/ui-shell/header";
+@import "carbon-web-components/scss/components/ui-shell/side-nav";
+
+// These are needed to apply theming
+@import "carbon-components/scss/globals/scss/css--helpers";
+@import "carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins";
+
+$q: "qiskit";
+$prefix: "bx";
+
+:host {
+  --header-height: 3.5rem;
+  --cool-gray-80: #{$carbon--cool-gray-80};
+
+  @include carbon--theme($carbon--theme--white, true);
+
+  font-family: carbon--font-family("sans");
+}
+
+.#{$q}-header {
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+  border-color: var(--cds-border-subtle);
+  background-color: var(--cds-ui-background);
+  color: var(--cds-text-secondary);
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  svg.menu__account__icon {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 2rem;
+    height: 2rem;
+    border: 0.125rem solid var(--cds-icon-on-color);
+    border-radius: 50%;
+    fill: var(--cds-icon-on-color);
+  }
+
+  // This is needed to ensure svg
+  // renders in safari
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+:host(#{$q}-header-name) {
+  a.#{$prefix}--header__name {
+    width: 8.75rem;
+    min-height: var(--header-height);
+    fill: var(--cool-gray-80);
+  }
+}
+
+:host(#{$q}-header-nav) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-header-nav);
+
+  .#{$prefix}-ce--header__divider {
+    display: none;
+  }
+}
+
+:host(#{$q}-header-nav-item.#{$q}-user-accout-icon) {
+  a {
+    background-color: $carbon--purple-70;
+    color: var(--cds-ui-background);
+  }
+}
+
+:host(#{$q}-header-menu) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-header-menu);
+
+  .#{$prefix}--header__menu-arrow {
+    fill: var(--cds-text-secondary) !important;
+  }
+
+  .#{$prefix}--header__menu-title {
+    background-color: var(--cds-ui-background);
+    color: var(--cds-text-secondary);
+
+    &[aria-expanded="true"] {
+      background-color: var(--cds-ui-01);
+    }
+  }
+}
+
+:host(#{$q}-header-menu-item) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend .#{$prefix}--header__menu-item;
+
+  height: 3rem;
+  background-color: var(--cds-ui-01);
+  color: var(--cds-text-secondary);
+
+  a.#{$prefix}--header__menu-item {
+    background-color: var(--cds-ui-01);
+  }
+}
+
+:host(#{$q}-header-menu-button) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-header-menu-button);
+
+  .#{$prefix}--header__menu-toggle,
+  .#{$prefix}--header__menu-trigger {
+    width: var(--header-height);
+    height: var(--header-height);
+    border: none;
+
+    > svg {
+      fill: var(--cds-text-secondary);
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: var(--cds-ui-01);
+    }
+  }
+}
+
+a.#{$prefix}--header__menu-item {
+  @include carbon--type-style("body-long-02");
+
+  background: var(--cds-ui-background);
+  color: var(--cds-text-secondary);
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: var(--cds-ui-background);
+    color: var(--cds-text-secondary);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border-color: var(--cds-border-subtle);
+  }
+}
+
+.#{$q}-side-nav {
+  top: var(--header-height);
+  right: 0;
+  left: auto;
+  box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 25%);
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  svg.menu__account__icon {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 2rem;
+    height: 2rem;
+    margin-right: var(--cds-spacing-03);
+    border: 0.125rem solid $carbon--purple-70;
+    border-radius: 50%;
+    fill: $carbon--purple-70;
+  }
+}
+
+:host(#{$q}-side-nav-link.#{$q}-user-accout-icon) {
+  .#{$prefix}--side-nav__link:hover,
+  .#{$prefix}--side-nav__link:focus,
+  .#{$prefix}--side-nav__link {
+    height: 3rem;
+    background-color: var(--cds-ui-background);
+  }
+
+  .#{$prefix}--side-nav__link-text {
+    display: flex;
+    align-items: center;
+    color: $carbon--purple-70;
+  }
+}
+
+:host(#{$q}-side-nav-link) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-side-nav-link);
+
+  .#{$prefix}--side-nav__link-text {
+    @include carbon--type-style("body-long-02");
+  }
+
+  .#{$prefix}--side-nav__link {
+    min-height: 2.8rem;
+
+    &:hover {
+      background-color: var(--cds-ui-background);
+      text-decoration: underline;
+      text-decoration-color: var(--cds-text-secondary);
+    }
+
+    &:focus {
+      outline-color: var(--cds-border-subtle);
+    }
+  }
+}
+
+:host(#{$q}-side-nav-menu) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-side-nav-menu);
+
+  .#{$prefix}--side-nav__submenu {
+    @include carbon--type-style("body-long-02");
+
+    min-height: 2.8rem;
+
+    &:hover {
+      background-color: var(--cds-ui-background);
+      text-decoration: underline;
+      text-decoration-color: var(--cds-text-secondary);
+    }
+
+    &:focus {
+      outline-color: var(--cds-border-subtle);
+    }
+  }
+}
+
+:host(#{$q}-side-nav-menu-item) {
+  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
+  @extend :host(#{$prefix}-side-nav-menu-item);
+
+  .#{$prefix}--side-nav__link-text {
+    @include carbon--type-style("body-long-02");
+  }
+
+  .#{$prefix}--side-nav__link {
+    min-height: 2.8rem !important;
+
+    &:hover {
+      background-color: var(--cds-ui-background);
+      text-decoration: underline;
+      text-decoration-color: var(--cds-text-secondary);
+    }
+
+    &:focus {
+      outline-color: var(--cds-border-subtle);
+    }
+  }
+}
