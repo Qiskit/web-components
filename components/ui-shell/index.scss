@@ -84,6 +84,29 @@ $prefix: "bx";
   }
 }
 
+#{$prefix}-header-nav-item::part(link),
+a.#{$prefix}--header__menu-item {
+  @include carbon--type-style("body-long-02");
+
+  background: var(--cds-ui-background);
+  color: var(--cds-text-secondary);
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: var(--cds-ui-background);
+    color: var(--cds-text-secondary);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border-color: var(--cds-border-subtle);
+  }
+}
+
 :host(#{$q}-header-menu) {
   /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
   @extend :host(#{$prefix}-header-menu);
@@ -203,28 +226,6 @@ $prefix: "bx";
     &:hover {
       background-color: var(--cds-ui-01);
     }
-  }
-}
-
-a.#{$prefix}--header__menu-item {
-  @include carbon--type-style("body-long-02");
-
-  background: var(--cds-ui-background);
-  color: var(--cds-text-secondary);
-
-  &:active,
-  &:focus,
-  &:hover {
-    background-color: var(--cds-ui-background);
-    color: var(--cds-text-secondary);
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:focus {
-    border-color: var(--cds-border-subtle);
   }
 }
 

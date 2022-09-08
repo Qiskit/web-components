@@ -73,9 +73,9 @@ export class QiskitUIShell extends LitElement {
 
   private _getHeaderNavItem(item: NavItem) {
     return html`
-      <qiskit-header-nav-item href="${ifDefined(item?.url)}">
+      <bx-header-nav-item href="${ifDefined(item?.url)}">
         ${item?.label}
-      </qiskit-header-nav-item>
+      </bx-header-nav-item>
     `;
   }
 
