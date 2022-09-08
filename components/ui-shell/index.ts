@@ -35,9 +35,9 @@ export class QiskitUIShell extends LitElement {
         </qiskit-header-name>
         <qiskit-header-nav menu-bar-label="Qiskit">
           ${this._getHeaderItems()}
-          ${this.variant === Variant.WITH_ACCOUNT
-            ? this._getAccountHeaderNavItem()
-            : null}
+          ${this.variant === Variant.HIDE_ACCOUNT
+            ? null
+            : this._getAccountHeaderNavItem()}
         </qiskit-header-nav>
         <qiskit-header-menu-button
           button-label-active="Close menu"
@@ -53,9 +53,9 @@ export class QiskitUIShell extends LitElement {
       >
         <bx-side-nav-items>
           ${this._getSideNavItems()}
-          ${this.variant === Variant.WITH_ACCOUNT
-            ? this._getAccountSideNavLink()
-            : null}
+          ${this.variant === Variant.HIDE_ACCOUNT
+            ? null
+            : this._getAccountSideNavLink()}
         </bx-side-nav-items>
       </bx-side-nav>
     `;

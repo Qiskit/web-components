@@ -21,6 +21,7 @@ $prefix: "bx";
   --purple-70: #{$carbon--purple-70};
   --sidenav-item-height: 3.5rem;
   --sidenav-item-height-short: 2.8rem;
+  --box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
 
   @include carbon--theme($carbon--theme--white, true);
 
@@ -93,6 +94,10 @@ $prefix: "bx";
     fill: var(--cds-text-secondary) !important;
   }
 
+  &::part(menu-body) {
+    box-shadow: var(--box-shadow);
+  }
+
   .#{$prefix}--header__menu-title {
     background-color: var(--cds-ui-background);
     color: var(--cds-text-secondary);
@@ -144,7 +149,7 @@ $prefix: "bx";
     height: auto;
     padding: var(--cds-spacing-05) var(--cds-spacing-03);
     background-color: var(--cool-gray-10);
-    box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
+    box-shadow: var(--box-shadow);
     transform: translateZ(0);
   }
 }

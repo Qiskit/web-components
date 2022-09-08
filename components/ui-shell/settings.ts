@@ -16,7 +16,7 @@ export interface SegmentData {
 
 export enum Variant {
   DEFAULT = '',
-  WITH_ACCOUNT = 'with-account',
+  HIDE_ACCOUNT = 'hide-account',
 }
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
