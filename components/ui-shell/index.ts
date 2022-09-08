@@ -16,23 +16,7 @@ import './side-nav/index.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
-
-interface NavItem {
-  label: string;
-  url?: string;
-  children?: NavItem[];
-  segment?: SegmentData;
-}
-
-interface SegmentData {
-  cta: string;
-  location: string;
-}
-
-enum Variant {
-  DEFAULT = '',
-  WITH_ACCOUNT = 'with-account',
-}
+import { NavItem, TopLevelNavItem, Variant, NAV_ITEMS } from './settings.js';
 
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
@@ -41,33 +25,7 @@ export class QiskitUIShell extends LitElement {
   @property({ type: String })
   variant: Variant = Variant.DEFAULT;
 
-  private _NAV_ITEMS: NavItem[] = [
-    {
-      label: 'Overview',
-      url: 'https://qiskit.org/overview/',
-    },
-    {
-      label: 'Learn',
-      url: 'https://qiskit.org/learn/',
-    },
-    {
-      label: 'Community',
-      children: [
-        {
-          label: 'Events',
-          url: 'https://qiskit.org/events/',
-        },
-        {
-          label: 'Advocates',
-          url: 'https://qiskit.org/advocates/',
-        },
-      ],
-    },
-    {
-      label: 'Documentation',
-      url: 'https://qiskit.org/documentation/',
-    },
-  ];
+  private _NAV_ITEMS = NAV_ITEMS;
 
   render() {
     return html`
@@ -77,9 +35,9 @@ export class QiskitUIShell extends LitElement {
         </qiskit-header-name>
         <qiskit-header-nav menu-bar-label="Qiskit">
           ${this._getHeaderItems()}
-          ${this.variant === Variant.WITH_ACCOUNT
-            ? this._getAccountHeaderNavItem()
-            : null}
+          ${this.variant === Variant.HIDE_ACCOUNT
+            ? null
+            : this._getAccountHeaderNavItem()}
         </qiskit-header-nav>
         <qiskit-header-menu-button
           button-label-active="Close menu"
@@ -95,9 +53,9 @@ export class QiskitUIShell extends LitElement {
       >
         <bx-side-nav-items>
           ${this._getSideNavItems()}
-          ${this.variant === Variant.WITH_ACCOUNT
-            ? this._getAccountSideNavLink()
-            : null}
+          ${this.variant === Variant.HIDE_ACCOUNT
+            ? null
+            : this._getAccountSideNavLink()}
         </bx-side-nav-items>
       </bx-side-nav>
     `;
@@ -119,8 +77,17 @@ export class QiskitUIShell extends LitElement {
     </qiskit-header-nav-item>`;
   }
 
-  private _getHeaderMenu(menu: NavItem) {
-    return html`<qiskit-header-menu
+  private _getHeaderMenu(menu: TopLevelNavItem) {
+    const isMegaMenu = !!menu?.isMegaMenu;
+    if (isMegaMenu) {
+      return html` <qiskit-header-menu-mega
+        menu-label="${menu?.label}"
+        trigger-content="${menu?.label}"
+      >
+        ${menu?.children?.map((item) => this._getHeaderMenuItemMega(item))}
+      </qiskit-header-menu-mega>`;
+    }
+    return html` <qiskit-header-menu
       menu-label="${menu?.label}"
       trigger-content="${menu?.label}"
     >
@@ -132,6 +99,11 @@ export class QiskitUIShell extends LitElement {
     return html`<qiskit-header-menu-item href="${ifDefined(item?.url)}">
       ${item?.label}
     </qiskit-header-menu-item>`;
+  }
+
+  private _getHeaderMenuItemMega(item: NavItem) {
+    return html`<qiskit-header-menu-item-mega .item="${item}">
+    </qiskit-header-menu-item-mega>`;
   }
 
   private _getAccountHeaderNavItem() {
@@ -160,15 +132,38 @@ export class QiskitUIShell extends LitElement {
       <bx-side-nav-divider></bx-side-nav-divider>`;
   }
 
-  private _getSideNavMenu(menu: NavItem) {
+  private _getSideNavMenu(menu: TopLevelNavItem) {
+    const isMegaMenu = !!menu?.isMegaMenu;
+    if (isMegaMenu) {
+      const submenu: NavItem[] = menu?.children || [];
+      return html`<qiskit-side-nav-menu title="${menu?.label}">
+          ${submenu?.map((submenuItem) => {
+            return html` <qiskit-side-nav-menu
+              title="${submenuItem?.label}"
+              class="qiskit-side-nav-submenu"
+            >
+              ${submenuItem?.children?.map((child) =>
+                this._getSideNavMenuItem(child, true)
+              )}
+            </qiskit-side-nav-menu>`;
+          })}
+        </qiskit-side-nav-menu>
+        <bx-side-nav-divider></bx-side-nav-divider>`;
+    }
     return html`<qiskit-side-nav-menu title="${menu?.label}">
         ${menu?.children?.map((item) => this._getSideNavMenuItem(item))}
       </qiskit-side-nav-menu>
       <bx-side-nav-divider></bx-side-nav-divider>`;
   }
 
-  private _getSideNavMenuItem(item: NavItem) {
-    return html`<qiskit-side-nav-menu-item href="${ifDefined(item?.url)}">
+  private _getSideNavMenuItem(item: NavItem, isSubmenuItem = false) {
+    const submenuClass = isSubmenuItem
+      ? 'qiskit-nav-submenu-item'
+      : 'qiskit-nav-menu-item';
+    return html`<qiskit-side-nav-menu-item
+      href="${ifDefined(item?.url)}"
+      class="${submenuClass}"
+    >
       ${item?.label}
     </qiskit-side-nav-menu-item>`;
   }
