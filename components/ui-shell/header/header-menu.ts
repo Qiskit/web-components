@@ -8,7 +8,6 @@
 import CdsHeaderMenu from 'carbon-web-components/es/components/ui-shell/header-menu.js';
 import { customElement } from 'lit/decorators.js';
 
-
 import styles from '../index.scss';
 
 @customElement('qiskit-header-menu')
