@@ -10,7 +10,10 @@ import { html } from 'lit';
 import './index.js';
 
 export default {
-  title: 'Navbar',
+  title: 'UI Shell',
 };
 
-export const Default = () => html`<qiskit-navbar></qiskit-navbar>`;
+export const Default = () => html`<qiskit-ui-shell></qiskit-ui-shell>`;
+
+export const WithAccount = () =>
+  html`<qiskit-ui-shell variant="with-account"></qiskit-ui-shell>`;
