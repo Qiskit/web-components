@@ -70,10 +70,8 @@ $prefix: "bx";
   }
 }
 
-:host(#{$q}-header-nav) {
-  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
-  @extend :host(#{$prefix}-header-nav);
-
+#{$prefix}-header-nav {
+  &::before,
   &::part(divider) {
     display: none;
   }

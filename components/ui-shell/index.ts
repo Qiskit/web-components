@@ -33,12 +33,12 @@ export class QiskitUIShell extends LitElement {
         <bx-header-name href="https://qiskit.org/">
           ${qiskitLogoIcon}
         </bx-header-name>
-        <qiskit-header-nav menu-bar-label="Qiskit">
+        <bx-header-nav menu-bar-label="Qiskit">
           ${this._getHeaderItems()}
           ${this.variant === Variant.HIDE_ACCOUNT
             ? null
             : this._getAccountHeaderNavItem()}
-        </qiskit-header-nav>
+        </bx-header-nav>
         <qiskit-header-menu-button
           button-label-active="Close menu"
           button-label-inactive="Open menu"
