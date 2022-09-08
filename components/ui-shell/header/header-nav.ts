@@ -8,7 +8,6 @@
 import CdsHeaderNav from 'carbon-web-components/es/components/ui-shell/header-nav.js';
 import { customElement } from 'lit/decorators.js';
 
-
 import styles from '../index.scss';
 
 @customElement('qiskit-header-nav')

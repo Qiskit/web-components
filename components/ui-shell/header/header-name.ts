@@ -8,7 +8,6 @@
 import CdsHeaderName from 'carbon-web-components/es/components/ui-shell/header-name.js';
 import { customElement } from 'lit/decorators.js';
 
-
 import styles from '../index.scss';
 
 @customElement('qiskit-header-name')
