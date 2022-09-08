@@ -29,7 +29,7 @@ export class QiskitUIShell extends LitElement {
 
   render() {
     return html`
-      <bx-header aria-label="Qiskit" class="qiskit-header">
+      <bx-header aria-label="Qiskit">
         <bx-header-name href="https://qiskit.org/">
           ${qiskitLogoIcon}
         </bx-header-name>
