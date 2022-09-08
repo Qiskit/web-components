@@ -118,12 +118,12 @@ export class QiskitUIShell extends LitElement {
 
   private _getAccountHeaderNavItem() {
     return html`
-      <qiskit-header-nav-item
+      <bx-header-nav-item
         href="https://learn.qiskit.org/account/"
         class="qiskit-user-accout-icon"
       >
         ${userIcon}
-      </qiskit-header-nav-item>
+      </bx-header-nav-item>
     `;
   }
 

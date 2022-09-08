@@ -77,8 +77,8 @@ $prefix: "bx";
   }
 }
 
-:host(#{$q}-header-nav-item.#{$q}-user-accout-icon) {
-  a {
+#{$prefix}-header-nav-item.#{$q}-user-accout-icon {
+  &::part(link) {
     background-color: var(--purple-70);
     color: var(--cds-ui-background);
   }
