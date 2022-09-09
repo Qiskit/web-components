@@ -11,6 +11,8 @@ import { property, customElement, query, state } from 'lit/decorators.js';
 import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
 
+import '../column-list/index.js';
+
 import chevronDown from '../icons/chevron-down.js';
 import { emptySearchIcon } from '../icons/empty-search.js';
 import styles from './index.scss';

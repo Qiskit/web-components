@@ -79,3 +79,9 @@ export class ColumnList extends LitElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'column-list': ColumnList;
+  }
+}
