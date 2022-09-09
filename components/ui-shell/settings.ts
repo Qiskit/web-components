@@ -1,8 +1,9 @@
 import type { TemplateResult } from 'lit';
+
+import { mediumIcon } from '../icons/medium.js';
 import { slackIcon } from '../icons/slack.js';
 import { twitterIcon } from '../icons/twitter.js';
 import { youtubeIcon } from '../icons/youtube.js';
-import { mediumIcon } from '../icons/medium.js';
 
 export interface NavItem {
   label: string;
@@ -50,7 +51,7 @@ export const SOCIAL_LINKS: SocialLinks[] = [
     label: 'Medium',
     url: 'https://medium.com/Qiskit',
   },
-]
+];
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
   {
