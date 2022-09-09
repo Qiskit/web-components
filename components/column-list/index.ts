@@ -26,8 +26,8 @@ type renderContentElementFunction = (
   element: NavLink
 ) => TemplateResult | string;
 
-@customElement('column-list')
-export class ColumnList extends LitElement {
+@customElement('qiskit-column-list')
+export class QiskitColumnList extends LitElement {
   static styles = [styles];
 
   @property({ type: Array })
@@ -82,6 +82,6 @@ export class ColumnList extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'column-list': ColumnList;
+    'qiskit-column-list': QiskitColumnList;
   }
 }

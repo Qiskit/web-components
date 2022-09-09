@@ -111,12 +111,12 @@ export class QiskitMegaMenuDropdown extends LitElement {
           this._isFilteredContentEmpty
             ? this.emptyContentView()
             : html`
-                <column-list
+                <qiskit-column-list
                   class="content"
                   .content=${this._filteredContent}
                   .renderContentElement=${(el: NavLink) =>
                     this.highlightedText(el)}
-                ></column-list>
+                ></qiskit-column-list>
               `
         )}
       </article>
