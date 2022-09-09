@@ -139,9 +139,9 @@ export class QiskitUIShell extends LitElement {
 
   private _getSideNavLink(item: NavItem) {
     return html`
-      <qiskit-side-nav-link href="${ifDefined(item?.url)}">
+      <bx-side-nav-link href="${ifDefined(item?.url)}">
         ${item?.label}
-      </qiskit-side-nav-link>
+      </bx-side-nav-link>
       <bx-side-nav-divider></bx-side-nav-divider>
     `;
   }
@@ -192,12 +192,12 @@ export class QiskitUIShell extends LitElement {
 
   private _getAccountSideNavLink() {
     return html`
-      <qiskit-side-nav-link
+      <bx-side-nav-link
         href="https://learn.qiskit.org/account/"
         class="qiskit-user-accout-icon"
       >
         ${userIcon} <span>Profile</span>
-      </qiskit-side-nav-link>
+      </bx-side-nav-link>
     `;
   }
 }
