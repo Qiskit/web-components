@@ -323,15 +323,8 @@ a.#{$prefix}--header__menu-item {
   }
 }
 
-:host(#{$q}-side-nav-menu-item) {
-  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
-  @extend :host(#{$prefix}-side-nav-menu-item);
-
-  .#{$prefix}--side-nav__link-text {
-    @include carbon--type-style("body-long-02");
-  }
-
-  .#{$prefix}--side-nav__link {
+#{$prefix}-side-nav-menu-item {
+  &::part(link) {
     min-height: var(--sidenav-item-height-short) !important;
 
     &:hover {
@@ -343,40 +336,44 @@ a.#{$prefix}--header__menu-item {
       outline-color: var(--cds-border-subtle);
     }
   }
-}
 
-:host(#{$q}-side-nav-menu-item.#{$q}-nav-menu-item) {
-  .#{$prefix}--side-nav__link {
-    background-color: var(--cool-gray-10) !important;
+  &::part(title) {
+    @include carbon--type-style("body-long-02");
   }
-}
 
-:host(#{$q}-side-nav-menu-item.#{$q}-nav-submenu-item) {
-  position: relative;
-
-  &::part(link) {
-    background-color: var(--cool-gray-20) !important;
-
-    &:focus {
-      outline-color: var(--cool-gray-30);
+  &.#{$q}-nav-menu-item {
+    &::part(link) {
+      background-color: var(--cool-gray-10) !important;
     }
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    right: var(--cds-spacing-07);
-    left: var(--cds-spacing-07);
-    z-index: 1;
-    height: 1px;
-    background-color: var(--cool-gray-30);
+  &.#{$q}-nav-submenu-item {
+    position: relative;
+
+    &::part(link) {
+      background-color: var(--cool-gray-20) !important;
+
+      &:focus {
+        outline-color: var(--cool-gray-30);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: var(--cds-spacing-07);
+      left: var(--cds-spacing-07);
+      z-index: 1;
+      height: 1px;
+      background-color: var(--cool-gray-30);
+    }
+
+    &:first-of-type {
+      border-top: 1px solid var(--cool-gray-30);
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid var(--cool-gray-30);
+    }
   }
-}
-
-:host(#{$q}-side-nav-menu-item.#{$q}-nav-submenu-item:first-of-type) {
-  border-top: 1px solid var(--cool-gray-30);
-}
-
-:host(#{$q}-side-nav-menu-item.#{$q}-nav-submenu-item:last-of-type) {
-  border-bottom: 1px solid var(--cool-gray-30);
 }

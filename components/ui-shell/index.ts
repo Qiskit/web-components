@@ -181,12 +181,12 @@ export class QiskitUIShell extends LitElement {
       ? 'qiskit-nav-submenu-item'
       : 'qiskit-nav-menu-item';
     return html`
-      <qiskit-side-nav-menu-item
+      <bx-side-nav-menu-item
         href="${ifDefined(item?.url)}"
         class="${submenuClass}"
       >
         ${item?.label}
-      </qiskit-side-nav-menu-item>
+      </bx-side-nav-menu-item>
     `;
   }
 
