@@ -78,7 +78,9 @@ $prefix: "bx";
 }
 
 #{$prefix}-header-nav-item.#{$q}-user-accout-icon {
-  &::part(link) {
+  &::part(link),
+  &::part(link):focus,
+  &::part(link):hover {
     background-color: var(--purple-70);
     color: var(--cds-ui-background);
   }
@@ -137,6 +139,7 @@ $prefix: "bx";
   color: var(--cds-text-secondary);
 
   &::part(link),
+  &::part(link):focus,
   &::part(link):hover {
     background-color: var(--cool-gray-10);
   }
