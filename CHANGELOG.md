@@ -1,5 +1,18 @@
 # @qiskit/web-components
 
+## 0.8.0
+
+### Minor Changes
+
+- 3671dd9: New component `column-list` extracted from `mega-menu-dropdown`.
+- 27cc6ee: Adds new UI Shell component that will replace the navbar component. The UI Shell extends the functionality of the carbon-web-components UI Shell with some css customizations.
+  It includes an extended mega menu header dropdown and the nested sidenav menu option.
+  The UI shell includes the option to show or hide the account option in the header and sidenav.
+
+### Patch Changes
+
+- 375bfa8: Update contact email
+
 ## 0.7.0
 
 ### Minor Changes

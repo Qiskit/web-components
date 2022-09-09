@@ -1,6 +1,6 @@
 {
   "name": "@qiskit/web-components",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "MIT",
   "repository": "github:Qiskit/web-components",
   "type": "module",
