@@ -409,7 +409,7 @@ $prefix: "bx";
     }
   }
 
-  p {
+  &__social-heading {
     @include carbon--type-style("productive-heading-01");
 
     margin-bottom: var(--cds-spacing-04);

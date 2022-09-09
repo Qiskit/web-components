@@ -61,7 +61,9 @@ export class QiskitUIShell extends LitElement {
         </bx-side-nav-items>
         <footer class="qiskit-side-nav-footer">
           <div class="qiskit-side-nav-footer__social-container">
-            <p>Stay connected</p>
+            <p class="qiskit-side-nav-footer__social-heading">
+              Stay connected
+            </p>
             <div class="qiskit-side-nav-footer__social-icons">
               ${this._getSocialLinks()}
             </div>
