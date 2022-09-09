@@ -1,5 +1,6 @@
 @import "@carbon/type/scss/type";
 @import "@carbon/colors/scss/colors";
+@import "@carbon/layout/scss/layout";
 
 // These are needed to extend default carbon component styles
 @import "carbon-web-components/scss/components/ui-shell/header";
@@ -233,6 +234,13 @@ $prefix: "bx";
 }
 
 #{$prefix}-side-nav {
+  @include carbon--breakpoint-down("md") {
+    &[expanded] {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
   right: 0;
   left: auto;
   box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 25%);
