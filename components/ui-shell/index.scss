@@ -79,7 +79,7 @@ $prefix: "bx";
   }
 }
 
-#{$prefix}-header-nav-item.#{$q}-user-accout-icon {
+#{$prefix}-header-nav-item.#{$q}-user-account-icon {
   &::part(link),
   &::part(link):focus,
   &::part(link):hover {
@@ -270,7 +270,8 @@ $prefix: "bx";
   }
 }
 
-#{$prefix}-side-nav-link.#{$q}-user-accout-icon {
+#{$prefix}-side-nav-link.#{$q}-user-account-icon {
+  &::part(link):hover,
   &::part(link) {
     height: 3rem;
     text-decoration-color: var(--purple-70);

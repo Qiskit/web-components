@@ -133,7 +133,7 @@ export class QiskitUIShell extends LitElement {
     return html`
       <bx-header-nav-item
         href="https://learn.qiskit.org/account/"
-        class="qiskit-user-accout-icon"
+        class="qiskit-user-account-icon"
       >
         ${userIcon}
       </bx-header-nav-item>
@@ -207,7 +207,7 @@ export class QiskitUIShell extends LitElement {
     return html`
       <bx-side-nav-link
         href="https://learn.qiskit.org/account/"
-        class="qiskit-user-accout-icon"
+        class="qiskit-user-account-icon"
       >
         ${userIcon} <span>Profile</span>
       </bx-side-nav-link>
