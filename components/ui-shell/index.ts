@@ -11,7 +11,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 import 'carbon-web-components/es/components/ui-shell/index.js';
 import './header/index.js';
-import './side-nav/index.js';
 
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
@@ -151,27 +150,27 @@ export class QiskitUIShell extends LitElement {
     if (isMegaMenu) {
       const submenu: NavItem[] = menu?.children || [];
       return html`
-        <qiskit-side-nav-menu title="${menu?.label}">
+        <bx-side-nav-menu title="${menu?.label}">
           ${submenu?.map((submenuItem) => {
             return html`
-              <qiskit-side-nav-menu
+              <bx-side-nav-menu
                 title="${submenuItem?.label}"
                 class="qiskit-side-nav-submenu"
               >
                 ${submenuItem?.children?.map((child) =>
                   this._getSideNavMenuItem(child, true)
                 )}
-              </qiskit-side-nav-menu>
+              </bx-side-nav-menu>
             `;
           })}
-        </qiskit-side-nav-menu>
+        </bx-side-nav-menu>
         <bx-side-nav-divider></bx-side-nav-divider>
       `;
     }
     return html`
-      <qiskit-side-nav-menu title="${menu?.label}">
+      <bx-side-nav-menu title="${menu?.label}">
         ${menu?.children?.map((item) => this._getSideNavMenuItem(item))}
-      </qiskit-side-nav-menu>
+      </bx-side-nav-menu>
       <bx-side-nav-divider></bx-side-nav-divider>
     `;
   }

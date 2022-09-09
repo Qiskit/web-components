@@ -290,11 +290,8 @@ $prefix: "bx";
   }
 }
 
-:host(#{$q}-side-nav-menu) {
-  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
-  @extend :host(#{$prefix}-side-nav-menu);
-
-  .#{$prefix}--side-nav__submenu {
+#{$prefix}-side-nav-menu {
+  &::part(expando) {
     @include carbon--type-style("body-long-02");
 
     min-height: var(--sidenav-item-height);
@@ -311,14 +308,14 @@ $prefix: "bx";
   }
 }
 
-:host(#{$q}-side-nav-menu[expanded]:not(.#{$q}-side-nav-submenu)) {
-  .#{$prefix}--side-nav__submenu-title {
+#{$prefix}-side-nav-menu[expanded]:not(.#{$q}-side-nav-submenu) {
+  &::part(title) {
     font-weight: 500;
   }
 }
 
-:host(#{$q}-side-nav-menu.#{$q}-side-nav-submenu) {
-  .#{$prefix}--side-nav__submenu {
+#{$prefix}-side-nav-menu.#{$q}-side-nav-submenu {
+  &::part(expando) {
     min-height: var(--sidenav-item-height-short);
     background-color: var(--cool-gray-10);
   }
