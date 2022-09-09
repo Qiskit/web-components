@@ -11,6 +11,8 @@ import { property, customElement, query, state } from 'lit/decorators.js';
 import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
 
+import '../column-list/index.js';
+
 import chevronDown from '../icons/chevron-down.js';
 import { emptySearchIcon } from '../icons/empty-search.js';
 import styles from './index.scss';
@@ -108,12 +110,14 @@ export class QiskitMegaMenuDropdown extends LitElement {
         ${when(this._showContent, () =>
           this._isFilteredContentEmpty
             ? this.emptyContentView()
-            : html`<column-list
-                class="content"
-                .content=${this._filteredContent}
-                .renderContentElement=${(el: NavLink) =>
-                  this.highlightedText(el)}
-              ></column-list>`
+            : html`
+                <qiskit-column-list
+                  class="content"
+                  .content=${this._filteredContent}
+                  .renderContentElement=${(el: NavLink) =>
+                    this.highlightedText(el)}
+                ></qiskit-column-list>
+              `
         )}
       </article>
     `;

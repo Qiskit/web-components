@@ -24,7 +24,7 @@ interface Args {
 }
 
 const Template = ({ content }: Args) => {
-  return html`<column-list .content="${content}"></column-list>`;
+  return html`<qiskit-column-list .content="${content}"></qiskit-column-list>`;
 };
 
 type Story = typeof Template & { args?: { [attr: string]: unknown } };

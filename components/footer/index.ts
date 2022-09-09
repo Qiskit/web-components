@@ -185,3 +185,9 @@ export class QiskitFooter extends LitElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'qiskit-footer': QiskitFooter;
+  }
+}
