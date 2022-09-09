@@ -9,7 +9,7 @@
     "./banner": "./components/banner/index.js",
     "./footer": "./components/footer/index.js",
     "./mega-menu-dropdown": "./components/mega-menu-dropdown/index.js",
-    "./navbar": "./components/navbar/index.js"
+    "./ui-shell": "./components/ui-shell/index.js"
   },
   "scripts": {
     "analyze-lit": "lit-analyzer components/**/*.ts --strict",
