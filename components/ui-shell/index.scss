@@ -85,6 +85,7 @@ $prefix: "bx";
 }
 
 #{$prefix}-header-nav-item::part(link),
+#{$prefix}-header-menu-item::part(link),
 a.#{$prefix}--header__menu-item {
   @include carbon--type-style("body-long-02");
 
@@ -129,15 +130,13 @@ a.#{$prefix}--header__menu-item {
   }
 }
 
-:host(#{$q}-header-menu-item) {
-  /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
-  @extend .#{$prefix}--header__menu-item;
-
+#{$prefix}-header-menu-item {
   height: 3rem;
   background-color: var(--cds-ui-01);
   color: var(--cds-text-secondary);
 
-  &::part(link) {
+  &::part(link),
+  &::part(link):hover {
     background-color: var(--cool-gray-10);
   }
 }
