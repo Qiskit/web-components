@@ -39,6 +39,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         label: 'Advocates',
         url: 'https://qiskit.org/advocates/',
       },
+      {
+        label: 'Ecosystem',
+        url: 'https://qiskit.org/ecosystem/',
+      },
     ],
   },
   {
