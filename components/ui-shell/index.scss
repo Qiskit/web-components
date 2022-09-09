@@ -86,7 +86,8 @@ $prefix: "bx";
 
 #{$prefix}-header-nav-item::part(link),
 #{$prefix}-header-menu-item::part(link),
-a.#{$prefix}--header__menu-item {
+#{$q}-header-menu::part(trigger),
+#{$q}-header-menu-mega::part(trigger) {
   @include carbon--type-style("body-long-02");
 
   background: var(--cds-ui-background);
