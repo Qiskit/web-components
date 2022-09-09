@@ -15,7 +15,13 @@ import './header/index.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
-import { NavItem, TopLevelNavItem, Variant, NAV_ITEMS } from './settings.js';
+import {
+  NavItem,
+  TopLevelNavItem,
+  Variant,
+  NAV_ITEMS,
+  SOCIAL_LINKS
+} from './settings.js';
 
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
@@ -25,6 +31,7 @@ export class QiskitUIShell extends LitElement {
   variant: Variant = Variant.DEFAULT;
 
   private _NAV_ITEMS = NAV_ITEMS;
+  private _SOCIAL_LINKS = SOCIAL_LINKS;
 
   render() {
     return html`
@@ -52,6 +59,17 @@ export class QiskitUIShell extends LitElement {
             ? null
             : this._getAccountSideNavLink()}
         </bx-side-nav-items>
+        <footer class="qiskit-side-nav-footer">
+          <div class="qiskit-side-nav-footer__social-container">
+            <p>Stay connected</p>
+            <div class="qiskit-side-nav-footer__social-icons">
+              ${this._getSocialLinks()}
+            </div>
+          </div>
+          <div class="qiskit-side-nav-footer__copyright">
+            © Qiskit | All Rights Reserved
+          </div>
+        </footer>
       </bx-side-nav>
     `;
   }
@@ -194,6 +212,20 @@ export class QiskitUIShell extends LitElement {
         ${userIcon} <span>Profile</span>
       </bx-side-nav-link>
     `;
+  }
+
+  private _getSocialLinks() {
+    return this._SOCIAL_LINKS.map((link) =>
+      html`
+        <a
+          class="qiskit-side-nav-footer__social-icons__icon"
+          href="${ifDefined(link.url)}"
+          rel="noopener"
+          target="_blank"
+          title="${link.label}">
+          ${link.icon}
+        </a>
+      `);
   }
 }
 

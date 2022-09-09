@@ -1,3 +1,9 @@
+import type { TemplateResult } from 'lit';
+import { slackIcon } from '../icons/slack.js';
+import { twitterIcon } from '../icons/twitter.js';
+import { youtubeIcon } from '../icons/youtube.js';
+import { mediumIcon } from '../icons/medium.js';
+
 export interface NavItem {
   label: string;
   url?: string;
@@ -9,6 +15,10 @@ export interface TopLevelNavItem extends NavItem {
   isMegaMenu?: boolean;
 }
 
+export interface SocialLinks extends NavItem {
+  icon: TemplateResult;
+}
+
 export interface SegmentData {
   cta: string;
   location: string;
@@ -18,6 +28,29 @@ export enum Variant {
   DEFAULT = '',
   HIDE_ACCOUNT = 'hide-account',
 }
+
+export const SOCIAL_LINKS: SocialLinks[] = [
+  {
+    icon: twitterIcon,
+    label: 'Twitter',
+    url: 'https://twitter.com/Qiskit',
+  },
+  {
+    icon: slackIcon,
+    label: 'Slack',
+    url: 'https://ibm.co/joinqiskitslack',
+  },
+  {
+    icon: youtubeIcon,
+    label: 'YouTube',
+    url: 'https://youtube.com/Qiskit',
+  },
+  {
+    icon: mediumIcon,
+    label: 'Medium',
+    url: 'https://medium.com/Qiskit',
+  },
+]
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
   {
