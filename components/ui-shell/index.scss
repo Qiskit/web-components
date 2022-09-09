@@ -229,7 +229,7 @@ $prefix: "bx";
   }
 }
 
-.#{$q}-side-nav {
+#{$prefix}-side-nav {
   right: 0;
   left: auto;
   box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 25%);

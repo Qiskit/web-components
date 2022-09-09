@@ -48,7 +48,6 @@ export class QiskitUIShell extends LitElement {
       <bx-side-nav
         aria-label="Main mobile navigation"
         usage-mode="header-nav"
-        class="qiskit-side-nav"
       >
         <bx-side-nav-items>
           ${this._getSideNavItems()}
