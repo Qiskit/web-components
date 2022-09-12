@@ -68,7 +68,12 @@ export class QiskitUIShell extends LitElement {
 
   private _getHeaderNavItem(item: NavItem) {
     return html`
-      <bx-header-nav-item href="${ifDefined(item?.url)}">
+      <bx-header-nav-item
+        href="${ifDefined(item?.url)}"
+        @click="${() => {
+          this._handleClick(item?.label);
+        }}"
+      >
         ${item?.label}
       </bx-header-nav-item>
     `;
@@ -98,7 +103,12 @@ export class QiskitUIShell extends LitElement {
 
   private _getHeaderMenuItem(item: NavItem) {
     return html`
-      <bx-header-menu-item href="${ifDefined(item?.url)}">
+      <bx-header-menu-item
+        href="${ifDefined(item?.url)}"
+        @click="${() => {
+          this._handleClick(item?.label);
+        }}"
+      >
         ${item?.label}
       </bx-header-menu-item>
     `;
@@ -134,7 +144,12 @@ export class QiskitUIShell extends LitElement {
 
   private _getSideNavLink(item: NavItem) {
     return html`
-      <bx-side-nav-link href="${ifDefined(item?.url)}">
+      <bx-side-nav-link
+        href="${ifDefined(item?.url)}"
+        @click="${() => {
+          this._handleClick(item?.label);
+        }}"
+      >
         ${item?.label}
       </bx-side-nav-link>
       <bx-side-nav-divider></bx-side-nav-divider>
@@ -179,6 +194,9 @@ export class QiskitUIShell extends LitElement {
       <bx-side-nav-menu-item
         href="${ifDefined(item?.url)}"
         class="${submenuClass}"
+        @click="${() => {
+          this._handleClick(item?.label);
+        }}"
       >
         ${item?.label}
       </bx-side-nav-menu-item>
@@ -190,11 +208,24 @@ export class QiskitUIShell extends LitElement {
       <bx-side-nav-link
         href="https://learn.qiskit.org/account/"
         class="qiskit-user-accout-icon"
+        @click="${() => {
+          this._handleClick('Account');
+        }}"
       >
         ${userIcon} <span>Profile</span>
       </bx-side-nav-link>
     `;
   }
+
+  _handleClick = (label: string) => {
+    this.dispatchEvent(
+      new CustomEvent('onClick', {
+        detail: { label },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  };
 }
 
 declare global {
