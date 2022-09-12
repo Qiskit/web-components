@@ -15,13 +15,8 @@ import './header/index.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
-import {
-  NavItem,
-  TopLevelNavItem,
-  Variant,
-  NAV_ITEMS,
-  SOCIAL_LINKS
-} from './settings.js';
+import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
+import type { NavItem, TopLevelNavItem } from './settings.js';
 
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
@@ -61,9 +56,7 @@ export class QiskitUIShell extends LitElement {
         </bx-side-nav-items>
         <footer class="qiskit-side-nav-footer">
           <div class="qiskit-side-nav-footer__social-container">
-            <p class="qiskit-side-nav-footer__social-heading">
-              Stay connected
-            </p>
+            <p class="qiskit-side-nav-footer__social-heading">Stay connected</p>
             <div class="qiskit-side-nav-footer__social-icons">
               ${this._getSocialLinks()}
             </div>
@@ -217,17 +210,20 @@ export class QiskitUIShell extends LitElement {
   }
 
   private _getSocialLinks() {
-    return this._SOCIAL_LINKS.map((link) =>
-      html`
-        <a
-          class="qiskit-side-nav-footer__social-icons__icon"
-          href="${ifDefined(link.url)}"
-          rel="noopener"
-          target="_blank"
-          title="${link.label}">
-          ${link.icon}
-        </a>
-      `);
+    return this._SOCIAL_LINKS.map(
+      (link) =>
+        html`
+          <a
+            class="qiskit-side-nav-footer__social-icons__icon"
+            href="${ifDefined(link.url)}"
+            rel="noopener"
+            target="_blank"
+            title="${link.label}"
+          >
+            ${link.icon}
+          </a>
+        `
+    );
   }
 }
 

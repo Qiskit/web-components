@@ -5,22 +5,22 @@ import { slackIcon } from '../icons/slack.js';
 import { twitterIcon } from '../icons/twitter.js';
 import { youtubeIcon } from '../icons/youtube.js';
 
-export interface NavItem {
+interface NavItem {
   label: string;
   url?: string;
   children?: NavItem[];
   segment?: SegmentData;
 }
 
-export interface TopLevelNavItem extends NavItem {
+interface TopLevelNavItem extends NavItem {
   isMegaMenu?: boolean;
 }
 
-export interface SocialLinks extends NavItem {
+interface SocialLinks extends NavItem {
   icon: TemplateResult;
 }
 
-export interface SegmentData {
+interface SegmentData {
   cta: string;
   location: string;
 }
@@ -201,3 +201,5 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     ],
   },
 ];
+
+export type { NavItem, TopLevelNavItem };
