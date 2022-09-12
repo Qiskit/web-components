@@ -116,7 +116,12 @@ export class QiskitUIShell extends LitElement {
 
   private _getHeaderMenuItemMega(item: NavItem) {
     return html`
-      <qiskit-header-menu-item-mega .item="${item}">
+      <qiskit-header-menu-item-mega
+        .item="${item}"
+        @click="${() => {
+          this._handleClick(item?.label);
+        }}"
+      >
       </qiskit-header-menu-item-mega>
     `;
   }
@@ -126,6 +131,9 @@ export class QiskitUIShell extends LitElement {
       <bx-header-nav-item
         href="https://learn.qiskit.org/account/"
         class="qiskit-user-accout-icon"
+        @click="${() => {
+          this._handleClick('Account');
+        }}"
       >
         ${userIcon}
       </bx-header-nav-item>
