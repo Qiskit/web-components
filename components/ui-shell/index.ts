@@ -227,7 +227,7 @@ export class QiskitUIShell extends LitElement {
 
   _handleClick = (label: string) => {
     this.dispatchEvent(
-      new CustomEvent('onClick', {
+      new CustomEvent('on-click', {
         detail: { label },
         bubbles: true,
         composed: true,
