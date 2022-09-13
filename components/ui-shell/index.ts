@@ -32,7 +32,7 @@ export class QiskitUIShell extends LitElement {
         <bx-header-name
           href="https://qiskit.org/"
           @click="${() => {
-            this._handleClick('Home');
+            this._handleClick('Home', 'https://qiskit.org');
           }}"
         >
           ${qiskitLogoIcon}
@@ -76,7 +76,7 @@ export class QiskitUIShell extends LitElement {
       <bx-header-nav-item
         href="${ifDefined(item?.url)}"
         @click="${() => {
-          this._handleClick(item?.label);
+          this._handleClick(item?.label, item?.url);
         }}"
       >
         ${item?.label}
@@ -111,7 +111,7 @@ export class QiskitUIShell extends LitElement {
       <bx-header-menu-item
         href="${ifDefined(item?.url)}"
         @click="${() => {
-          this._handleClick(item?.label);
+          this._handleClick(item?.label, item?.url);
         }}"
       >
         ${item?.label}
@@ -132,7 +132,7 @@ export class QiskitUIShell extends LitElement {
         href="https://learn.qiskit.org/account/"
         class="qiskit-user-accout-icon"
         @click="${() => {
-          this._handleClick('Account');
+          this._handleClick('Account', 'https://learn.qiskit.org/account/');
         }}"
       >
         ${userIcon}
@@ -155,7 +155,7 @@ export class QiskitUIShell extends LitElement {
       <bx-side-nav-link
         href="${ifDefined(item?.url)}"
         @click="${() => {
-          this._handleClick(item?.label);
+          this._handleClick(item?.label, item?.label);
         }}"
       >
         ${item?.label}
@@ -203,7 +203,7 @@ export class QiskitUIShell extends LitElement {
         href="${ifDefined(item?.url)}"
         class="${submenuClass}"
         @click="${() => {
-          this._handleClick(item?.label);
+          this._handleClick(item?.label, item?.url);
         }}"
       >
         ${item?.label}
@@ -217,7 +217,7 @@ export class QiskitUIShell extends LitElement {
         href="https://learn.qiskit.org/account/"
         class="qiskit-user-accout-icon"
         @click="${() => {
-          this._handleClick('Account');
+          this._handleClick('Account', 'https://learn.qiskit.org/account/');
         }}"
       >
         ${userIcon} <span>Profile</span>
@@ -225,10 +225,13 @@ export class QiskitUIShell extends LitElement {
     `;
   }
 
-  _handleClick = (label: string) => {
+  _handleClick = (navItemLabel: string, navItemUrl: string) => {
     this.dispatchEvent(
       new CustomEvent('on-click', {
-        detail: { label },
+        detail: {
+          label: navItemLabel,
+          url: navItemUrl,
+        },
         bubbles: true,
         composed: true,
       })

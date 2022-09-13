@@ -29,7 +29,7 @@ export class QiskitHeaderMenuItemMega extends LitElement {
               <a
                 href="${ifDefined(item?.url)}"
                 @click="${() => {
-                  this._handleClick(item.label);
+                  this._handleClick(item.label, item?.url);
                 }}"
               >
                 ${item.label}
@@ -41,10 +41,13 @@ export class QiskitHeaderMenuItemMega extends LitElement {
     `;
   }
 
-  _handleClick = (label: string) => {
+  _handleClick = (navItemLabel: string, navItemUrl: string) => {
     this.dispatchEvent(
       new CustomEvent('on-click', {
-        detail: { label },
+        detail: {
+          label: navItemLabel,
+          url: navItemUrl,
+        },
         bubbles: true,
         composed: true,
       })
