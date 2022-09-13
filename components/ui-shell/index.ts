@@ -29,7 +29,12 @@ export class QiskitUIShell extends LitElement {
   render() {
     return html`
       <bx-header aria-label="Qiskit">
-        <bx-header-name href="https://qiskit.org/">
+        <bx-header-name
+          href="https://qiskit.org/"
+          @click="${() => {
+            this._handleClick('Home');
+          }}"
+        >
           ${qiskitLogoIcon}
         </bx-header-name>
         <bx-header-nav menu-bar-label="Qiskit">
@@ -116,12 +121,7 @@ export class QiskitUIShell extends LitElement {
 
   private _getHeaderMenuItemMega(item: NavItem) {
     return html`
-      <qiskit-header-menu-item-mega
-        .item="${item}"
-        @click="${() => {
-          this._handleClick(item?.label);
-        }}"
-      >
+      <qiskit-header-menu-item-mega .item="${item}">
       </qiskit-header-menu-item-mega>
     `;
   }
