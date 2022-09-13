@@ -62,6 +62,15 @@ $prefix: "bx";
     width: 100%;
     height: auto;
   }
+
+  .#{$q}-header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 99rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 #{$prefix}-header-name {
@@ -73,6 +82,8 @@ $prefix: "bx";
 }
 
 #{$prefix}-header-nav {
+  height: auto;
+
   &::before,
   &::part(divider) {
     display: none;

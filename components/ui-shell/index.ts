@@ -31,20 +31,22 @@ export class QiskitUIShell extends LitElement {
   render() {
     return html`
       <bx-header aria-label="Qiskit">
-        <bx-header-name href="https://qiskit.org/">
-          ${qiskitLogoIcon}
-        </bx-header-name>
-        <bx-header-nav menu-bar-label="Qiskit">
-          ${this._getHeaderItems()}
-          ${this.variant === Variant.HIDE_ACCOUNT
-            ? null
-            : this._getAccountHeaderNavItem()}
-        </bx-header-nav>
-        <qiskit-header-menu-button
-          button-label-active="Close menu"
-          button-label-inactive="Open menu"
-        >
-        </qiskit-header-menu-button>
+        <div class="qiskit-header-content">
+          <bx-header-name href="https://qiskit.org/">
+            ${qiskitLogoIcon}
+          </bx-header-name>
+          <bx-header-nav menu-bar-label="Qiskit">
+            ${this._getHeaderItems()}
+            ${this.variant === Variant.HIDE_ACCOUNT
+              ? null
+              : this._getAccountHeaderNavItem()}
+          </bx-header-nav>
+          <qiskit-header-menu-button
+            button-label-active="Close menu"
+            button-label-inactive="Open menu"
+          >
+          </qiskit-header-menu-button>
+        </div>
       </bx-header>
 
       <bx-side-nav aria-label="Main mobile navigation" usage-mode="header-nav">
