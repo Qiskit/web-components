@@ -10,7 +10,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styles from '../index.scss';
-import { NavItem } from '../settings.js';
+import type { NavItem } from '../settings.js';
 
 @customElement('qiskit-header-menu-item-mega')
 export class QiskitHeaderMenuItemMega extends LitElement {
@@ -29,7 +29,7 @@ export class QiskitHeaderMenuItemMega extends LitElement {
               <a
                 href="${ifDefined(item?.url)}"
                 @click="${() => {
-                  this._handleClick(item.label, item?.url);
+                  this._handleClick(item);
                 }}"
               >
                 ${item.label}
@@ -41,12 +41,12 @@ export class QiskitHeaderMenuItemMega extends LitElement {
     `;
   }
 
-  _handleClick = (navItemLabel: string, navItemUrl: string) => {
+  _handleClick = (item: NavItem) => {
     this.dispatchEvent(
       new CustomEvent('on-click', {
         detail: {
-          label: navItemLabel,
-          url: navItemUrl,
+          label: item.label,
+          url: item.url,
         },
         bubbles: true,
         composed: true,
