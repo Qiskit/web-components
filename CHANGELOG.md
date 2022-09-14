@@ -1,5 +1,19 @@
 # @qiskit/web-components
 
+## 0.9.0
+
+### Minor Changes
+
+- fae9030: feat(ui-shell): mobile nav enhacements
+  Adds social media icon links and copyright to sidenav at smallest breakpoint
+  Adds the "Ecosystem" navigation item to the Community dropdown
+- 1b4643a: Add missed interfaces
+  Also add missed namespace to internal column-list component
+
+### Patch Changes
+
+- f42f8a5: Emit click event for ui-shell nav items, passing the nav item label and url within the event detail.
+
 ## 0.8.1
 
 ### Patch Changes
