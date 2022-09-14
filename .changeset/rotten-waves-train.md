@@ -1,5 +1,5 @@
 ---
-"@qiskit/web-components": minor
+'@qiskit/web-components': minor
 ---
 
 feat(ui-shell): mobile nav enhacements

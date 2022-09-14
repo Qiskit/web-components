@@ -26,13 +26,33 @@ export class QiskitHeaderMenuItemMega extends LitElement {
         <ul class="qiskit-header-menu-item-mega-list">
           ${this.item?.children?.map((item) => {
             return html`<li>
-              <a href="${ifDefined(item?.url)}"> ${item.label} </a>
+              <a
+                href="${ifDefined(item?.url)}"
+                @click="${() => {
+                  this._handleClick(item);
+                }}"
+              >
+                ${item.label}
+              </a>
             </li>`;
           })}
         </ul>
       </div>
     `;
   }
+
+  _handleClick = (item: NavItem) => {
+    this.dispatchEvent(
+      new CustomEvent('on-click', {
+        detail: {
+          label: item.label,
+          url: item.url,
+        },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  };
 }
 
 declare global {

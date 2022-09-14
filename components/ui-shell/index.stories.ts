@@ -13,7 +13,17 @@ export default {
   title: 'UI Shell',
 };
 
-export const Default = () => html`<qiskit-ui-shell></qiskit-ui-shell>`;
+export const Default = () =>
+  html`<qiskit-ui-shell
+    @on-click="${(e: CustomEvent) => {
+      alert(`label: ${e.detail?.label}, url: ${e.detail?.url}`);
+    }}"
+  ></qiskit-ui-shell>`;
 
 export const HideAccount = () =>
-  html`<qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>`;
+  html`<qiskit-ui-shell
+    variant="hide-account"
+    @on-click="${(e: CustomEvent) => {
+      alert(`label: ${e.detail?.label}, url: ${e.detail?.url}`);
+    }}"
+  ></qiskit-ui-shell>`;
