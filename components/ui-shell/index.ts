@@ -15,7 +15,7 @@ import './header/index.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
-import { Variant, NAV_ITEMS } from './settings.js';
+import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
 import type { NavItem, TopLevelNavItem } from './settings.js';
 
 @customElement('qiskit-ui-shell')
@@ -26,32 +26,35 @@ export class QiskitUIShell extends LitElement {
   variant: Variant = Variant.DEFAULT;
 
   private _NAV_ITEMS = NAV_ITEMS;
+  private _SOCIAL_LINKS = SOCIAL_LINKS;
 
   render() {
     return html`
       <bx-header aria-label="Qiskit">
-        <bx-header-name
-          href="https://qiskit.org/"
-          @click="${() => {
-            this._handleClick({
-              label: 'Home',
-              url: 'https://qiskit.org',
-            });
-          }}"
-        >
-          ${qiskitLogoIcon}
-        </bx-header-name>
-        <bx-header-nav menu-bar-label="Qiskit">
-          ${this._getHeaderItems()}
-          ${this.variant === Variant.HIDE_ACCOUNT
-            ? null
-            : this._getAccountHeaderNavItem()}
-        </bx-header-nav>
-        <qiskit-header-menu-button
-          button-label-active="Close menu"
-          button-label-inactive="Open menu"
-        >
-        </qiskit-header-menu-button>
+        <div class="qiskit-header-content">
+          <bx-header-name
+            href="https://qiskit.org/"
+            @click="${() => {
+              this._handleClick({
+                label: 'Home',
+                url: 'https://qiskit.org',
+              });
+            }}"
+          >
+            ${qiskitLogoIcon}
+          </bx-header-name>
+          <bx-header-nav menu-bar-label="Qiskit">
+            ${this._getHeaderItems()}
+            ${this.variant === Variant.HIDE_ACCOUNT
+              ? null
+              : this._getAccountHeaderNavItem()}
+          </bx-header-nav>
+          <qiskit-header-menu-button
+            button-label-active="Close menu"
+            button-label-inactive="Open menu"
+          >
+          </qiskit-header-menu-button>
+        </div>
       </bx-header>
 
       <bx-side-nav aria-label="Main mobile navigation" usage-mode="header-nav">
@@ -61,6 +64,17 @@ export class QiskitUIShell extends LitElement {
             ? null
             : this._getAccountSideNavLink()}
         </bx-side-nav-items>
+        <footer class="qiskit-side-nav-footer">
+          <div class="qiskit-side-nav-footer__social-container">
+            <p class="qiskit-side-nav-footer__social-heading">Stay connected</p>
+            <div class="qiskit-side-nav-footer__social-icons">
+              ${this._getSocialLinks()}
+            </div>
+          </div>
+          <div class="qiskit-side-nav-footer__copyright">
+            © Qiskit | All Rights Reserved
+          </div>
+        </footer>
       </bx-side-nav>
     `;
   }
@@ -134,7 +148,7 @@ export class QiskitUIShell extends LitElement {
     return html`
       <bx-header-nav-item
         href="https://learn.qiskit.org/account/"
-        class="qiskit-user-accout-icon"
+        class="qiskit-user-account-icon"
         @click="${() => {
           this._handleClick({
             label: 'Account',
@@ -222,7 +236,7 @@ export class QiskitUIShell extends LitElement {
     return html`
       <bx-side-nav-link
         href="https://learn.qiskit.org/account/"
-        class="qiskit-user-accout-icon"
+        class="qiskit-user-account-icon"
         @click="${() => {
           this._handleClick({
             label: 'Account',
@@ -233,6 +247,23 @@ export class QiskitUIShell extends LitElement {
         ${userIcon} <span>Profile</span>
       </bx-side-nav-link>
     `;
+  }
+
+  private _getSocialLinks() {
+    return this._SOCIAL_LINKS.map(
+      (link) =>
+        html`
+          <a
+            class="qiskit-side-nav-footer__social-icons__icon"
+            href="${ifDefined(link.url)}"
+            rel="noopener"
+            target="_blank"
+            title="${link.label}"
+          >
+            ${link.icon}
+          </a>
+        `
+    );
   }
 
   _handleClick = (item: NavItem) => {

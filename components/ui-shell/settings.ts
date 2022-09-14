@@ -1,15 +1,26 @@
-export interface NavItem {
+import type { TemplateResult } from 'lit';
+
+import { mediumIcon } from '../icons/medium.js';
+import { slackIcon } from '../icons/slack.js';
+import { twitterIcon } from '../icons/twitter.js';
+import { youtubeIcon } from '../icons/youtube.js';
+
+interface NavItem {
   label: string;
   url?: string;
   children?: NavItem[];
   segment?: SegmentData;
 }
 
-export interface TopLevelNavItem extends NavItem {
+interface TopLevelNavItem extends NavItem {
   isMegaMenu?: boolean;
 }
 
-export interface SegmentData {
+interface SocialLinks extends NavItem {
+  icon: TemplateResult;
+}
+
+interface SegmentData {
   cta: string;
   location: string;
 }
@@ -18,6 +29,29 @@ export enum Variant {
   DEFAULT = '',
   HIDE_ACCOUNT = 'hide-account',
 }
+
+export const SOCIAL_LINKS: SocialLinks[] = [
+  {
+    icon: twitterIcon,
+    label: 'Twitter',
+    url: 'https://twitter.com/Qiskit',
+  },
+  {
+    icon: slackIcon,
+    label: 'Slack',
+    url: 'https://ibm.co/joinqiskitslack',
+  },
+  {
+    icon: youtubeIcon,
+    label: 'YouTube',
+    url: 'https://youtube.com/Qiskit',
+  },
+  {
+    icon: mediumIcon,
+    label: 'Medium',
+    url: 'https://medium.com/Qiskit',
+  },
+];
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
   {
@@ -38,6 +72,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
       {
         label: 'Advocates',
         url: 'https://qiskit.org/advocates/',
+      },
+      {
+        label: 'Ecosystem',
+        url: 'https://qiskit.org/ecosystem/',
       },
     ],
   },
@@ -163,3 +201,5 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     ],
   },
 ];
+
+export type { NavItem, TopLevelNavItem };
