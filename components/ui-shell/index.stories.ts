@@ -15,7 +15,7 @@ export default {
 
 export const Default = () =>
   html`<qiskit-ui-shell
-    @on-click="${(e: { detail: { label: string; url: string } }) => {
+    @on-click="${(e: CustomEvent) => {
       alert(`label: ${e.detail?.label}, url: ${e.detail?.url}`);
     }}"
   ></qiskit-ui-shell>`;
