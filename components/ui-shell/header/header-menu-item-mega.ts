@@ -10,7 +10,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styles from '../index.scss';
-import { NavItem } from '../settings.js';
+import type { NavItem } from '../settings.js';
 
 @customElement('qiskit-header-menu-item-mega')
 export class QiskitHeaderMenuItemMega extends LitElement {
