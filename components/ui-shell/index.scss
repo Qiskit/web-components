@@ -15,6 +15,7 @@ $prefix: "bx";
 
 :host {
   --header-height: 3.5rem;
+  --header-content-max-width: none;
   --cool-gray-10: #{$carbon--cool-gray-10};
   --cool-gray-20: #{$carbon--cool-gray-20};
   --cool-gray-30: #{$carbon--cool-gray-30};
@@ -67,7 +68,7 @@ $prefix: "bx";
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 99rem;
+    max-width: var(--header-content-max-width);
     margin-right: auto;
     margin-left: auto;
   }

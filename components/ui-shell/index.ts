@@ -57,7 +57,11 @@ export class QiskitUIShell extends LitElement {
         </div>
       </bx-header>
 
-      <bx-side-nav aria-label="Main mobile navigation" usage-mode="header-nav">
+      <bx-side-nav
+        aria-label="Main mobile navigation"
+        usage-mode="header-nav"
+        tabindex="-1"
+      >
         <bx-side-nav-items>
           ${this._getSideNavItems()}
           ${this.variant === Variant.HIDE_ACCOUNT
