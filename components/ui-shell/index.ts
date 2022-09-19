@@ -68,7 +68,7 @@ export class QiskitUIShell extends LitElement {
             ? null
             : this._getAccountSideNavLink()}
         </bx-side-nav-items>
-        <footer class="qiskit-side-nav-footer">
+        <div class="qiskit-side-nav-footer">
           <div class="qiskit-side-nav-footer__social-container">
             <p class="qiskit-side-nav-footer__social-heading">Stay connected</p>
             <div class="qiskit-side-nav-footer__social-icons">
@@ -78,7 +78,7 @@ export class QiskitUIShell extends LitElement {
           <div class="qiskit-side-nav-footer__copyright">
             © Qiskit | All Rights Reserved
           </div>
-        </footer>
+        </div>
       </bx-side-nav>
     `;
   }
