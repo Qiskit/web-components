@@ -193,7 +193,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
             url: 'https://qiskit.slack.com/',
           },
           {
-            label: 'Qiskit textboox',
+            label: 'Qiskit Textbook',
             url: 'https://qiskit.org/learn/',
           },
         ],
