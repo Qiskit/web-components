@@ -9,7 +9,6 @@ interface NavItem {
   label: string;
   url?: string;
   children?: NavItem[];
-  segment?: SegmentData;
 }
 
 interface TopLevelNavItem extends NavItem {
@@ -18,11 +17,6 @@ interface TopLevelNavItem extends NavItem {
 
 interface SocialLinks extends NavItem {
   icon: TemplateResult;
-}
-
-interface SegmentData {
-  cta: string;
-  location: string;
 }
 
 export enum Variant {
