@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.9.1
+
+### Patch Changes
+
+- 027f0a0: Update the header content max-width value to use a CSS variables. This will allow greater flexibility when this header is consumed in different areas of qiskit. eg platypus vs qiskit.org
+
 ## 0.9.0
 
 ### Minor Changes
