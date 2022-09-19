@@ -1,5 +1,13 @@
 # @qiskit/web-components
 
+## 0.9.2
+
+### Patch Changes
+
+- 4d779e0: Update ui-shell click event to include parent dropdown label
+- ad69be2: Fixes 'Qiskit textboox' typo
+- ad69be2: Address a11y landmark violation
+
 ## 0.9.1
 
 ### Patch Changes
