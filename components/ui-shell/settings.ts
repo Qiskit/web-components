@@ -78,7 +78,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     isMegaMenu: true,
     children: [
       {
-        label: 'Get started',
+        label: 'Getting Started',
         children: [
           {
             label: 'Overview',
@@ -184,7 +184,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           },
           {
             label: 'Slack',
-            url: 'https://qiskit.slack.com/',
+            url: 'https://ibm.co/joinqiskitslack',
           },
           {
             label: 'Qiskit Textbook',
