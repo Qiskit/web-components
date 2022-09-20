@@ -57,14 +57,18 @@ export class QiskitUIShell extends LitElement {
         </div>
       </bx-header>
 
-      <bx-side-nav aria-label="Main mobile navigation" usage-mode="header-nav">
+      <bx-side-nav
+        aria-label="Main mobile navigation"
+        usage-mode="header-nav"
+        tabindex="-1"
+      >
         <bx-side-nav-items>
           ${this._getSideNavItems()}
           ${this.variant === Variant.HIDE_ACCOUNT
             ? null
             : this._getAccountSideNavLink()}
         </bx-side-nav-items>
-        <footer class="qiskit-side-nav-footer">
+        <div class="qiskit-side-nav-footer">
           <div class="qiskit-side-nav-footer__social-container">
             <p class="qiskit-side-nav-footer__social-heading">Stay connected</p>
             <div class="qiskit-side-nav-footer__social-icons">
@@ -74,7 +78,7 @@ export class QiskitUIShell extends LitElement {
           <div class="qiskit-side-nav-footer__copyright">
             © Qiskit | All Rights Reserved
           </div>
-        </footer>
+        </div>
       </bx-side-nav>
     `;
   }
@@ -110,7 +114,9 @@ export class QiskitUIShell extends LitElement {
           menu-label="${menu?.label}"
           trigger-content="${menu?.label}"
         >
-          ${menu?.children?.map((item) => this._getHeaderMenuItemMega(item))}
+          ${menu?.children?.map((item) =>
+            this._getHeaderMenuItemMega(item, menu?.label)
+          )}
         </qiskit-header-menu-mega>
       `;
     }
@@ -119,17 +125,19 @@ export class QiskitUIShell extends LitElement {
         menu-label="${menu?.label}"
         trigger-content="${menu?.label}"
       >
-        ${menu?.children?.map((item) => this._getHeaderMenuItem(item))}
+        ${menu?.children?.map((item) =>
+          this._getHeaderMenuItem(item, menu?.label)
+        )}
       </qiskit-header-menu>
     `;
   }
 
-  private _getHeaderMenuItem(item: NavItem) {
+  private _getHeaderMenuItem(item: NavItem, parentLabel: string) {
     return html`
       <bx-header-menu-item
         href="${ifDefined(item?.url)}"
         @click="${() => {
-          this._handleClick(item);
+          this._handleClick(item, parentLabel);
         }}"
       >
         ${item?.label}
@@ -137,9 +145,12 @@ export class QiskitUIShell extends LitElement {
     `;
   }
 
-  private _getHeaderMenuItemMega(item: NavItem) {
+  private _getHeaderMenuItemMega(item: NavItem, parentLabel: string) {
     return html`
-      <qiskit-header-menu-item-mega .item="${item}">
+      <qiskit-header-menu-item-mega
+        .item="${item}"
+        .parentLabel="${parentLabel}"
+      >
       </qiskit-header-menu-item-mega>
     `;
   }
@@ -198,7 +209,7 @@ export class QiskitUIShell extends LitElement {
                 class="qiskit-side-nav-submenu"
               >
                 ${submenuItem?.children?.map((child) =>
-                  this._getSideNavMenuItem(child, true)
+                  this._getSideNavMenuItem(child, menu?.label, true)
                 )}
               </bx-side-nav-menu>
             `;
@@ -209,13 +220,19 @@ export class QiskitUIShell extends LitElement {
     }
     return html`
       <bx-side-nav-menu title="${menu?.label}">
-        ${menu?.children?.map((item) => this._getSideNavMenuItem(item))}
+        ${menu?.children?.map((item) =>
+          this._getSideNavMenuItem(item, menu?.label)
+        )}
       </bx-side-nav-menu>
       <bx-side-nav-divider></bx-side-nav-divider>
     `;
   }
 
-  private _getSideNavMenuItem(item: NavItem, isSubmenuItem = false) {
+  private _getSideNavMenuItem(
+    item: NavItem,
+    parentLabel: string,
+    isSubmenuItem = false
+  ) {
     const submenuClass = isSubmenuItem
       ? 'qiskit-nav-submenu-item'
       : 'qiskit-nav-menu-item';
@@ -224,7 +241,7 @@ export class QiskitUIShell extends LitElement {
         href="${ifDefined(item?.url)}"
         class="${submenuClass}"
         @click="${() => {
-          this._handleClick(item);
+          this._handleClick(item, parentLabel);
         }}"
       >
         ${item?.label}
@@ -266,11 +283,13 @@ export class QiskitUIShell extends LitElement {
     );
   }
 
-  _handleClick = (item: NavItem) => {
+  _handleClick = (item: NavItem, parentLabel?: string) => {
+    const label = parentLabel ? `${parentLabel}-${item.label}` : item.label;
+
     this.dispatchEvent(
       new CustomEvent('on-click', {
         detail: {
-          label: item.label,
+          label,
           url: item.url,
         },
         bubbles: true,

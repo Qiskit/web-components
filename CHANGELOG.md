@@ -1,5 +1,19 @@
 # @qiskit/web-components
 
+## 0.9.2
+
+### Patch Changes
+
+- 4d779e0: Update ui-shell click event to include parent dropdown label
+- ad69be2: Fixes 'Qiskit textboox' typo
+- ad69be2: Address a11y landmark violation
+
+## 0.9.1
+
+### Patch Changes
+
+- 027f0a0: Update the header content max-width value to use a CSS variables. This will allow greater flexibility when this header is consumed in different areas of qiskit. eg platypus vs qiskit.org
+
 ## 0.9.0
 
 ### Minor Changes

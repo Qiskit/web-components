@@ -19,6 +19,9 @@ export class QiskitHeaderMenuItemMega extends LitElement {
   @property({ type: Object })
   item = {} as NavItem;
 
+  @property({ type: String })
+  parentLabel = '';
+
   render() {
     return html`
       <div class="qiskit-header-menu-item-mega">
@@ -45,7 +48,7 @@ export class QiskitHeaderMenuItemMega extends LitElement {
     this.dispatchEvent(
       new CustomEvent('on-click', {
         detail: {
-          label: item.label,
+          label: `${this.parentLabel}-${item.label}`,
           url: item.url,
         },
         bubbles: true,

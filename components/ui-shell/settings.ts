@@ -9,7 +9,6 @@ interface NavItem {
   label: string;
   url?: string;
   children?: NavItem[];
-  segment?: SegmentData;
 }
 
 interface TopLevelNavItem extends NavItem {
@@ -18,11 +17,6 @@ interface TopLevelNavItem extends NavItem {
 
 interface SocialLinks extends NavItem {
   icon: TemplateResult;
-}
-
-interface SegmentData {
-  cta: string;
-  location: string;
 }
 
 export enum Variant {
@@ -84,7 +78,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     isMegaMenu: true,
     children: [
       {
-        label: 'Get started',
+        label: 'Getting Started',
         children: [
           {
             label: 'Overview',
@@ -190,10 +184,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           },
           {
             label: 'Slack',
-            url: 'https://qiskit.slack.com/',
+            url: 'https://ibm.co/joinqiskitslack',
           },
           {
-            label: 'Qiskit textboox',
+            label: 'Qiskit Textbook',
             url: 'https://qiskit.org/learn/',
           },
         ],
