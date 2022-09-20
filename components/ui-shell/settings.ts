@@ -78,7 +78,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     isMegaMenu: true,
     children: [
       {
-        label: 'Get started',
+        label: 'Getting Started',
         children: [
           {
             label: 'Overview',
