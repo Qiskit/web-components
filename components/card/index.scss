@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) IBM, Corp. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import "@carbon/colors/scss/colors";
+@import "@carbon/layout/scss/layout";
+@import "@carbon/type/scss/type";
+
+:host {
+  @include carbon--type-style("body-long-01");
+
+  display: block;
+  background-color: $carbon--cool-gray-10;
+  color: $black-100;
+  font-family: carbon--font-family("sans");
+}
+
+.card {
+  &__body {
+    padding: $spacing-05;
+  }
+
+  &__title {
+    @include carbon--type-style("heading-01");
+
+    margin-top: 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    &__btn {
+      width: 100%;
+      max-width: 50%;
+
+      &.primary {
+        &::part(button) {
+          padding: $spacing-05;
+          background-color: $carbon--purple-70;
+
+          &:hover {
+            background-color: $carbon--purple-80;
+          }
+        }
+      }
+
+      &.secondary {
+        &::part(button) {
+          padding: $spacing-05;
+          background-color: $carbon--cool-gray-20;
+          color: $black-100;
+
+          &:hover {
+            background-color: $carbon--cool-gray-30;
+          }
+        }
+      }
+    }
+  }
+}
