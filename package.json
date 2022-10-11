@@ -14,6 +14,7 @@
   "scripts": {
     "analyze-lit": "lit-analyzer components/**/*.ts --strict",
     "build": "tsc && rollup --config rollup.config.js",
+    "build-ui-shell-bundle": "tsc && rollup --config rollup-ui-shell-bundle.config.js",
     "dev": "npm run storybook:start",
     "format": "npm-run-all format:*",
     "format:eslint": "npm run lint:eslint -- --fix",
