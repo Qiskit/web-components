@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import litcss from 'rollup-plugin-lit-css';
 import sass from 'sass';
 
@@ -25,6 +26,7 @@ export default {
       transform: transformSassToCss,
       uglify: true,
     }),
+    nodeResolve(),
   ],
   output: {
     dir: `ui-shell-bundle/`,
