@@ -1,5 +1,12 @@
 # @qiskit/web-components
 
+## 0.9.3
+
+### Patch Changes
+
+- 634ba8d: Update ui-shell Documentation dropdown Slack url to use bit.ly invitation link
+- 634ba8d: Update ui-shell Documentation dropdown "Get started" section heading to "Getting Started"
+
 ## 0.9.2
 
 ### Patch Changes
