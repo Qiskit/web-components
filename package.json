@@ -45,30 +45,30 @@
     "@carbon/icon-helpers": "^10.30.0",
     "@carbon/icons": "^11.3.0",
     "@carbon/layout": "^10.37.1",
-    "@carbon/type": "^10.44.0",
+    "@carbon/type": "^10.45.0",
     "carbon-web-components": "^1.21.0",
-    "lit": "^2.3.1",
+    "lit": "^2.4.0",
     "lit-element": "^3.2.2",
-    "lit-html": "^2.3.1",
+    "lit-html": "^2.4.0",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.4",
+    "@changesets/cli": "^2.25.0",
     "@open-wc/testing": "^3.1.6",
-    "@rollup/plugin-typescript": "^8.5.0",
+    "@rollup/plugin-typescript": "^9.0.2",
     "@types/carbon__icon-helpers": "^10.7.2",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "@web/dev-server": "~0.1.34",
-    "@web/dev-server-esbuild": "~0.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "@web/dev-server": "~0.1.35",
+    "@web/dev-server-esbuild": "~0.3.3",
     "@web/dev-server-storybook": "~0.5.4",
-    "@web/test-runner": "~0.14.0",
-    "@web/test-runner-playwright": "~0.8.10",
+    "@web/test-runner": "~0.15.0",
+    "@web/test-runner-playwright": "~0.9.0",
     "esbuild": "~0.12.29",
-    "eslint": "^8.23.0",
+    "eslint": "^8.26.0",
     "eslint-config-ibmresearch": "~0.25.1",
     "eslint-plugin-lit": "^1.6.1",
-    "eslint-plugin-lit-a11y": "^2.2.2",
+    "eslint-plugin-lit-a11y": "^2.2.3",
     "eslint-plugin-wc": "^1.3.2",
     "lit-analyzer": "2.0.0-pre.2",
     "nano-staged": "~0.8.0",
@@ -76,15 +76,15 @@
     "postcss-lit": "~0.5.0",
     "prettier": "~2.7.1",
     "prettier-plugin-package": "^1.3.0",
-    "rollup": "^2.79.0",
+    "rollup": "^3.2.3",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-lit-css": "^4.0.0",
-    "sass": "^1.54.9",
-    "simple-git-hooks": "^2.8.0",
-    "stylelint": "^14.11.0",
-    "stylelint-config-ibmresearch": "~0.15.0",
-    "stylelint-config-standard-scss": "^5.0.0",
-    "typescript": "~4.8.3"
+    "sass": "^1.55.0",
+    "simple-git-hooks": "^2.8.1",
+    "stylelint": "^14.14.0",
+    "stylelint-config-ibmresearch": "~0.16.0",
+    "stylelint-config-standard-scss": "^6.0.0",
+    "typescript": "~4.8.4"
   },
   "eslintConfig": {
     "extends": "ibmresearch",
@@ -110,7 +110,7 @@
     "extends": "stylelint-config-ibmresearch",
     "overrides": [
       {
-        "files": "components/**/*.scss",
+        "files": ["components/**/*.scss"],
         "extends": [
           "stylelint-config-ibmresearch",
           "stylelint-config-standard-scss"
@@ -127,7 +127,7 @@
         }
       },
       {
-        "files": "components/**/*.ts",
+        "files": ["components/**/*.ts"],
         "customSyntax": "postcss-lit"
       }
     ]
