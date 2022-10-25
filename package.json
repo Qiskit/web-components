@@ -1,6 +1,6 @@
 {
   "name": "@qiskit/web-components",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "license": "MIT",
   "repository": "github:Qiskit/web-components",
   "type": "module",
@@ -110,7 +110,9 @@
     "extends": "stylelint-config-ibmresearch",
     "overrides": [
       {
-        "files": ["components/**/*.scss"],
+        "files": [
+          "components/**/*.scss"
+        ],
         "extends": [
           "stylelint-config-ibmresearch",
           "stylelint-config-standard-scss"
@@ -127,7 +129,9 @@
         }
       },
       {
-        "files": ["components/**/*.ts"],
+        "files": [
+          "components/**/*.ts"
+        ],
         "customSyntax": "postcss-lit"
       }
     ]
