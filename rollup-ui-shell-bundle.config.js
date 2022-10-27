@@ -31,6 +31,5 @@ export default {
   output: {
     dir: `ui-shell-bundle/`,
     format: 'esm',
-    sourcemap: true,
   },
 };
