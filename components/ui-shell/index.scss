@@ -17,6 +17,7 @@ $prefix: "bx";
   @include carbon--theme($carbon--theme--white, true);
 }
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 :host {
   --header-height: 3.5rem;
   --header-content-max-width: none;
@@ -30,8 +31,8 @@ $prefix: "bx";
   --sidenav-item-height-short: 2.8rem;
   --box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
 
-  font-family: carbon--font-family("sans");
   display: block;
+  font-family: carbon--font-family("sans");
 }
 
 :host(#{$q}-ui-shell) {
