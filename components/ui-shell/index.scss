@@ -29,12 +29,12 @@ $prefix: "bx";
   @include carbon--theme($carbon--theme--white, true);
 
   font-family: carbon--font-family("sans");
+}
 
-  //  https://web-components.carbondesignsystem.com/?path=/docs/components-ui-shell--header#using-with-header-nav
-  #{$prefix}-header ~ #{$prefix}-side-nav {
-    height: calc(100% - var(--header-height));
-    margin-top: var(--header-height);
-  }
+//  https://web-components.carbondesignsystem.com/?path=/docs/components-ui-shell--header#using-with-header-nav
+#{$prefix}-header ~ #{$prefix}-side-nav {
+  height: calc(100% - var(--header-height));
+  margin-top: var(--header-height);
 }
 
 #{$prefix}-header {
