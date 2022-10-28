@@ -14,6 +14,10 @@ $q: "qiskit";
 $prefix: "bx";
 
 :host {
+  @include carbon--theme($carbon--theme--white, true);
+}
+
+:host {
   --header-height: 3.5rem;
   --header-content-max-width: none;
   --cool-gray-10: #{$carbon--cool-gray-10};
@@ -25,8 +29,6 @@ $prefix: "bx";
   --sidenav-item-height: 3.5rem;
   --sidenav-item-height-short: 2.8rem;
   --box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
-
-  @include carbon--theme($carbon--theme--white, true);
 
   font-family: carbon--font-family("sans");
 }
