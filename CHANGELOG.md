@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.10.0
+
+### Minor Changes
+
+- d68ee4a: [ui-shell] Add space before the content
+
 ## 0.9.3
 
 ### Patch Changes
