@@ -1,6 +1,6 @@
-@import "@carbon/type/scss/type";
-@import "@carbon/colors/scss/colors";
-@import "@carbon/layout/scss/layout";
+@use "@carbon/styles/scss/colors";
+@use "@carbon/styles/scss/layout";
+@use "@carbon/styles/scss/type";
 
 // These are needed to extend default carbon component styles
 @import "carbon-web-components/scss/components/ui-shell/header";

@@ -41,11 +41,9 @@
     "!components/scss.d.ts"
   ],
   "dependencies": {
-    "@carbon/colors": "^10.37.1",
     "@carbon/icon-helpers": "^10.30.0",
     "@carbon/icons": "^11.3.0",
-    "@carbon/layout": "^10.37.1",
-    "@carbon/type": "^10.45.0",
+    "@carbon/styles": "^1.16.0",
     "carbon-web-components": "^1.21.0",
     "lit": "^2.4.0",
     "lit-element": "^3.2.2",
