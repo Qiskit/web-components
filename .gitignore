@@ -6,3 +6,4 @@ components/**/*.js.map
 !components/scss.d.ts
 coverage
 storybook-static/
+experimental-bundled-ui-shell.js
