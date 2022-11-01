@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.10.1
+
+### Patch Changes
+
+- 4bfa3a2: Add experimental-bundled-ui-shell to the release
+
 ## 0.10.0
 
 ### Minor Changes
