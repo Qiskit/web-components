@@ -33,7 +33,6 @@
     "test:watch": "web-test-runner --watch"
   },
   "files": [
-    "assets/**/*",
     "components/**/*.{d.ts,js,js.map}",
     "!components/**/*.stories.{d.ts,js,js.map}",
     "!components/**/*.test.{d.ts,js,js.map}",
