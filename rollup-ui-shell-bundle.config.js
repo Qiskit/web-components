@@ -6,6 +6,7 @@
  */
 
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import litcss from 'rollup-plugin-lit-css';
 import sass from 'sass';
 
@@ -27,9 +28,10 @@ export default {
       uglify: true,
     }),
     nodeResolve(),
+    terser(),
   ],
   output: {
-    dir: `ui-shell-bundle/`,
+    file: 'experimental-bundled-ui-shell.js',
     format: 'esm',
   },
 };
