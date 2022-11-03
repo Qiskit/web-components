@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) IBM, Corp. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import "@carbon/type/scss/type";
 @import "@carbon/colors/scss/colors";
 @import "@carbon/layout/scss/layout";
@@ -14,6 +21,11 @@ $q: "qiskit";
 $prefix: "bx";
 
 :host {
+  @include carbon--theme($carbon--theme--white, true);
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:host {
   --header-height: 3.5rem;
   --header-content-max-width: none;
   --cool-gray-10: #{$carbon--cool-gray-10};
@@ -26,15 +38,18 @@ $prefix: "bx";
   --sidenav-item-height-short: 2.8rem;
   --box-shadow: rgb(0 0 0 / 10%) 0 2px 3px 0;
 
-  @include carbon--theme($carbon--theme--white, true);
-
+  display: block;
   font-family: carbon--font-family("sans");
+}
 
-  //  https://web-components.carbondesignsystem.com/?path=/docs/components-ui-shell--header#using-with-header-nav
-  #{$prefix}-header ~ #{$prefix}-side-nav {
-    height: calc(100% - var(--header-height));
-    margin-top: var(--header-height);
-  }
+:host(#{$q}-ui-shell) {
+  margin-top: var(--header-height);
+}
+
+//  https://web-components.carbondesignsystem.com/?path=/docs/components-ui-shell--header#using-with-header-nav
+#{$prefix}-header ~ #{$prefix}-side-nav {
+  height: calc(100% - var(--header-height));
+  margin-top: var(--header-height);
 }
 
 #{$prefix}-header {
