@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.10.2
+
+### Patch Changes
+
+- 69fb75a: Fix the build step
+
 ## 0.10.1
 
 ### Patch Changes
