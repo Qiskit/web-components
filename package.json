@@ -48,7 +48,7 @@
     "@carbon/layout": "^10.37.1",
     "@carbon/type": "^10.45.0",
     "carbon-web-components": "^1.21.0",
-    "lit": "^2.4.0",
+    "lit": "^2.4.1",
     "lit-element": "^3.2.2",
     "lit-html": "^2.4.0",
     "tslib": "^2.4.1"
@@ -67,7 +67,7 @@
     "@web/dev-server-storybook": "~0.5.4",
     "@web/test-runner": "~0.15.0",
     "@web/test-runner-playwright": "~0.9.0",
-    "esbuild": "~0.12.29",
+    "esbuild": "~0.13.15",
     "eslint": "^8.26.0",
     "eslint-config-ibmresearch": "~0.25.1",
     "eslint-plugin-lit": "^1.6.1",
@@ -82,11 +82,11 @@
     "rollup": "^3.2.5",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-lit-css": "^4.0.0",
-    "sass": "^1.55.0",
+    "sass": "^1.56.0",
     "simple-git-hooks": "^2.8.1",
-    "stylelint": "^14.14.0",
+    "stylelint": "^14.14.1",
     "stylelint-config-ibmresearch": "~0.16.0",
-    "stylelint-config-standard-scss": "^6.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
     "typescript": "~4.8.4"
   },
   "eslintConfig": {
