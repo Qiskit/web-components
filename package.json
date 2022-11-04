@@ -67,7 +67,7 @@
     "@web/dev-server-storybook": "~0.5.4",
     "@web/test-runner": "~0.15.0",
     "@web/test-runner-playwright": "~0.9.0",
-    "esbuild": "~0.12.29",
+    "esbuild": "~0.13.15",
     "eslint": "^8.26.0",
     "eslint-config-ibmresearch": "~0.25.1",
     "eslint-plugin-lit": "^1.6.1",
