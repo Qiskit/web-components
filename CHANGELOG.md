@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.10.3
+
+### Patch Changes
+
+- 46313f2: feature(ui-shell): use dynamic account base url
+
 ## 0.10.2
 
 ### Patch Changes
