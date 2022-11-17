@@ -19,7 +19,9 @@ import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
 import type { NavItem, TopLevelNavItem } from './settings.js';
 
 const BASE_URL =
-  window.origin === '${BASE_URL}/' ? 'https://qiskit.org/' : window.origin;
+  window.origin === 'https://qiskit.org'
+    ? 'https://learn.qiskit.org'
+    : window.origin;
 
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
