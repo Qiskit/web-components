@@ -18,6 +18,11 @@ import styles from './index.scss';
 import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
 import type { NavItem, TopLevelNavItem } from './settings.js';
 
+const LEARN_BASE_URL =
+  window.origin === 'https://qiskit.org'
+    ? 'https://learn.qiskit.org'
+    : window.origin;
+
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
   static styles = [styles];
@@ -158,12 +163,12 @@ export class QiskitUIShell extends LitElement {
   private _getAccountHeaderNavItem() {
     return html`
       <bx-header-nav-item
-        href="https://learn.qiskit.org/account/"
+        href="${LEARN_BASE_URL}/account/"
         class="qiskit-user-account-icon"
         @click="${() => {
           this._handleClick({
             label: 'Account',
-            url: 'https://learn.qiskit.org/account/',
+            url: `${LEARN_BASE_URL}/account/`,
           });
         }}"
       >
@@ -252,12 +257,12 @@ export class QiskitUIShell extends LitElement {
   private _getAccountSideNavLink() {
     return html`
       <bx-side-nav-link
-        href="https://learn.qiskit.org/account/"
+        href="${LEARN_BASE_URL}/account/"
         class="qiskit-user-account-icon"
         @click="${() => {
           this._handleClick({
             label: 'Account',
-            url: 'https://learn.qiskit.org/account/',
+            url: `${LEARN_BASE_URL}/account/`,
           });
         }}"
       >
