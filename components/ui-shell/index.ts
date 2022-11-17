@@ -262,7 +262,7 @@ export class QiskitUIShell extends LitElement {
         @click="${() => {
           this._handleClick({
             label: 'Account',
-            url: '${BASE_URL}/account/',
+            url: `${BASE_URL}/account/`,
           });
         }}"
       >
