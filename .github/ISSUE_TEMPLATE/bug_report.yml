@@ -1,10 +1,7 @@
 name: Bug report
 description: Report a bug
-title: "Bug: "
-labels: ["bug", "needs grooming"]
-assignees:
-  - eddybrando
-  - vabarbosa
+title: 'Bug: '
+labels: ['bug']
 body:
   - type: markdown
     attributes:
