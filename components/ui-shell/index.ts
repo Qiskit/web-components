@@ -9,7 +9,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import 'carbon-web-components/es/components/ui-shell/index.js';
+import '@carbon/web-components/es/components/ui-shell/index.js';
 import './header/index.js';
 
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';

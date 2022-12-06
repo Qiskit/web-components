@@ -44,13 +44,7 @@ export default [
       format: 'esm',
       sourcemap: true,
     },
-    external: [
-      'tslib',
-      'lit',
-      /^lit\/.*/,
-      /^carbon-web-components\/.*/,
-      /^@carbon\/.*/,
-    ],
+    external: ['tslib', 'lit', /^lit\/.*/, /^@carbon\/.*/],
   })),
   {
     input: `components/ui-shell/index.js`,
