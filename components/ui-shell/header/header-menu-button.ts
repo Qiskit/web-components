@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import CdsHeaderMenuButton from 'carbon-web-components/es/components/ui-shell/header-menu-button.js';
+import CdsHeaderMenuButton from '@carbon/web-components/es/components/ui-shell/header-menu-button.js';
 import { customElement } from 'lit/decorators.js';
 
 import styles from '../index.scss';
