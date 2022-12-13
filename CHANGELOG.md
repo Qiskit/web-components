@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.11.0
+
+### Minor Changes
+
+- f144991: Update to Lit v2.5 and @carbon/web-components
+
 ## 0.10.3
 
 ### Patch Changes
