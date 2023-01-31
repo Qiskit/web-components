@@ -88,7 +88,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         label: 'Start Here',
         children: [
           {
-            label: 'Documentation home',
+            label: 'Documentation Home',
             url: 'https://qiskit.org/documentation/',
           },
           {
