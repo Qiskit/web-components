@@ -85,10 +85,14 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     isMegaMenu: true,
     children: [
       {
-        label: 'Getting Started',
+        label: 'Start Here',
         children: [
           {
-            label: 'Overview',
+            label: 'Documentation Home',
+            url: 'https://qiskit.org/documentation/',
+          },
+          {
+            label: 'Getting Started',
             url: 'https://qiskit.org/documentation/getting_started.html',
           },
         ],
