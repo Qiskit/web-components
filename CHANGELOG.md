@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.11.1
+
+### Patch Changes
+
+- 997b9b3: Update ui-shell Documentation dropdown with Documentation Home and Getting Started
+
 ## 0.11.0
 
 ### Minor Changes
