@@ -40,7 +40,7 @@ export const SOCIAL_LINKS: SocialLinks[] = [
   {
     icon: slackIcon,
     label: 'Slack',
-    url: 'https://ibm.co/joinqiskitslack',
+    url: ' https://qisk.it/join-slack',
   },
   {
     icon: youtubeIcon,
@@ -195,7 +195,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           },
           {
             label: 'Slack',
-            url: 'https://ibm.co/joinqiskitslack',
+            url: ' https://qisk.it/join-slack',
           },
           {
             label: 'Qiskit Textbook',
