@@ -119,7 +119,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           },
           {
             label: 'Qiskit IBM Provider',
-            url: 'https://qiskit.org/documentation/apidoc/ibmq-provider.html',
+            url: 'https://qiskit.org/documentation/partners/qiskit_ibm_provider/',
           },
           {
             label: 'Partners',
