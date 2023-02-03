@@ -125,7 +125,7 @@ export class QiskitFooter extends LitElement {
                   ${twitterIcon}
                 </a>
                 <a
-                  href=" https://qisk.it/join-slack"
+                  href="https://qisk.it/join-slack"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
