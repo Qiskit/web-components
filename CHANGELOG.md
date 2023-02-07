@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.11.2
+
+### Patch Changes
+
+- ebf1742: Update ui-shell Documentation dropdown menu "Qiskit IBM Provider" link and "Slack" invite link.
+
 ## 0.11.1
 
 ### Patch Changes
