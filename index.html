@@ -59,14 +59,14 @@
     var polyfills = [];
     polyfills.push(loadScript('./polyfills/regenerator-runtime.e2c951e2eae648aacbcac529428355da.js'));
     if (!('fetch' in window) || !('Request' in window) || !('signal' in window.Request.prototype)) {
-      polyfills.push(loadScript('./polyfills/fetch.886cc00da4c5ab22092c0d092eda808a.js'));
+      polyfills.push(loadScript('./polyfills/fetch.f8c330d549b0d591bce5f245fe3351f9.js'));
     }
     polyfills.push(loadScript('./polyfills/systemjs.c12345a3f6a1d7c2542d26a81dfc5f25.js'));
     if (!('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
       polyfills.push(loadScript('./polyfills/intersection-observer.1dfab822bea56de541280683e0923ef2.js'));
     }
     if (!('ResizeObserver' in window)) {
-      polyfills.push(loadScript('./polyfills/resize-observer.467474095074c8a92dde0e006c40eb12.js'));
+      polyfills.push(loadScript('./polyfills/resize-observer.38344559723dcec47f2a0354769ab383.js'));
     }
     if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
       polyfills.push(loadScript('./polyfills/webcomponents.a551e00e9f31a5519876700c4ae6d987.js'));
@@ -89,7 +89,7 @@
       document.head.removeChild(s);
       polyfillsLoader();
     }
-    s.src = "./polyfills/core-js.038424b40c5f04417b41732b84d0e510.js";
+    s.src = "./polyfills/core-js.b76199ff3e134d534c901a526d3d7cb1.js";
     s.onload = onLoaded;
     s.onerror = function () {
       console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
