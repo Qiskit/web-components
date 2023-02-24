@@ -205,6 +205,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
       },
     ],
   },
+  {
+    label: 'Providers',
+    url: 'https://qiskit.org/providers/',
+  },
 ];
 
 export type { NavItem, TopLevelNavItem };
