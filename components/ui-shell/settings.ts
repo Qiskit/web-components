@@ -186,8 +186,8 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         label: 'Help and Learning',
         children: [
           {
-            label: 'Stack Exchange',
-            url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
+            label: 'Support Channels',
+            url: 'https://qisk.it/support',
           },
           {
             label: 'Qiskit Feedback',
