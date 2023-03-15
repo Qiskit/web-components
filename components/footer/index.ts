@@ -8,12 +8,12 @@
 import { LitElement, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 
+import styles from './index.scss';
 import { mediumIcon } from '../icons/medium.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { slackIcon } from '../icons/slack.js';
 import { twitterIcon } from '../icons/twitter.js';
 import { youtubeIcon } from '../icons/youtube.js';
-import styles from './index.scss';
 
 interface Link {
   label: string;
@@ -125,7 +125,7 @@ export class QiskitFooter extends LitElement {
                   ${twitterIcon}
                 </a>
                 <a
-                  href="https://ibm.co/joinqiskitslack"
+                  href="https://qisk.it/join-slack"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

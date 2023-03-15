@@ -12,11 +12,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import '@carbon/web-components/es/components/ui-shell/index.js';
 import './header/index.js';
 
-import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
-import { userIcon } from '../icons/user.js';
 import styles from './index.scss';
 import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
 import type { NavItem, TopLevelNavItem } from './settings.js';
+import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
+import { userIcon } from '../icons/user.js';
 
 const LEARN_BASE_URL =
   window.origin === 'https://qiskit.org'
