@@ -82,7 +82,7 @@
     "rollup": "^3.14.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-lit-css": "^4.0.1",
-    "sass": "^1.58.0",
+    "sass": "^1.59.3",
     "simple-git-hooks": "^2.8.1",
     "stylelint": "^14.16.1",
     "stylelint-config-ibmresearch": "~0.16.0",
