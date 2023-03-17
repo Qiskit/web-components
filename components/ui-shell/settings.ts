@@ -111,7 +111,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         children: [
           {
             label: 'Qiskit Aer',
-            url: 'https://qiskit.org/documentation/apidoc/aer.html',
+            url: 'https://qiskit.org/documentation/aer',
           },
           {
             label: 'Qiskit IBM Runtime',
