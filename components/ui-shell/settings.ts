@@ -56,10 +56,6 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
   {
-    label: 'Overview',
-    url: 'https://qiskit.org/overview/',
-  },
-  {
     label: 'Learn',
     url: 'https://qiskit.org/learn/',
   },
@@ -103,27 +99,6 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           {
             label: 'Qiskit Terra',
             url: 'https://qiskit.org/documentation/',
-          },
-        ],
-      },
-      {
-        label: 'Providers',
-        children: [
-          {
-            label: 'Qiskit Aer',
-            url: 'https://qiskit.org/documentation/aer',
-          },
-          {
-            label: 'Qiskit IBM Runtime',
-            url: 'https://qiskit.org/documentation/partners/qiskit_ibm_runtime/',
-          },
-          {
-            label: 'Qiskit IBM Provider',
-            url: 'https://qiskit.org/documentation/partners/qiskit_ibm_provider/',
-          },
-          {
-            label: 'Partners',
-            url: 'https://qiskit.org/documentation/partners/',
           },
         ],
       },
@@ -204,6 +179,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         ],
       },
     ],
+  },
+  {
+    label: 'Providers',
+    url: 'https://qiskit.org/providers/',
   },
 ];
 
