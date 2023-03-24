@@ -1,5 +1,15 @@
 # @qiskit/web-components
 
+## 0.12.0
+
+### Minor Changes
+
+- cc7a286: Updated link to Providers page and delete a page from the navigation bar, because there's a new page for Providers being created and the old link will be outdated
+
+### Patch Changes
+
+- f661400: Update ui-shell Documentation dropdown menu "Qiskit Aer" link to it's own documentation page.
+
 ## 0.11.2
 
 ### Patch Changes
