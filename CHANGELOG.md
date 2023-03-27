@@ -1,5 +1,16 @@
 # @qiskit/web-components
 
+## 0.13.0
+
+### Minor Changes
+
+- 512a81f: Reverts the change that added the first level "Providers" link and removed the "Overview" link
+
+### Patch Changes
+
+- a5c1825: Remove StackOverflow link from footer and ui-shell Documentation dropdown menu.
+  Also remove Slack from the ui-shell dropdown menu.
+
 ## 0.12.0
 
 ### Minor Changes
