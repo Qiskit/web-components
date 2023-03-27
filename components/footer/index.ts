@@ -73,8 +73,8 @@ export class QiskitFooter extends LitElement {
           url: 'https://github.com/Qiskit',
         },
         {
-          label: 'Stack Exchange',
-          url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
+          label: 'Support Channels',
+          url: 'https://qisk.it/support',
         },
         {
           label: 'Documentation',
