@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.14.0
+
+### Minor Changes
+
+- 671a46a: feat(ui-shell): remove "Overview" link
+
 ## 0.13.0
 
 ### Minor Changes
