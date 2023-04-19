@@ -56,10 +56,6 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
   {
-    label: 'Overview',
-    url: 'https://qiskit.org/overview/',
-  },
-  {
     label: 'Learn',
     url: 'https://qiskit.org/learn/',
   },
