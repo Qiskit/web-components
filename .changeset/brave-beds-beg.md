@@ -2,4 +2,4 @@
 '@qiskit/web-components': minor
 ---
 
-feat(ui-shell): remove "Overview" link
+chore: version bump
