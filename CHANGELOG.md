@@ -1,5 +1,44 @@
 # @qiskit/web-components
 
+## 0.14.0
+
+### Minor Changes
+
+- 671a46a: feat(ui-shell): remove "Overview" link
+
+## 0.13.0
+
+### Minor Changes
+
+- 512a81f: Reverts the change that added the first level "Providers" link and removed the "Overview" link
+
+### Patch Changes
+
+- a5c1825: Remove StackOverflow link from footer and ui-shell Documentation dropdown menu.
+  Also remove Slack from the ui-shell dropdown menu.
+
+## 0.12.0
+
+### Minor Changes
+
+- cc7a286: Updated link to Providers page and delete a page from the navigation bar, because there's a new page for Providers being created and the old link will be outdated
+
+### Patch Changes
+
+- f661400: Update ui-shell Documentation dropdown menu "Qiskit Aer" link to it's own documentation page.
+
+## 0.11.2
+
+### Patch Changes
+
+- ebf1742: Update ui-shell Documentation dropdown menu "Qiskit IBM Provider" link and "Slack" invite link.
+
+## 0.11.1
+
+### Patch Changes
+
+- 997b9b3: Update ui-shell Documentation dropdown with Documentation Home and Getting Started
+
 ## 0.11.0
 
 ### Minor Changes

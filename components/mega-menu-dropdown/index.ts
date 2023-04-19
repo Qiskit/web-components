@@ -13,9 +13,9 @@ import { when } from 'lit/directives/when.js';
 
 import '../column-list/index.js';
 
+import styles from './index.scss';
 import chevronDown from '../icons/chevron-down.js';
 import { emptySearchIcon } from '../icons/empty-search.js';
-import styles from './index.scss';
 
 interface HighlightTextState {
   text: string;

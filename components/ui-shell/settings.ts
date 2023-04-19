@@ -40,7 +40,7 @@ export const SOCIAL_LINKS: SocialLinks[] = [
   {
     icon: slackIcon,
     label: 'Slack',
-    url: 'https://ibm.co/joinqiskitslack',
+    url: 'https://qisk.it/join-slack',
   },
   {
     icon: youtubeIcon,
@@ -55,10 +55,6 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 ];
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
-  {
-    label: 'Overview',
-    url: 'https://qiskit.org/overview/',
-  },
   {
     label: 'Learn',
     url: 'https://qiskit.org/learn/',
@@ -85,10 +81,14 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
     isMegaMenu: true,
     children: [
       {
-        label: 'Getting Started',
+        label: 'Start Here',
         children: [
           {
-            label: 'Overview',
+            label: 'Documentation Home',
+            url: 'https://qiskit.org/documentation/',
+          },
+          {
+            label: 'Getting Started',
             url: 'https://qiskit.org/documentation/getting_started.html',
           },
         ],
@@ -99,27 +99,6 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
           {
             label: 'Qiskit Terra',
             url: 'https://qiskit.org/documentation/',
-          },
-        ],
-      },
-      {
-        label: 'Providers',
-        children: [
-          {
-            label: 'Qiskit Aer',
-            url: 'https://qiskit.org/documentation/apidoc/aer.html',
-          },
-          {
-            label: 'Qiskit IBM Runtime',
-            url: 'https://qiskit.org/documentation/partners/qiskit_ibm_runtime/',
-          },
-          {
-            label: 'Qiskit IBM Provider',
-            url: 'https://qiskit.org/documentation/apidoc/ibmq-provider.html',
-          },
-          {
-            label: 'Partners',
-            url: 'https://qiskit.org/documentation/partners/',
           },
         ],
       },
@@ -182,16 +161,12 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         label: 'Help and Learning',
         children: [
           {
-            label: 'Stack Exchange',
-            url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit',
+            label: 'Support Channels',
+            url: 'https://qisk.it/support',
           },
           {
             label: 'Qiskit Feedback',
             url: 'https://github.com/Qiskit/feedback',
-          },
-          {
-            label: 'Slack',
-            url: 'https://ibm.co/joinqiskitslack',
           },
           {
             label: 'Qiskit Textbook',
@@ -200,6 +175,10 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         ],
       },
     ],
+  },
+  {
+    label: 'Providers',
+    url: 'https://qiskit.org/providers/',
   },
 ];
 
