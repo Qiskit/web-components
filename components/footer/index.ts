@@ -169,7 +169,7 @@ export class QiskitFooter extends LitElement {
               >
                 Accessibility
               </a>
-              <a href="mailto:hello@qiskit.org" class="caption">Contact</a>
+              <a href="mailto:qiskit@us.ibm.com" class="caption">Contact</a>
               <a
                 href="https://quantum-computing.ibm.com/terms/privacy"
                 target="_blank"
