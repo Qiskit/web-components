@@ -59,7 +59,7 @@ export default [
     ],
     output: {
       file: 'experimental-bundled-ui-shell.js',
-      format: 'esm',
+      format: 'iife',
     },
   },
 ];
