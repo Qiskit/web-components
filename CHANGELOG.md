@@ -1,5 +1,16 @@
 # @qiskit/web-components
 
+## 0.15.0
+
+### Minor Changes
+
+- b31b455: chore: version bump
+- 999e196: feat(ui-shell): add "Providers" link
+
+### Patch Changes
+
+- 617cd6d: Change contact email temporarly
+
 ## 0.14.0
 
 ### Minor Changes
