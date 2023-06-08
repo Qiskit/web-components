@@ -107,19 +107,19 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         children: [
           {
             label: 'Qiskit Nature',
-            url: 'https://qiskit.org/documentation/nature/',
+            url: 'https://qiskit.org/ecosystem/nature/',
           },
           {
             label: 'Qiskit Finance',
-            url: 'https://qiskit.org/documentation/finance/',
+            url: 'https://qiskit.org/ecosystem/finance/',
           },
           {
             label: 'Qiskit Optimization',
-            url: 'https://qiskit.org/documentation/optimization/',
+            url: 'https://qiskit.org/ecosystem/optimization/',
           },
           {
             label: 'Qiskit Machine learning',
-            url: 'https://qiskit.org/documentation/machine-learning/',
+            url: 'https://qiskit.org/ecosystem/machine-learning/',
           },
         ],
       },
@@ -128,15 +128,15 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
         children: [
           {
             label: 'Qiskit Experiments',
-            url: 'https://qiskit.org/documentation/experiments/',
+            url: 'https://qiskit.org/ecosystem/experiments/',
           },
           {
             label: 'Qiskit Dynamics',
-            url: 'https://qiskit.org/documentation/dynamics/',
+            url: 'https://qiskit.org/ecosystem/dynamics/',
           },
           {
             label: 'Qiskit Metal',
-            url: 'https://qiskit.org/documentation/metal/',
+            url: 'https://qiskit.org/ecosystem/metal/',
           },
         ],
       },
