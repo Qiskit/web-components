@@ -56,27 +56,6 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
   {
-    label: 'Learn',
-    url: 'https://qiskit.org/learn/',
-  },
-  {
-    label: 'Community',
-    children: [
-      {
-        label: 'Events',
-        url: 'https://qiskit.org/events/',
-      },
-      {
-        label: 'Advocates',
-        url: 'https://qiskit.org/advocates/',
-      },
-      {
-        label: 'Ecosystem',
-        url: 'https://qiskit.org/ecosystem/',
-      },
-    ],
-  },
-  {
     label: 'Documentation',
     isMegaMenu: true,
     children: [
@@ -175,6 +154,27 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
   {
     label: 'Providers',
     url: 'https://qiskit.org/providers/',
+  },
+  {
+    label: 'Community',
+    children: [
+      {
+        label: 'Events',
+        url: 'https://qiskit.org/events/',
+      },
+      {
+        label: 'Advocates',
+        url: 'https://qiskit.org/advocates/',
+      },
+      {
+        label: 'Ecosystem',
+        url: 'https://qiskit.org/ecosystem/',
+      },
+    ],
+  },
+  {
+    label: 'Learn',
+    url: 'https://qiskit.org/learn/',
   },
 ];
 
