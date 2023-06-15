@@ -55,7 +55,7 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 ];
 
 export const NAV_ITEMS: TopLevelNavItem[] = [
-    {
+  {
     label: 'Documentation',
     isMegaMenu: true,
     children: [
@@ -151,7 +151,7 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
       },
     ],
   },
-    {
+  {
     label: 'Providers',
     url: 'https://qiskit.org/providers/',
   },
