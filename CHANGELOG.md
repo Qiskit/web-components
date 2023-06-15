@@ -1,5 +1,13 @@
 # @qiskit/web-components
 
+## 0.15.1
+
+### Patch Changes
+
+- 2b2b1b6: Update URLs for ecosystem projects in ui-shell dropdown to use https://qiskit.org/ecosystem URLs rather than deprecated https://qiskit.org/documentation URLs.
+- dcac93b: Remove metal page link from the top nav bar
+- 9b2a18b: Change order of top nav-bar links
+
 ## 0.15.0
 
 ### Minor Changes
