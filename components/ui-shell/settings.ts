@@ -134,10 +134,6 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
             label: 'Qiskit Dynamics',
             url: 'https://qiskit.org/ecosystem/dynamics/',
           },
-          {
-            label: 'Qiskit Metal',
-            url: 'https://qiskit.org/ecosystem/metal/',
-          },
         ],
       },
       {
