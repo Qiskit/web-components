@@ -14,7 +14,7 @@ import './header/index.js';
 
 import styles from './index.scss';
 import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
-import type { NavItem, TopLevelNavItem } from './settings.js';
+import type { NavItem } from './settings.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
 import { userIcon } from '../icons/user.js';
 
@@ -111,20 +111,7 @@ export class QiskitUIShell extends LitElement {
     `;
   }
 
-  private _getHeaderMenu(menu: TopLevelNavItem) {
-    const isMegaMenu = !!menu?.isMegaMenu;
-    if (isMegaMenu) {
-      return html`
-        <qiskit-header-menu-mega
-          menu-label="${menu?.label}"
-          trigger-content="${menu?.label}"
-        >
-          ${menu?.children?.map((item) =>
-            this._getHeaderMenuItemMega(item, menu?.label)
-          )}
-        </qiskit-header-menu-mega>
-      `;
-    }
+  private _getHeaderMenu(menu: NavItem) {
     return html`
       <qiskit-header-menu
         menu-label="${menu?.label}"
@@ -147,16 +134,6 @@ export class QiskitUIShell extends LitElement {
       >
         ${item?.label}
       </bx-header-menu-item>
-    `;
-  }
-
-  private _getHeaderMenuItemMega(item: NavItem, parentLabel: string) {
-    return html`
-      <qiskit-header-menu-item-mega
-        .item="${item}"
-        .parentLabel="${parentLabel}"
-      >
-      </qiskit-header-menu-item-mega>
     `;
   }
 
@@ -201,28 +178,7 @@ export class QiskitUIShell extends LitElement {
     `;
   }
 
-  private _getSideNavMenu(menu: TopLevelNavItem) {
-    const isMegaMenu = !!menu?.isMegaMenu;
-    if (isMegaMenu) {
-      const submenu: NavItem[] = menu?.children || [];
-      return html`
-        <bx-side-nav-menu title="${menu?.label}">
-          ${submenu?.map((submenuItem) => {
-            return html`
-              <bx-side-nav-menu
-                title="${submenuItem?.label}"
-                class="qiskit-side-nav-submenu"
-              >
-                ${submenuItem?.children?.map((child) =>
-                  this._getSideNavMenuItem(child, menu?.label, true)
-                )}
-              </bx-side-nav-menu>
-            `;
-          })}
-        </bx-side-nav-menu>
-        <bx-side-nav-divider></bx-side-nav-divider>
-      `;
-    }
+  private _getSideNavMenu(menu: NavItem) {
     return html`
       <bx-side-nav-menu title="${menu?.label}">
         ${menu?.children?.map((item) =>
