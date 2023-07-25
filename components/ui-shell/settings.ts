@@ -18,10 +18,6 @@ interface NavItem {
   children?: NavItem[];
 }
 
-interface TopLevelNavItem extends NavItem {
-  isMegaMenu?: boolean;
-}
-
 interface SocialLinks extends NavItem {
   icon: TemplateResult;
 }
@@ -54,100 +50,29 @@ export const SOCIAL_LINKS: SocialLinks[] = [
   },
 ];
 
-export const NAV_ITEMS: TopLevelNavItem[] = [
+export const NAV_ITEMS: NavItem[] = [
   {
     label: 'Documentation',
-    isMegaMenu: true,
     children: [
       {
-        label: 'Start Here',
-        children: [
-          {
-            label: 'Documentation Home',
-            url: 'https://qiskit.org/documentation/',
-          },
-          {
-            label: 'Getting Started',
-            url: 'https://qiskit.org/documentation/getting_started.html',
-          },
-        ],
+        label: 'Home',
+        url: 'https://qiskit.org/documentation/',
       },
       {
-        label: 'Core',
-        children: [
-          {
-            label: 'Qiskit Terra',
-            url: 'https://qiskit.org/documentation/',
-          },
-        ],
+        label: 'Installation',
+        url: 'https://qiskit.org/documentation/getting_started.html',
       },
       {
-        label: 'Applications',
-        children: [
-          {
-            label: 'Qiskit Nature',
-            url: 'https://qiskit.org/ecosystem/nature/',
-          },
-          {
-            label: 'Qiskit Finance',
-            url: 'https://qiskit.org/ecosystem/finance/',
-          },
-          {
-            label: 'Qiskit Optimization',
-            url: 'https://qiskit.org/ecosystem/optimization/',
-          },
-          {
-            label: 'Qiskit Machine learning',
-            url: 'https://qiskit.org/ecosystem/machine-learning/',
-          },
-        ],
+        label: 'Tutorials',
+        url: 'https://qiskit.org/documentation/tutorials.html',
       },
       {
-        label: 'Extensions',
-        children: [
-          {
-            label: 'Qiskit Experiments',
-            url: 'https://qiskit.org/ecosystem/experiments/',
-          },
-          {
-            label: 'Qiskit Dynamics',
-            url: 'https://qiskit.org/ecosystem/dynamics/',
-          },
-        ],
+        label: 'API Reference',
+        url: 'https://qiskit.org/documentation/apidoc/terra.html',
       },
       {
-        label: 'Contributing',
-        children: [
-          {
-            label: 'Contributor Guide',
-            url: 'https://qiskit.org/documentation/contributing_to_qiskit.html',
-          },
-          {
-            label: 'Deprecation Policy',
-            url: 'https://qiskit.org/documentation/deprecation_policy.html',
-          },
-          {
-            label: 'Maintainer Guide',
-            url: 'https://qiskit.org/documentation/maintainers_guide.html',
-          },
-        ],
-      },
-      {
-        label: 'Help and Learning',
-        children: [
-          {
-            label: 'Support Channels',
-            url: 'https://qisk.it/support',
-          },
-          {
-            label: 'Qiskit Feedback',
-            url: 'https://github.com/Qiskit/feedback',
-          },
-          {
-            label: 'Qiskit Textbook',
-            url: 'https://qiskit.org/learn/',
-          },
-        ],
+        label: 'Contribute',
+        url: 'https://qiskit.org/documentation/contributing_to_qiskit.html',
       },
     ],
   },
@@ -178,4 +103,4 @@ export const NAV_ITEMS: TopLevelNavItem[] = [
   },
 ];
 
-export type { NavItem, TopLevelNavItem };
+export type { NavItem };
