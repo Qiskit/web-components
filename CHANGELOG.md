@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.15.2
+
+### Patch Changes
+
+- 21f9a3c: feat(ui-shell): removed megaMenu and uses a trimmed down Docs menu
+
 ## 0.15.1
 
 ### Patch Changes
