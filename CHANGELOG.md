@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.15.3
+
+### Patch Changes
+
+- f3aa8b4: Updates API Refence link on ui-shell
+
 ## 0.15.2
 
 ### Patch Changes
