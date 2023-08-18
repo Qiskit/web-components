@@ -68,7 +68,7 @@ export const NAV_ITEMS: NavItem[] = [
       },
       {
         label: 'API Reference',
-        url: 'https://qiskit.org/documentation/apidoc/terra.html',
+        url: 'https://qiskit.org/documentation/apidoc/index.html',
       },
       {
         label: 'Contribute',
