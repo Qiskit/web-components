@@ -7,6 +7,7 @@
 
 import type { TemplateResult } from 'lit';
 
+import { arrowUpRightIcon } from '../icons/arrow-up-right.js';
 import { mediumIcon } from '../icons/medium.js';
 import { slackIcon } from '../icons/slack.js';
 import { twitterIcon } from '../icons/twitter.js';
@@ -15,6 +16,7 @@ import { youtubeIcon } from '../icons/youtube.js';
 interface NavItem {
   label: string;
   url?: string;
+  icon?: TemplateResult;
   children?: NavItem[];
 }
 
@@ -57,14 +59,17 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: 'Ecosystem',
     url: 'https://qiskit.github.io/ecosystem',
+    icon: arrowUpRightIcon,
   },
   {
     label: 'Documentation',
     url: 'https://docs.quantum-computing.ibm.com',
+    icon: arrowUpRightIcon,
   },
   {
     label: 'Learning',
     url: 'https://learning.quantum-computing.ibm.com',
+    icon: arrowUpRightIcon,
   },
 ];
 

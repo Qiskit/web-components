@@ -165,6 +165,13 @@ $prefix: "bx";
   }
 }
 
+.menu-item-icon {
+  align-self: end;
+  width: 16px;
+  margin-bottom: -2px;
+  margin-left: 4px;
+}
+
 :host(#{$q}-header-menu-mega) {
   /* stylelint-disable-next-line scss/at-extend-no-missing-placeholder */
   @extend :host(#{$prefix}-header-menu);

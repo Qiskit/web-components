@@ -90,6 +90,7 @@ export class QiskitUIShell extends LitElement {
         }}"
       >
         ${item?.label}
+        <div class="menu-item-icon">${item?.icon}</div>
       </bx-header-nav-item>
     `;
   }
