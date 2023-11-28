@@ -47,12 +47,13 @@ export class QiskitUIShell extends LitElement {
             }}"
           >
             ${qiskitLogoIcon}
+            <div class="qiskit-header-brand">Community</div>
           </bx-header-name>
           <bx-header-nav menu-bar-label="Qiskit">
             ${this._getHeaderItems()}
             ${this.variant === Variant.HIDE_ACCOUNT
-              ? null
-              : this._getAccountHeaderNavItem()}
+              ? this._getAccountHeaderNavItem()
+              : null}
           </bx-header-nav>
           <qiskit-header-menu-button
             button-label-active="Close menu"
@@ -105,8 +106,10 @@ export class QiskitUIShell extends LitElement {
         @click="${() => {
           this._handleClick(item);
         }}"
-      >
-        ${item?.label}
+        ><div class="grid-arrow-icon">
+          ${item?.label}
+          <div class="arrow-icon">${item?.arrowSvg}</div>
+        </div>
       </bx-header-nav-item>
     `;
   }
@@ -205,7 +208,7 @@ export class QiskitUIShell extends LitElement {
           this._handleClick(item, parentLabel);
         }}"
       >
-        ${item?.label}
+        ${item?.label} ${item?.arrowSvg}
       </bx-side-nav-menu-item>
     `;
   }

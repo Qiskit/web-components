@@ -91,10 +91,31 @@ $prefix: "bx";
 
 #{$prefix}-header-name {
   &::part(link) {
-    width: 8.75rem;
+    display: flex;
+    align-items: center;
+    width: 14.75rem;
     height: calc(var(--header-height) - 1px);
     fill: var(--cool-gray-80);
   }
+}
+
+.qiskit-header-brand {
+  margin-bottom: -2px;
+  margin-left: var(--cds-spacing-02);
+  color: var(--cool-gray-80);
+  font-weight: normal;
+}
+
+.arrow-icon {
+  align-self: end;
+  width: 16px;
+  margin-bottom: -2px;
+  margin-left: 4px;
+}
+
+.grid-arrow-icon {
+  display: grid;
+  grid-template-columns: auto 20px;
 }
 
 #{$prefix}-header-nav {
