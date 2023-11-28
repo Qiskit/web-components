@@ -91,9 +91,16 @@ $prefix: "bx";
 
 #{$prefix}-header-name {
   &::part(link) {
-    width: 8.75rem;
+    width: 13.75rem;
     height: calc(var(--header-height) - 1px);
     fill: var(--cool-gray-80);
+  }
+
+  .qiskit-header-brand {
+    margin-bottom: -2px;
+    margin-left: var(--cds-spacing-02);
+    color: var(--cool-gray-80);
+    font-weight: normal;
   }
 }
 
@@ -129,6 +136,11 @@ $prefix: "bx";
   &:focus {
     border-color: var(--cds-border-subtle);
   }
+}
+
+#{$prefix}-header-nav-item::part(title),
+#{$prefix}-side-nav-link::part(title) {
+  display: flex;
 }
 
 :host(#{$q}-header-menu) {

@@ -38,6 +38,7 @@ export class QiskitUIShell extends LitElement {
             }}"
           >
             ${qiskitLogoIcon}
+            <div class="qiskit-header-brand">Community</div>
           </bx-header-name>
           <bx-header-nav menu-bar-label="Qiskit">
             ${this._getHeaderItems()}
@@ -140,6 +141,7 @@ export class QiskitUIShell extends LitElement {
         }}"
       >
         ${item?.label}
+        <div class="menu-item-icon">${item?.icon}</div>
       </bx-side-nav-link>
       <bx-side-nav-divider></bx-side-nav-divider>
     `;
