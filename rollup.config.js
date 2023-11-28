@@ -60,6 +60,7 @@ export default [
     output: {
       file: 'experimental-bundled-ui-shell.js',
       format: 'iife',
+      name: 'iifeBundle',
     },
   },
 ];
