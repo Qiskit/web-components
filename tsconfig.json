@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
+    "outDir": "dist",
     "importHelpers": true,
     "inlineSources": true,
     "strict": true,

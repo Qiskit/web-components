@@ -7,7 +7,6 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styles from '../index.scss';
 import type { NavItem } from '../settings.js';
@@ -26,20 +25,6 @@ export class QiskitHeaderMenuItemMega extends LitElement {
     return html`
       <div class="qiskit-header-menu-item-mega">
         <p class="qiskit-header-menu-item-mega-heading">${this.item?.label}</p>
-        <ul class="qiskit-header-menu-item-mega-list">
-          ${this.item?.children?.map((item) => {
-            return html`<li>
-              <a
-                href="${ifDefined(item?.url)}"
-                @click="${() => {
-                  this._handleClick(item);
-                }}"
-              >
-                ${item.label}
-              </a>
-            </li>`;
-          })}
-        </ul>
       </div>
     `;
   }

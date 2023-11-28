@@ -16,8 +16,7 @@ import { youtubeIcon } from '../icons/youtube.js';
 interface NavItem {
   label: string;
   url?: string;
-  children?: NavItem[];
-  arrowSvg?: TemplateResult | undefined;
+  icon?: TemplateResult | undefined;
 }
 
 interface SocialLinks extends NavItem {
@@ -64,17 +63,17 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: 'Ecosystem',
     url: 'https://qiskit.github.io/ecosystem',
-    arrowSvg: arrowUpRightIcon,
+    icon: arrowUpRightIcon,
   },
   {
     label: 'Documentation',
     url: 'https://docs.quantum-computing.ibm.com',
-    arrowSvg: arrowUpRightIcon,
+    icon: arrowUpRightIcon,
   },
   {
     label: 'Learning',
     url: 'https://learning.quantum-computing.ibm.com',
-    arrowSvg: arrowUpRightIcon,
+    icon: arrowUpRightIcon,
   },
 ];
 
