@@ -106,15 +106,6 @@ $prefix: "bx";
   }
 }
 
-#{$prefix}-header-nav-item.#{$q}-user-account-icon {
-  &::part(link),
-  &::part(link):focus,
-  &::part(link):hover {
-    background-color: var(--purple-70);
-    color: var(--cds-ui-background);
-  }
-}
-
 #{$prefix}-header-nav-item::part(link),
 #{$prefix}-header-menu-item::part(link),
 #{$q}-header-menu::part(trigger),
@@ -294,20 +285,6 @@ $prefix: "bx";
   #{$prefix}-side-nav-items {
     overflow-y: scroll;
     padding: 0;
-  }
-}
-
-#{$prefix}-side-nav-link.#{$q}-user-account-icon {
-  &::part(link):hover,
-  &::part(link) {
-    height: 3rem;
-    text-decoration-color: var(--purple-70);
-  }
-
-  &::part(title) {
-    display: flex;
-    align-items: center;
-    color: var(--purple-70);
   }
 }
 

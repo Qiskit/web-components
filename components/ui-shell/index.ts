@@ -13,22 +13,13 @@ import '@carbon/web-components/es/components/ui-shell/index.js';
 import './header/index.js';
 
 import styles from './index.scss';
-import { Variant, NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
+import { NAV_ITEMS, SOCIAL_LINKS } from './settings.js';
 import type { NavItem } from './settings.js';
 import { qiskitLogoIcon } from '../icons/qiskit-logo.js';
-import { userIcon } from '../icons/user.js';
-
-const LEARN_BASE_URL =
-  window.origin === 'https://qiskit.org'
-    ? 'https://learn.qiskit.org'
-    : window.origin;
 
 @customElement('qiskit-ui-shell')
 export class QiskitUIShell extends LitElement {
   static styles = [styles];
-
-  @property({ type: String })
-  variant: Variant = Variant.DEFAULT;
 
   private _NAV_ITEMS = NAV_ITEMS;
   private _SOCIAL_LINKS = SOCIAL_LINKS;
@@ -50,9 +41,6 @@ export class QiskitUIShell extends LitElement {
           </bx-header-name>
           <bx-header-nav menu-bar-label="Qiskit">
             ${this._getHeaderItems()}
-            ${this.variant === Variant.HIDE_ACCOUNT
-              ? null
-              : this._getAccountHeaderNavItem()}
           </bx-header-nav>
           <qiskit-header-menu-button
             button-label-active="Close menu"
@@ -67,12 +55,7 @@ export class QiskitUIShell extends LitElement {
         usage-mode="header-nav"
         tabindex="-1"
       >
-        <bx-side-nav-items>
-          ${this._getSideNavItems()}
-          ${this.variant === Variant.HIDE_ACCOUNT
-            ? null
-            : this._getAccountSideNavLink()}
-        </bx-side-nav-items>
+        <bx-side-nav-items> ${this._getSideNavItems()} </bx-side-nav-items>
         <div class="qiskit-side-nav-footer">
           <div class="qiskit-side-nav-footer__social-container">
             <p class="qiskit-side-nav-footer__social-heading">Stay connected</p>
@@ -137,23 +120,6 @@ export class QiskitUIShell extends LitElement {
     `;
   }
 
-  private _getAccountHeaderNavItem() {
-    return html`
-      <bx-header-nav-item
-        href="${LEARN_BASE_URL}/account/"
-        class="qiskit-user-account-icon"
-        @click="${() => {
-          this._handleClick({
-            label: 'Account',
-            url: `${LEARN_BASE_URL}/account/`,
-          });
-        }}"
-      >
-        ${userIcon}
-      </bx-header-nav-item>
-    `;
-  }
-
   private _getSideNavItems() {
     return this._NAV_ITEMS.map((item) => {
       if (item?.children) {
@@ -207,23 +173,6 @@ export class QiskitUIShell extends LitElement {
       >
         ${item?.label}
       </bx-side-nav-menu-item>
-    `;
-  }
-
-  private _getAccountSideNavLink() {
-    return html`
-      <bx-side-nav-link
-        href="${LEARN_BASE_URL}/account/"
-        class="qiskit-user-account-icon"
-        @click="${() => {
-          this._handleClick({
-            label: 'Account',
-            url: `${LEARN_BASE_URL}/account/`,
-          });
-        }}"
-      >
-        ${userIcon} <span>Profile</span>
-      </bx-side-nav-link>
     `;
   }
 

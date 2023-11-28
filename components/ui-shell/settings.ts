@@ -22,11 +22,6 @@ interface SocialLinks extends NavItem {
   icon: TemplateResult;
 }
 
-export enum Variant {
-  DEFAULT = '',
-  HIDE_ACCOUNT = 'hide-account',
-}
-
 export const SOCIAL_LINKS: SocialLinks[] = [
   {
     icon: twitterIcon,
@@ -52,54 +47,24 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: 'Events',
+    url: 'https://qiskit.org/events',
+  },
+  {
+    label: 'Advocates',
+    url: 'https://qiskit.org/advocates',
+  },
+  {
+    label: 'Ecosystem',
+    url: 'https://qiskit.github.io/ecosystem',
+  },
+  {
     label: 'Documentation',
-    children: [
-      {
-        label: 'Home',
-        url: 'https://qiskit.org/documentation/',
-      },
-      {
-        label: 'Installation',
-        url: 'https://qiskit.org/documentation/getting_started.html',
-      },
-      {
-        label: 'Tutorials',
-        url: 'https://qiskit.org/documentation/tutorials.html',
-      },
-      {
-        label: 'API Reference',
-        url: 'https://qiskit.org/documentation/apidoc/index.html',
-      },
-      {
-        label: 'Contribute',
-        url: 'https://qiskit.org/documentation/contributing_to_qiskit.html',
-      },
-    ],
+    url: 'https://docs.quantum-computing.ibm.com',
   },
   {
-    label: 'Providers',
-    url: 'https://qiskit.org/providers/',
-  },
-  {
-    label: 'Community',
-    children: [
-      {
-        label: 'Events',
-        url: 'https://qiskit.org/events/',
-      },
-      {
-        label: 'Advocates',
-        url: 'https://qiskit.org/advocates/',
-      },
-      {
-        label: 'Ecosystem',
-        url: 'https://qiskit.org/ecosystem/',
-      },
-    ],
-  },
-  {
-    label: 'Learn',
-    url: 'https://qiskit.org/learn/',
+    label: 'Learning',
+    url: 'https://learning.quantum-computing.ibm.com',
   },
 ];
 

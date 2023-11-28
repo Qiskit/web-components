@@ -32,14 +32,3 @@ export const Default = () =>
     ></qiskit-ui-shell>
     <div class="content">${content}</div>
   `;
-
-export const HideAccount = () =>
-  html`
-    <qiskit-ui-shell
-      variant="hide-account"
-      @on-click="${(e: CustomEvent) => {
-        alert(`label: ${e.detail?.label}, url: ${e.detail?.url}`);
-      }}"
-    ></qiskit-ui-shell>
-    <div class="content">${content}</div>
-  `;
