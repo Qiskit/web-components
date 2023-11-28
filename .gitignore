@@ -7,3 +7,4 @@ components/**/*.js.map
 coverage
 storybook-static/
 experimental-bundled-ui-shell.js
+dist
