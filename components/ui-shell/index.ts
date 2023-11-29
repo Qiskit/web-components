@@ -29,11 +29,11 @@ export class QiskitUIShell extends LitElement {
       <bx-header aria-label="Qiskit">
         <div class="qiskit-header-content">
           <bx-header-name
-            href="https://qiskit.org/"
+            href="https://qiskit.org/advocates"
             @click="${() => {
               this._handleClick({
                 label: 'Home',
-                url: 'https://qiskit.org',
+                url: 'https://qiskit.org/advocates',
               });
             }}"
           >
