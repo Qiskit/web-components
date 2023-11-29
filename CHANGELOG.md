@@ -1,5 +1,11 @@
 # @qiskit/web-components
 
+## 0.15.4
+
+### Patch Changes
+
+- 395895e: Updates UI shell
+
 ## 0.15.3
 
 ### Patch Changes
