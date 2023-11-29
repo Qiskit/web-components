@@ -7,6 +7,7 @@
 
 import type { TemplateResult } from 'lit';
 
+import { arrowUpRightIcon } from '../icons/arrow-up-right.js';
 import { mediumIcon } from '../icons/medium.js';
 import { slackIcon } from '../icons/slack.js';
 import { twitterIcon } from '../icons/twitter.js';
@@ -15,16 +16,12 @@ import { youtubeIcon } from '../icons/youtube.js';
 interface NavItem {
   label: string;
   url?: string;
+  icon?: TemplateResult;
   children?: NavItem[];
 }
 
 interface SocialLinks extends NavItem {
   icon: TemplateResult;
-}
-
-export enum Variant {
-  DEFAULT = '',
-  HIDE_ACCOUNT = 'hide-account',
 }
 
 export const SOCIAL_LINKS: SocialLinks[] = [
@@ -52,54 +49,27 @@ export const SOCIAL_LINKS: SocialLinks[] = [
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: 'Events',
+    url: 'https://qiskit.org/events',
+  },
+  {
+    label: 'Advocates',
+    url: 'https://qiskit.org/advocates',
+  },
+  {
+    label: 'Ecosystem',
+    url: 'https://qiskit.github.io/ecosystem',
+    icon: arrowUpRightIcon,
+  },
+  {
     label: 'Documentation',
-    children: [
-      {
-        label: 'Home',
-        url: 'https://qiskit.org/documentation/',
-      },
-      {
-        label: 'Installation',
-        url: 'https://qiskit.org/documentation/getting_started.html',
-      },
-      {
-        label: 'Tutorials',
-        url: 'https://qiskit.org/documentation/tutorials.html',
-      },
-      {
-        label: 'API Reference',
-        url: 'https://qiskit.org/documentation/apidoc/index.html',
-      },
-      {
-        label: 'Contribute',
-        url: 'https://qiskit.org/documentation/contributing_to_qiskit.html',
-      },
-    ],
+    url: 'https://docs.quantum-computing.ibm.com',
+    icon: arrowUpRightIcon,
   },
   {
-    label: 'Providers',
-    url: 'https://qiskit.org/providers/',
-  },
-  {
-    label: 'Community',
-    children: [
-      {
-        label: 'Events',
-        url: 'https://qiskit.org/events/',
-      },
-      {
-        label: 'Advocates',
-        url: 'https://qiskit.org/advocates/',
-      },
-      {
-        label: 'Ecosystem',
-        url: 'https://qiskit.org/ecosystem/',
-      },
-    ],
-  },
-  {
-    label: 'Learn',
-    url: 'https://qiskit.org/learn/',
+    label: 'Learning',
+    url: 'https://learning.quantum-computing.ibm.com',
+    icon: arrowUpRightIcon,
   },
 ];
 

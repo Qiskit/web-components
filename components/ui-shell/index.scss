@@ -91,9 +91,16 @@ $prefix: "bx";
 
 #{$prefix}-header-name {
   &::part(link) {
-    width: 8.75rem;
+    width: 13.75rem;
     height: calc(var(--header-height) - 1px);
     fill: var(--cool-gray-80);
+  }
+
+  .qiskit-header-brand {
+    margin-bottom: -2px;
+    margin-left: var(--cds-spacing-02);
+    color: var(--cool-gray-80);
+    font-weight: normal;
   }
 }
 
@@ -103,15 +110,6 @@ $prefix: "bx";
   &::before,
   &::part(divider) {
     display: none;
-  }
-}
-
-#{$prefix}-header-nav-item.#{$q}-user-account-icon {
-  &::part(link),
-  &::part(link):focus,
-  &::part(link):hover {
-    background-color: var(--purple-70);
-    color: var(--cds-ui-background);
   }
 }
 
@@ -138,6 +136,11 @@ $prefix: "bx";
   &:focus {
     border-color: var(--cds-border-subtle);
   }
+}
+
+#{$prefix}-header-nav-item::part(title),
+#{$prefix}-side-nav-link::part(title) {
+  display: flex;
 }
 
 :host(#{$q}-header-menu) {
@@ -172,6 +175,13 @@ $prefix: "bx";
   &::part(link):hover {
     background-color: var(--cool-gray-10);
   }
+}
+
+.menu-item-icon {
+  align-self: end;
+  width: 16px;
+  margin-bottom: -2px;
+  margin-left: 4px;
 }
 
 :host(#{$q}-header-menu-mega) {
@@ -294,20 +304,6 @@ $prefix: "bx";
   #{$prefix}-side-nav-items {
     overflow-y: scroll;
     padding: 0;
-  }
-}
-
-#{$prefix}-side-nav-link.#{$q}-user-account-icon {
-  &::part(link):hover,
-  &::part(link) {
-    height: 3rem;
-    text-decoration-color: var(--purple-70);
-  }
-
-  &::part(title) {
-    display: flex;
-    align-items: center;
-    color: var(--purple-70);
   }
 }
 
