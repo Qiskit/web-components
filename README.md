@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository is unmaintained  and the content in qiskit.org has been superseded by the [IBM Quantum | Community page](https://ibm.com/quantum/community). These source files are no longer maintained and may contain omissions or outdated information. Contributions to this repo are no longer accepted.
+
 # Qiskit Components
 
 Qiskit Components is a future-looking project to develop Qiskit design system based around Web Components, ES Modules, and modern browser standards.
